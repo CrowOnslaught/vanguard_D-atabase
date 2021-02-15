@@ -1,0 +1,7 @@
+{
+  "name": "vanguard-Database",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
