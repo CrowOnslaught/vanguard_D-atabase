@@ -1,16 +1,30 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue'
+import Tabs from '../components/Tabs.vue';
 
 const routes: Array<RouteRecordRaw> = [
+  { path: '/', redirect: '/tabs/cards'},
   {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/tabs',
+    component :Tabs,
+    children:
+    [
+      { path: '', redirect: '/tabs/cards'},
+      { 
+        path: 'cards', 
+        component: () => import('@/components/tabs/CardsTab.vue')
+      },
+      { 
+        path: 'decks', 
+        component: () => import('@/components/tabs/DecksTab.vue')
+      },
+      { 
+        path: 'filters', 
+        component: () => import('@/components/tabs/FiltersTab.vue')
+      },
+    ]
+      
+
   }
 ]
 

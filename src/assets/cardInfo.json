@@ -1,0 +1,113 @@
+{
+    "cards":
+    [
+        {
+            "id" : "0",
+            "name" : "Trickstar",
+            "skill" : "[CONT](RC):This unit cannot be chosen by your opponent's card effects.",
+            "grade" : 0,
+            "power" : 5000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dragon Empire",
+            "race" : "Talisman",
+            "sets" : ["D-SD01","D-BT01"],
+            "keywords" : [],
+            "image" : "@/assets/cardImages/0.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : ""
+        },
+        {
+            "id" : "1",
+            "name" : "Vairina",
+            "skill" : "[overDress]-\"Trickstar\" (You may place it by stacking it on the specified unit instead of normal calling it to (RC)).<br>[AUTO](RC):When this unit in the [overDress] state attacks a vanguard, this unit gets [Power]+10000 until end of that battle. Then, COST [Soul Blast (2)], choose one of your opponent's rear-guards, and retire it.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Dragon Empire",
+            "race" : "Talisman",
+            "sets" : ["D-SD01"],
+            "keywords" : ["overDress"],
+            "image" : "@/assets/cardImages/1.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : ""
+        },
+        {
+            "id" : "2",
+            "name" : "Chakrabarthi Divine Dragon, Nirvana",
+            "skill" : "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC).<br>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Dragon Empire",
+            "race" : "Flame Dragon",
+            "sets" : ["D-SD01", " D-BT01"],
+            "keywords" : ["Persona Ride"],
+            "image" : "@/assets/cardImages/2.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : ""
+        },
+        {
+            "id" : "3",
+            "name" : "Blaze Maiden, Rino",
+            "skill" : "[AUTO]:When \"Blaze Maiden, Reiyu\" rides this unit, search your deck for up to one \"Trickstar\", call it to (RC), and shuffle your deck.<br>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dragon Empire",
+            "race" : "Human",
+            "sets" : ["D-SD01"],
+            "keywords" : [],
+            "image" : "@/assets/cardImages/3.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : ""
+        }
+    ],
+    "nations": 
+    [
+        "Dragon Empire",
+        "Ketter Sanctuary",
+        "Dark States",
+        "Stoichea",
+        "Brandt Gate"
+    ],
+    "abilities":
+    [
+        "Boost",
+        "Intercept",
+        "Twin Drive"
+    ],
+    "races":
+    [
+        "Talisman",
+        "Human",
+        "Flame Dragon"
+    ],
+    "types": 
+    [
+        "Normal Unit",
+        "Trigger Unit",
+        "Order",
+        "Token"
+    ],
+    "triggers":
+    [
+        "Critical",
+        "Front",
+        "Draw",
+        "Heal",
+        "Over"
+    ],
+    "sets" : 
+    [
+        "D-SD01",
+        "D-BT01"
+    ]
+}
