@@ -14,6 +14,7 @@ const Global =
     triggers: data.triggers,
     keywords :data.keywords,
     sets: data.sets,
+    grades: [0, 1, 2, 3, 4],
 
     printInfo : () =>
     {

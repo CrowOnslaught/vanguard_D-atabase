@@ -13,17 +13,17 @@
       <ion-tab-bar>
         <ion-tab-button tab="tab1" href="/tabs/cards">
           <ion-icon :icon="reader" />
-          <ion-label>Tab 1</ion-label>
+          <ion-label>Cards</ion-label>
         </ion-tab-button>
           
         <ion-tab-button tab="tab2" href="/tabs/decks">
           <ion-icon :icon="layers" />
-          <ion-label>Tab 2</ion-label>
+          <ion-label>Decks</ion-label>
         </ion-tab-button>
         
         <ion-tab-button tab="tab3" href="/tabs/filters">
           <ion-icon :icon="cog" />
-          <ion-label>Tab 3</ion-label>
+          <ion-label>Filters</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>

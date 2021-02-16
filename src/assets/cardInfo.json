@@ -16,7 +16,7 @@
             "image" : "@/assets/cardImages/0.png",
             "type" : "Normal Unit",
             "critical" : 1,
-            "trigger" : ""
+            "trigger" : "None"
         },
         {
             "id" : "1",
@@ -33,7 +33,7 @@
             "image" : "@/assets/cardImages/1.png",
             "type" : "Normal Unit",
             "critical" : 1,
-            "trigger" : ""
+            "trigger" : "None"
         },
         {
             "id" : "2",
@@ -50,7 +50,7 @@
             "image" : "@/assets/cardImages/2.png",
             "type" : "Normal Unit",
             "critical" : 1,
-            "trigger" : ""
+            "trigger" : "None"
         },
         {
             "id" : "3",
@@ -67,7 +67,7 @@
             "image" : "@/assets/cardImages/3.png",
             "type" : "Normal Unit",
             "critical" : 1,
-            "trigger" : ""
+            "trigger" : "None"
         },
         {
             "id" : "4",
@@ -84,7 +84,58 @@
             "image" : "@/assets/cardImages/4.png",
             "type" : "Normal Unit",
             "critical" : 1,
-            "trigger" : ""
+            "trigger" : "None"
+        },
+        {
+            "id" : "5",
+            "name" : "Diabolos, \"Violence\" Bruce",
+            "skill" : "[AUTO](VC):At the start of your Ride Phase, you \"Final Rush\". (Specific units get a power up when you are in \"Final Rush\"!)<br>[AUTO](VC):When this unit attacks, if you are in \"Final Rush\", COST [Soul Blast (5)], and [Stand] all of your front row rear-guards.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Dark States",
+            "race" : "Demon",
+            "sets" : ["D-SD02"],
+            "keywords" : ["Final Rush", "Persona Ride"],
+            "image" : "@/assets/cardImages/5.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "6",
+            "name" : "Diabolos, \"Anger\" Richard",
+            "skill" : "[AUTO]:When this unit is placed on (VC), COST [put a rear-guard into your soul], and draw a card.<br>[CONT](RC):If you are in \"Final Rush\", this unit gets [Power]+5000.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Dark States",
+            "race" : "Demon",
+            "sets" : ["D-SD02"],
+            "keywords" : ["Final Rush"],
+            "image" : "@/assets/cardImages/6.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "7",
+            "name" : "Diabolos, \"Bad\" Steve",
+            "skill" : "[AUTO]:When this unit is placed on (VC), choose a card from your soul, call it to your back row center (RC), and Soul Charge (1).<br>[CONT](RC):If you are in \"Final Rush\", this unit gets [Power]+5000.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dark States",
+            "race" : "Demon",
+            "sets" : ["D-SD02"],
+            "keywords" : ["Final Rush"],
+            "image" : "@/assets/cardImages/7.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
         }
     ],
     "nations": 
@@ -121,7 +172,8 @@
         "Front",
         "Draw",
         "Heal",
-        "Over"
+        "Over",
+        "None"
     ],
     "sets" : 
     [
@@ -132,6 +184,7 @@
     [
         "overDress",
         "Persona Ride",
-        "Sentinel"
+        "Sentinel",
+        "Final Rush"
     ]
 }
