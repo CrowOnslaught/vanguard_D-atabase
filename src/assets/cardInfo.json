@@ -12,7 +12,7 @@
             "nation" : "Dragon Empire",
             "race" : "Talisman",
             "sets" : ["D-SD01","D-BT01"],
-            "keywords" : [],
+            "keywords" : ["None"],
             "image" : "@/assets/cardImages/0.png",
             "type" : "Normal Unit",
             "critical" : 1,
@@ -63,7 +63,7 @@
             "nation" : "Dragon Empire",
             "race" : "Human",
             "sets" : ["D-SD01"],
-            "keywords" : [],
+            "keywords" : ["None"],
             "image" : "@/assets/cardImages/3.png",
             "type" : "Normal Unit",
             "critical" : 1,
@@ -178,6 +178,7 @@
     "sets" : 
     [
         "D-SD01",
+        "D-SD02",
         "D-BT01"
     ],
     "keywords":
@@ -185,6 +186,7 @@
         "overDress",
         "Persona Ride",
         "Sentinel",
-        "Final Rush"
+        "Final Rush",
+        "None"
     ]
 }

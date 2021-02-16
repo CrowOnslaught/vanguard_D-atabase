@@ -47,7 +47,7 @@ export default defineComponent({
     methods:
     {
         closeModal() {
-            modalController.dismiss();          
+            modalController.dismiss({flag: true});          
         },
         getImageRoute(id: string)
         {
@@ -75,7 +75,6 @@ export default defineComponent({
         const p = document.getElementById("textDetail");
         if (p !=null)
         {
-            console.log(text);
             p.innerHTML = text;
         }
     }

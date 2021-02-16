@@ -6,21 +6,24 @@
             </ion-item>
             <ion-item class="item">
                 <ion-input 
+                    ref="nameInput"
                     placeholder="Name" 
                     class="selInput" 
                     @input='onNameSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectAll('name')"> Clear </ion-button>
+                <ion-button class="selButton soloButton" @click="SelectNone('name')"> Clear </ion-button>
             </ion-item>
             <ion-item class="item">
                 <ion-input 
+                ref="skillInput"
                 placeholder="Skill" 
                 class="selInput" 
                 @input='onSkillSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectAll('skill')"> Clear </ion-button>
+                <ion-button class="selButton soloButton" @click="SelectNone('skill')"> Clear </ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Nations"
+                    v-model='nationInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onNationSelect($event.target.value)"
@@ -30,101 +33,145 @@
                 <ion-button class="selButton" @click="SelectAll('nation')"> SELECT<br>ALL</ion-button>
                 <ion-button class="selButton" @click="SelectNone('nation')"> SELECT<br>NONE</ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item class="selectValue">
+                <span v-if="nationInput.length == 0">None selected</span>
+                <span v-else-if="nationInput.length == nations.length">All selected</span>
+                <span v-else v-for="n in nationInput" :key="n">{{n}}</span>
+            </ion-item>
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Grades"
+                    v-model='gradeInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onGradeSelect($event.target.value)"
                     :value="grades">
                     <ion-select-option v-for="n in grades" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('grades')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('grades')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('grade')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('grade')"> SELECT<br>NONE</ion-button>
+            </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="gradeInput.length == 0">None selected</span>
+                <span v-else-if="gradeInput.length == grades.length">All selected</span>
+                <span v-else v-for="n in gradeInput" :key="n">{{n}}</span>
             </ion-item>
             <ion-item class="item">
                 <ion-input 
+                ref="powerInput"
                 placeholder="Power" 
                 type="number"
                 class="selInput" 
                 @input='onPowerSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectAll('skill')"> Clear </ion-button>
+                <ion-button class="selButton soloButton" @click="SelectNone('power')"> Clear </ion-button>
             </ion-item>
             <ion-item class="item">
                 <ion-input 
+                ref="shieldInput"
                 placeholder="Shield" 
                 type="number"
                 class="selInput" 
                 @input='onShieldSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectAll('skill')"> Clear </ion-button>
+                <ion-button class="selButton soloButton" @click="SelectNone('shield')"> Clear </ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Abilities"
+                    v-model='abilityInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onAbilitySelect($event.target.value)"
                     :value="abilities">
                     <ion-select-option v-for="n in abilities" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('abilities')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('abilities')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('ability')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('ability')"> SELECT<br>NONE</ion-button>
             </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="abilityInput.length == 0">None selected</span>
+                <span v-else-if="abilityInput.length == abilities.length">All selected</span>
+                <span v-else v-for="n in abilityInput" :key="n">{{n}}</span>
+            </ion-item>           
             <ion-item class="item">
                 <ion-input 
+                ref="raceInput"
                 placeholder="Race" 
                 class="selInput" 
                 @input='onRaceSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectAll('skill')"> Clear </ion-button>
+                <ion-button class="selButton soloButton" @click="SelectNone('race')"> Clear </ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Sets"
+                    v-model='setInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onSetSelect($event.target.value)"
                     :value="sets">
                     <ion-select-option v-for="n in sets" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('sets')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('sets')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('set')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('set')"> SELECT<br>NONE</ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item class="selectValue">
+                <span v-if="setInput.length == 0">None selected</span>
+                <span v-else-if="setInput.length == sets.length">All selected</span>
+                <span v-else v-for="n in setInput" :key="n">{{n}}</span>
+            </ion-item>     
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Keywords"
+                    v-model='keywordInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onKeywordSelect($event.target.value)"
                     :value="keywords">
                 <ion-select-option v-for="n in keywords" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('keywords')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('keywords')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('keyword')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('keyword')"> SELECT<br>NONE</ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item class="selectValue">
+                <span v-if="keywordInput.length == 0">None selected</span>
+                <span v-else-if="keywordInput.length == keywords.length">All selected</span>
+                <span v-else v-for="n in keywordInput" :key="n">{{n}}</span>
+            </ion-item>   
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Card Types"
+                    v-model='typeInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onTypeSelect($event.target.value)"
                     :value="types">
                     <ion-select-option v-for="n in types" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('types')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('types')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('type')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('type')"> SELECT<br>NONE</ion-button>
             </ion-item>
-            <ion-item >
+            <ion-item class="selectValue">
+                <span v-if="typeInput.length == 0">None selected</span>
+                <span v-else-if="typeInput.length == types.length">All selected</span>
+                <span v-else v-for="n in typeInput" :key="n">{{n}}</span>
+            </ion-item>   
+            <ion-item lines="none">
                 <ion-select
                     selected-text="Triggers"
+                    v-model='triggerInput'
                     class="selInput"
                     multiple="true"
                     @ionChange="onTriggerSelect($event.target.value)"
                     :value="triggers">
                     <ion-select-option v-for="n in triggers" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
-                <ion-button class="selButton" @click="SelectAll('triggers')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('triggers')"> SELECT<br>NONE</ion-button>
+                <ion-button class="selButton" @click="SelectAll('trigger')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('trigger')"> SELECT<br>NONE</ion-button>
             </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="triggerInput.length == 0">None selected</span>
+                <span v-else-if="triggerInput.length == triggers.length">All selected</span>
+                <span v-else v-for="n in triggerInput" :key="n">{{n}}</span>
+            </ion-item>   
         </ion-content>
     </ion-page>
 </template>
@@ -147,6 +194,14 @@ export default  {
             types: Global.types,
             triggers: Global.triggers,
             grades: Global.grades,
+
+            nationInput: Global.nations,
+            gradeInput: Global.grades,
+            abilityInput: Global.abilities,
+            setInput: Global.sets,
+            keywordInput: Global.keywords,
+            typeInput: Global.types,
+            triggerInput: Global.triggers
         }
     },
     ionViewWillEnter()
@@ -206,11 +261,97 @@ export default  {
 
         SelectAll(value)
         {
-            console.log(value);
+            if(value == 'nation' || value== 'default')
+            {
+                this.nationInput = Global.nations;
+            }
+            if(value == 'grade' || value== 'default')
+            {
+                this.gradeInput = Global.grades;
+            }
+            if(value == 'ability' || value== 'default')
+            {
+                this.abilityInput = Global.abilities;
+            }
+            if(value == 'set' || value== 'default')
+            {
+                this.setInput = Global.sets;
+            }
+            if(value == 'keyword' || value== 'default')
+            {
+                this.keywordInput = Global.keywords;
+            }
+            if(value == 'type' || value== 'default')
+            {
+                this.typeInput = Global.types;
+            }
+            if(value == 'trigger' || value== 'default')
+            {
+                this.triggerInput = Global.triggers;
+            }
         },
         SelectNone(value)
         {
-            console.log(value);
+            if(value == 'name' || value== 'default')
+            {
+                this.$refs["nameInput"].value = '';
+                this.onNameSelect('');
+            }
+            if(value == 'skill' || value== 'default')
+            {
+                this.$refs["skillInput"].value = '';
+                this.onSkillSelect('');
+            }
+            if(value == 'power' || value== 'default')
+            {
+                this.$refs["powerInput"].value = '';
+                this.onPowerSelect('');
+            }
+            if(value == 'shield' || value== 'default')
+            {
+                this.$refs["shieldInput"].value = '';
+                this.onShieldSelect('');
+            }
+            if(value == 'race' || value== 'default')
+            {
+                this.$refs["raceInput"].value = '';
+                this.onRaceSelect('');
+            }
+
+            if(value == 'nation' || value== 'default')
+            {
+                this.nationInput = [];
+            }
+            if(value == 'grade' || value== 'default')
+            {
+                this.gradeInput = [];
+            }
+            if(value == 'ability' || value== 'default')
+            {
+                this.abilityInput = [];
+            }
+            if(value == 'set' || value== 'default')
+            {
+                this.setInput = [];
+            }
+            if(value == 'keyword' || value== 'default')
+            {
+                this.keywordInput = [];
+            }
+            if(value == 'type' || value== 'default')
+            {
+                this.typeInput = [];
+            }
+            if(value == 'trigger' || value== 'default')
+            {
+                this.triggerInput = [];
+            }
+        },
+
+        ResetAll()
+        {
+            this.SelectNone('default');
+            this.SelectAll('default');
         }
         
     }
@@ -220,8 +361,15 @@ export default  {
 
 <style scoped>
 
-.item
+.selectValue
 {
+    font-size: 11px;
+    white-space: pre;
+
+}
+.selectValue>span:not(:last-child)::after
+{
+    content: " | ";
 }
 
 .selInput
@@ -243,6 +391,12 @@ export default  {
 .soloButton
 {
     width: 140px;
+}
+
+ion-input
+{
+    --color:#428cff;
+    --placeholder-color: white;
 }
 
 </style>

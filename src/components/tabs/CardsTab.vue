@@ -3,14 +3,17 @@
     <ion-content >
       <ion-grid>
         <ion-row>
-          <ion-col v-for="c in $options.filters.Filter(data)" :key="c.id" size="6">
+          <ion-col v-for="c in $options.filters.Filter(data)" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c)">
               <img :src ="getImageRoute(c.id)">
-              <h4 style="text-align:center">{{c.name}}</h4>
+              <div class="cardDetails">
+                <h4>{{c.name}}</h4>
+              </div>
             </ion-card>
           </ion-col>
         </ion-row>
       </ion-grid>
+      <h3 class='noCards' v-if="$options.filters.Filter(data).length ==0">There are no cards that meet those conditions</h3>
     </ion-content>
   </ion-page>
 </template>
@@ -29,12 +32,13 @@ export default  {
   {
     return{
       data : Global.cards,
+      modalOpen: false
     }
   },
   ionViewWillEnter()
   {
     // this.data = this.BbyNation(Global.cards);
-      console.log(Filters.nations);
+      // console.log(Filters.nations);
   },
   methods:
   {
@@ -46,6 +50,10 @@ export default  {
     },
     async openModal(c) 
     {
+      if(this.modalOpen)
+        return;
+
+      this.modalOpen = true;
       const modal = await modalController
         .create({
           component: CardDetail,
@@ -53,8 +61,14 @@ export default  {
           componentProps: {
             card: c
           },
-        })
-      return modal.present();
+        });
+      modal.present();
+      const {data} = await modal.onWillDismiss();
+      if(data != null)
+        setTimeout(() => {
+          this.modalOpen = false;
+        }, (500));
+
     },
   },
   filters:
@@ -67,7 +81,7 @@ export default  {
           if(Filters.nations.includes(e.nation))
             return e;
         });
-        console.log(1, result);
+        // console.log(1, result);
 
       //by name
       result = result.filter(e => 
@@ -76,7 +90,7 @@ export default  {
           return e;
         });
 
-        console.log(2, result);
+        // console.log(2, result);
 
       //by skill
       result = result.filter(e => 
@@ -85,7 +99,7 @@ export default  {
           return e;
         });
 
-        console.log(3, result);
+        // console.log(3, result);
 
       //by grades
         result = result.filter(e =>
@@ -93,7 +107,7 @@ export default  {
           if(Filters.grades.includes(e.grade))
           return e;
         });
-        console.log(4, result);
+        // console.log(4, result);
 
       //by power
       result = result.filter(e =>
@@ -101,7 +115,7 @@ export default  {
         if(e.power == Filters.power || Filters.power == '')
           return e;
       });
-                console.log(5, result);
+                // console.log(5, result);
 
       //by shield
       result = result.filter(e =>
@@ -109,7 +123,7 @@ export default  {
         if(e.shield == Filters.shield || Filters.shield == '')
           return e;
       });
-        console.log(6, result);
+        // console.log(6, result);
 
       //by Abilities
       result = result.filter(e =>
@@ -118,10 +132,78 @@ export default  {
           return e;
         });
         
-      console.log(7, result);
+      // console.log(7, result);
+
+      //by race
+      result = result.filter(e => 
+        {
+          if(e.race.toLowerCase().includes(Filters.race.toLowerCase()))
+          return e;
+        });
+      // console.log(8, result);
+
+      //by sets
+      result = result.filter(e =>
+        {
+          if(e.sets.some(r=> Filters.sets.indexOf(r) >= 0))
+          return e;
+        });   
+        // console.log(9, result);
+
+      //by keywords
+      result = result.filter(e =>
+        {
+          if(e.keywords.some(r=> Filters.keywords.indexOf(r) >= 0))
+          return e;
+        });
+      // console.log(10, result);
+
+      //by Types
+        result = result.filter(e =>
+        {
+          if(Filters.types.includes(e.type))
+          return e;
+        });
+      // console.log(11, result);
+
+      //by triggers
+        result = result.filter(e =>
+        {
+          if(Filters.trigger.includes(e.trigger))
+          return e;
+        });
+      // console.log(12, result);
+
 
       return result;
     }
   }
 }
 </script>
+
+<style scoped>
+.noCards
+{
+  margin-top: 80%;
+  text-align: center;
+}
+
+ion-col>ion-card{
+  margin: -2px !important;    
+  }
+
+.cardDetails
+{
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h4
+{
+  text-align:center;
+  font-size: 15px;
+  margin: 0px;
+  vertical-align: middle;
+}
+</style>
