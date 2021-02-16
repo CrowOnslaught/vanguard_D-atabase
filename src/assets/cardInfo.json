@@ -68,6 +68,23 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : ""
+        },
+        {
+            "id" : "4",
+            "name" : "Escort Stealth Dragon, Hayashi Kaze",
+            "skill" : "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]: Sentinel\" in a deck.)<br>[AUTO]:When this unit is put into your (GC), COST [discard a card from your hand], choose one of your units, and it cannot be hit until end of that battle.",
+            "grade" : 1,
+            "power" : 7000,
+            "shield" : 0,
+            "ability" : "Boost",
+            "nation" : "Dragon Empire",
+            "race" : "Abyss Dragon",
+            "sets" : ["D-SD01"],
+            "keywords" : ["Sentinel"],
+            "image" : "@/assets/cardImages/4.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : ""
         }
     ],
     "nations": 
@@ -88,7 +105,8 @@
     [
         "Talisman",
         "Human",
-        "Flame Dragon"
+        "Flame Dragon",
+        "Abyss Dragon"
     ],
     "types": 
     [
@@ -109,5 +127,11 @@
     [
         "D-SD01",
         "D-BT01"
+    ],
+    "keywords":
+    [
+        "overDress",
+        "Persona Ride",
+        "Sentinel"
     ]
 }

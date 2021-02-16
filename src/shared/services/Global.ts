@@ -6,7 +6,19 @@ const cards: CardInfo[] = data.cards;
 
 const Global = 
 {
-    cards : cards
+    cards : cards,
+    nations: data.nations,
+    races: data.races,
+    abilities: data.abilities,
+    types: data.types,
+    triggers: data.triggers,
+    keywords :data.keywords,
+    sets: data.sets,
+
+    printInfo : () =>
+    {
+        console.log(data);
+    }
 };
 
 export default Global;

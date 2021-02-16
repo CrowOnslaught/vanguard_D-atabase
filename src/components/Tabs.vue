@@ -2,7 +2,10 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Header</ion-title>
+        <div id='toolbar'>
+          <img id='logo' src="../assets/VGD_logo.png"/>
+          <ion-title>Vanguard [D]atabase</ion-title>
+        </div>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -44,3 +47,23 @@ export default {
   }
 }
 </script>
+
+<style>
+
+#toolbar
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#logo
+{
+  padding-top: 4px;
+  padding-left: 4px;
+  height: 40px;
+  width: auto;
+
+}
+</style>
