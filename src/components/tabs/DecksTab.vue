@@ -1,22 +1,39 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Decks</ion-title>
-      </ion-toolbar>
-    </ion-header>
     <ion-content >
+    <ion-list>
+      <ion-item v-for="d in decks" :key="d" @click="OpenDeck(d)">
+        <h2>{{d.name}}</h2>
+      </ion-item>
+    </ion-list>
 
-    <p>this is the deck component</p>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonContent } from '@ionic/vue';
+
+import Decks from "../../shared/services/Decks";
+import Deck from '@/shared/models/Deck';
 
 export default  {
   name: 'Decks',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: { IonContent, IonPage },
+  data()
+  {
+    return{
+      decks: Decks
+    }
+  },
+  methods:
+  {
+    OpenDeck(d: Deck)
+    {
+      this.$router.push('decks/decklist/'+ d.id);
+
+    }
+  }
+
 }
 </script>

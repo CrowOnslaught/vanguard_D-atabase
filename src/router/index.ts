@@ -16,7 +16,14 @@ const routes: Array<RouteRecordRaw> = [
       },
       { 
         path: 'decks', 
-        component: () => import('@/components/tabs/DecksTab.vue')
+        component: () => import('@/components/tabs/DecksTab.vue'),
+        children:
+        [
+          {
+            path: 'decklist/:id',
+            component: () => import('@/shared/components/DeckDetail.vue')
+          }
+        ]
       },
       { 
         path: 'filters', 

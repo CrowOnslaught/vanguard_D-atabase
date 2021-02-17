@@ -11,9 +11,9 @@
 
         <ion-content>
             <div class = 'cardDetail'>
-              <img class ='imgDetail' style="margin: auto" :src ="getImageRoute(card.id)">
-              <h3 class="titleDetail">{{card.name}}</h3>
-              <p id="textDetail"></p>
+                <img class ='imgDetail' style="margin: auto" :src ="getImageRoute(card.id)">
+                <h3 class="titleDetail">{{card.name}}</h3>
+                <p id="textDetail"></p>
             </div>
         </ion-content>
     </ion-page>

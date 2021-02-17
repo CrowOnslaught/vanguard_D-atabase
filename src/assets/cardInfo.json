@@ -136,6 +136,23 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
+        },
+        {
+            "id" : "8",
+            "name" : "Brothers' Soul",
+            "skill" : "Soul Charge (2).",
+            "grade" : 1,
+            "power" : 0,
+            "shield" : 0,
+            "ability" : "None",
+            "nation" : "Dark States",
+            "race" : "None",
+            "sets" : ["D-SD02"],
+            "keywords" : ["None"],
+            "image" : "@/assets/cardImages/8.png",
+            "type" : "Normal Order",
+            "critical" : 0,
+            "trigger" : "None"
         }
     ],
     "nations": 
@@ -150,20 +167,23 @@
     [
         "Boost",
         "Intercept",
-        "Twin Drive"
+        "Twin Drive",
+        "None"
     ],
     "races":
     [
         "Talisman",
         "Human",
         "Flame Dragon",
-        "Abyss Dragon"
+        "Abyss Dragon",
+        "None"
     ],
     "types": 
     [
         "Normal Unit",
         "Trigger Unit",
-        "Order",
+        "Normal Order",
+        "Blitz order",
         "Token"
     ],
     "triggers":

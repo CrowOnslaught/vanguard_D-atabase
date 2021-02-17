@@ -5,7 +5,7 @@
         <ion-row>
           <ion-col v-for="c in $options.filters.Filter(data)" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c)">
-              <img :src ="getImageRoute(c.id)">
+              <img class='cardImage' :src ="getImageRoute(c.id)">
               <div class="cardDetails">
                 <h4>{{c.name}}</h4>
               </div>
@@ -205,5 +205,10 @@ h4
   font-size: 15px;
   margin: 0px;
   vertical-align: middle;
+}
+
+.cardImage
+{
+  width: 100%;
 }
 </style>
