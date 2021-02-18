@@ -18,12 +18,10 @@
             </ion-item>
 </template>
 
-<script lang='ts'>
+<script>
 
 import { IonSelect, IonSelectOption, IonInput, IonItem, IonButton, IonLabel, modalController } from '@ionic/vue';
 import Global from '@/shared/services/Global';
-
-import Deck from '../../models/Deck';
 
 export default {
     name:'NewDeck',
@@ -40,7 +38,7 @@ export default {
     {
         createDeck()
         {
-            modalController.dismiss({id: '', name: this.selectedName, nation: this.selectedNation, decklist: []} as Deck);
+            modalController.dismiss({id: '', name: this.selectedName, nation: this.selectedNation, decklist: []});
         },
         cancel()
         {

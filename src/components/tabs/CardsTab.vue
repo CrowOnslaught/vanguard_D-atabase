@@ -4,7 +4,7 @@
       <ion-grid>
         <ion-row>
           <ion-col v-for="c in $options.filters.Filter(data)" :key="c.id" size="4">
-            <ion-card type="button"  @click="openModal(c)">
+            <ion-card type="button"  @click="openModal(c)" @contextmenu="addToDeckModal(c)">
               <img class='cardImage' :src ="getImageRoute(c.id)">
               <div class="cardDetails">
                 <h4>{{c.name}}</h4>
@@ -24,6 +24,7 @@ import Global from '../../shared/services/Global';
 import Filters from '../../shared/services/Filters';
 
 import CardDetail from '@/shared/components/CardDetail.vue';
+import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
   name: 'Cards',
@@ -42,6 +43,18 @@ export default  {
   },
   methods:
   {
+    async addToDeckModal(c)
+    {
+      const modal = await modalController
+        .create({
+          component: AddToDeckVue,
+          cssClass: 'small-modal-addToDeck',
+          componentProps: {
+            card: c
+          },
+        });
+      modal.present();
+    },
     getImageRoute(id)
     {
       const images = require.context('@/assets/cardImages/', false, /\.png$/);

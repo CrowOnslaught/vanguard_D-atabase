@@ -13,7 +13,8 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet,
-  }
+  },
+
 });
 </script>
 
@@ -24,7 +25,7 @@ ion-app
   margin: auto;
 }
 
-.small-modal .modal-wrapper
+.small-modal-newDeck .modal-wrapper
 {
 
   height: 250px;
@@ -36,5 +37,28 @@ ion-app
   --border-style: solid;
 
 }
+.small-modal-optionDeck .modal-wrapper
+{
+
+  height: 270px;
+  width: 80%;
+
+  --border-radius: 16px;
+  --border-color: var(--ion-color-primary-shade);
+  --border-width: 3px;
+  --border-style: solid;
+}
+.small-modal-addToDeck .modal-wrapper
+{
+
+  height: 226px;
+  width: 80%;
+
+  --border-radius: 16px;
+  --border-color: var(--ion-color-primary-shade);
+  --border-width: 3px;
+  --border-style: solid;
+}
+
 
 </style>

@@ -1,6 +1,8 @@
 import * as data from '../../assets/cardInfo.json';
 import CardInfo from '../models/CardInfo';
 
+import Decks from './Decks';
+
 const cards: CardInfo[] = data.cards;
 
 
@@ -16,10 +18,7 @@ const Global =
     sets: data.sets,
     grades: [0, 1, 2, 3, 4],
 
-    printInfo : () =>
-    {
-        console.log(data);
-    }
+    currentDeck: Decks.length>0? Decks[0] : null,
 };
 
 export default Global;

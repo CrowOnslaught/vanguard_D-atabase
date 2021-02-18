@@ -294,6 +294,7 @@ export default  {
         {
             if(value == 'name' || value== 'default')
             {
+                console.log(this.$refs);
                 this.$refs["nameInput"].value = '';
                 this.onNameSelect('');
             }

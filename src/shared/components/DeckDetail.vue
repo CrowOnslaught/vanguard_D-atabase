@@ -16,7 +16,7 @@
                 <ion-row>
                     <ion-col v-for="c in $options.filters.Filter(cards)" :key="c.id" size="5.5">
                         <p>{{getCardAmountInDeck(c.id)}}x</p>
-                        <ion-card type="button"  @click="openModal(c)">
+                        <ion-card type="button"  @click="openModal(c)" @contextmenu="addToDeckModal(c)">
                             <img class='cardImage' :src ="getImageRoute(c.id)">
                             <div class="cardDetails">
                                 <h4>{{c.name}}</h4>
@@ -28,27 +28,35 @@
             <h3 class='noCards' v-if="cards.length ==0">This Deck is empty</h3>
             <h3 class='noCards' v-else-if="$options.filters.Filter(cards).length ==0">There are no cards that meet those conditions</h3>
 
+            <ion-button id="optionBut" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
+
+
         </ion-content>
     </ion-page>
 </template>
 
 <script>
-import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, modalController } from '@ionic/vue';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController } from '@ionic/vue';
+import { chevronBack, ellipsisVertical } from 'ionicons/icons';
 
 import Decks from "../services/Decks";
 import Global from "../services/Global";
 import Filters from '../services/Filters';
 
-import { chevronBack } from 'ionicons/icons';
+
 import CardDetail from '@/shared/components/CardDetail.vue';
+import DeckOptions from '@/shared/components/modals/DeckOptions.vue';
+import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
+
+
 
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton },
     setup() {
         return {
-            chevronBack
+            chevronBack, ellipsisVertical
         }
     },
     data()
@@ -72,12 +80,67 @@ export default  {
 
             this.cards.push(ci);
         });
+
+        Global.currentDeck = this.deck;
+    },
+    ionViewWillEnter()
+    {    
+        this.reload()
     },
     methods:
     {
+        reload()
+        {
+            this.cards = [];
+            this.deck.decklist.forEach((e) => {
+                const ci = Global.cards.find(r => r.id == e.cardId);
+                this.cards.push(ci);
+            });
+
+            this.$forceUpdate();
+        },
+        async addToDeckModal(c)
+        {
+            const modal = await modalController
+                .create({
+                component: AddToDeckVue,
+                cssClass: 'small-modal-addToDeck',
+                componentProps: 
+                    {
+                        card: c
+                    },
+                });
+            modal.present();
+
+            const {data} = await modal.onWillDismiss();
+            if(data != null)
+            {
+                this.reload();
+            }
+        },
+        async options()
+        {
+            const modal = await modalController.create({
+                component: DeckOptions,
+                cssClass: 'small-modal-optionDeck',
+                enableBackdropDismiss: true,
+            });
+
+            await modal.present();
+            
+            const {data} = await modal.onWillDismiss();
+            
+            if(data != null)
+                if(data.flag == 'delete')
+                    this.deleteDeck();
+        },
         getCardAmountInDeck(id)
         {
-            return this.deck.decklist.find(e => e.cardId == id).amount;
+            const result = this.deck.decklist.find(e => e.cardId == id);
+            if(result != undefined)
+                return result.amount;
+            else 
+                return 0;
         },
         getNationImage(n)
         {
@@ -166,6 +229,19 @@ export default  {
         {
             this.backDisabled = true;
             this.$router.back();
+        },
+        deleteDeck()
+        {
+            const index = Decks.findIndex( e=> e.id == this.deckId);
+            console.log(index);
+            if(index < 0)
+                return;
+
+            Decks.splice(index,1);
+
+            localStorage.setItem('decks', JSON.stringify(Decks));
+
+            this.back();
         }
     },
     filters:
@@ -274,8 +350,7 @@ export default  {
 
         return result;
         }
-    }
-
+    },  
 }
 </script>
 
@@ -331,5 +406,16 @@ h4
     padding-right: 10px;
 }
 
+#optionBut
+{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 
+    --border-radius	: 50%;
+    width: 50px;
+    height: 50px;
+
+  --ionicon-stroke-width: 100px;
+}
 </style>

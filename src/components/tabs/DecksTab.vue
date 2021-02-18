@@ -42,7 +42,7 @@ export default  {
     {
       const modal = await modalController.create({
         component: NewDeck,
-        cssClass: 'small-modal',
+        cssClass: 'small-modal-newDeck',
         enableBackdropDismiss: true,
       });
 
@@ -54,7 +54,7 @@ export default  {
         setTimeout(() => {
           this.createEmptyDeck(data);
         }, (500));
-          },
+    },
     createEmptyDeck(d)
     {
       //createID
@@ -73,6 +73,7 @@ export default  {
       this.decks = Decks;
 
       this.$forceUpdate();
+      localStorage.setItem('decks', JSON.stringify(this.decks));
 
     },
     OpenDeck(d)
