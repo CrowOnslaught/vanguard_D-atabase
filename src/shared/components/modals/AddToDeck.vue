@@ -28,13 +28,11 @@
     </ion-item>
 </template>
 
-<script lang='ts'>
+<script>
 
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
-import Deck from '@/shared/models/Deck';
-import CardSlot from '@/shared/models/CardSlot';
 
 export default {
     name:'AddToDeck',
@@ -42,7 +40,7 @@ export default {
     data()
     {
         return{
-            currentDeck: Global.currentDeck as Deck,
+            currentDeck: Global.currentDeck,
             openSlotsInDeck: 4,
         }
     },
@@ -52,7 +50,7 @@ export default {
     },
     mounted()
     {
-        const cardSlot = this.currentDeck.decklist.find((e: CardSlot) => e.cardId == this.card.id)
+        const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
         if(cardSlot == undefined)
             this.openSlotsInDeck = 4;
         else
@@ -60,14 +58,14 @@ export default {
     },
     methods:
     {
-        addToDeck(n: number)
+        addToDeck(n)
         {
-            const cardSlot = this.currentDeck.decklist.find((e: CardSlot) => e.cardId == this.card.id)
+            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
             if(cardSlot != undefined)
                 cardSlot.amount +=n;
             else
             {
-                const cs = {cardId:this.card.id, amount:n} as CardSlot;
+                const cs = {cardId:this.card.id, amount:n};
                 this.currentDeck.decklist.push(cs);
                 console.log(cs, this.currentDeck, Decks);
             }
@@ -75,15 +73,15 @@ export default {
             localStorage.setItem('decks', JSON.stringify(Decks));
             this.close();
         },
-        removeFromDeck(n: number)
+        removeFromDeck(n)
         {
-            const cardSlot = this.currentDeck.decklist.find((e: CardSlot) => e.cardId == this.card.id)
+            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
             if(cardSlot != undefined)
             {
                 cardSlot.amount -=n;
                 if(cardSlot.amount <=0)
                 {
-                    const cardSlotIndex = this.currentDeck.decklist.findIndex((e: CardSlot) => e.cardId == this.card.id)
+                    const cardSlotIndex = this.currentDeck.decklist.findIndex((e) => e.cardId == this.card.id);
                     this.currentDeck.decklist.splice(cardSlotIndex, 1);
                 }
             }

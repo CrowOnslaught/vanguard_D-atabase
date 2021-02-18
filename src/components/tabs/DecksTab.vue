@@ -21,6 +21,7 @@ import { add } from 'ionicons/icons';
 import Decks from "../../shared/services/Decks";
 import { useRouter } from 'vue-router';
 import NewDeck from '@/shared/components/modals/NewDeck.vue';
+import Global from '@/shared/services/Global';
 
 
 export default  {
@@ -75,6 +76,8 @@ export default  {
       this.$forceUpdate();
       localStorage.setItem('decks', JSON.stringify(this.decks));
 
+      if(Global.currentDeck == null)
+        Global.currentDeck = Decks[0];
     },
     OpenDeck(d)
     {

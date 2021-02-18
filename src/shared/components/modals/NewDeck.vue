@@ -13,8 +13,8 @@
                 </ion-select>
             </ion-item>
             <ion-item lines="none" class="newDeckItem buttons">
-                <ion-button fill="clear" size="large" @click="cancel()"> Cancel</ion-button>
-                <ion-button slot='end' fill="clear" size="large" :disabled="selectedNation == '' || selectedName == ''" @click="createDeck()"> Create</ion-button>
+                <ion-button fill="clear" @click="cancel()"> Cancel</ion-button>
+                <ion-button slot='end' fill="clear" :disabled="selectedNation == '' || selectedName == ''" @click="createDeck()"> Create</ion-button>
             </ion-item>
 </template>
 

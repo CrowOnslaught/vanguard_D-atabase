@@ -45,6 +45,9 @@ export default  {
   {
     async addToDeckModal(c)
     {
+      if(Global.currentDeck == null)
+        return;
+
       const modal = await modalController
         .create({
           component: AddToDeckVue,
