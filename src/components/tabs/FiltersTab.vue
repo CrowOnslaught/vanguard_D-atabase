@@ -177,13 +177,13 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption } from '@ionic/vue';
+import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput } from '@ionic/vue';
 import Global from '../../shared/services/Global'
 import Filters from '../../shared/services/Filters'
 
 export default  {
     name: 'Filters',
-    components: {IonContent, IonPage, IonSelect, IonItem, IonSelectOption },
+    components: {IonContent, IonPage, IonSelect, IonItem, IonSelectOption, IonButton, IonInput},
     data()
     {
         return{

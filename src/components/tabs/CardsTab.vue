@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { IonContent, IonPage, modalController } from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonCol, IonRow, IonCard, modalController } from '@ionic/vue';
 import Global from '../../shared/services/Global';
 import Filters from '../../shared/services/Filters';
 
@@ -27,7 +27,7 @@ import CardDetail from '@/shared/components/CardDetail.vue';
 
 export default  {
   name: 'Cards',
-  components: {IonContent, IonPage },
+  components: {IonContent, IonPage, IonGrid, IonCol,IonRow, IonCard },
   data()
   {
     return{

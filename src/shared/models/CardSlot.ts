@@ -1,5 +1,5 @@
 export default interface CardSlot
 {
-    cardId: string,
-    amount: number
+    cardId: string;
+    amount: number;
 }

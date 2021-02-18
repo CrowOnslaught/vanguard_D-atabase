@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import {  IonBackButton, IonPage, modalController } from '@ionic/vue';
+import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, modalController } from '@ionic/vue';
 import { chevronBack } from 'ionicons/icons';
 import { defineComponent } from "vue";
 
@@ -28,7 +28,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     name: 'CardDetails',
-    components: { IonBackButton, IonPage },
+    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonTitle, },
     setup() {
         return {
         chevronBack
@@ -98,7 +98,7 @@ ion-title
 
 .act
 {
-    background-color: rgb(0, 119, 255);
+    background-color: blue;
 }
 .cont
 {
@@ -116,7 +116,7 @@ ion-title
 }
 .oneTurn
 {
-    background-color: palevioletred;
+    background-color: darkmagenta;
 }
 
 .circle

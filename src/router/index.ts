@@ -16,14 +16,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       { 
         path: 'decks', 
-        component: () => import('@/components/tabs/DecksTab.vue'),
-        children:
-        [
-          {
-            path: 'decklist/:id',
-            component: () => import('@/shared/components/DeckDetail.vue')
-          }
-        ]
+        component: () => import('@/components/tabs/DecksTab.vue')
+      },
+      {
+        path: 'decks/:id',
+        component: () => import('@/shared/components/DeckDetail.vue')
       },
       { 
         path: 'filters', 

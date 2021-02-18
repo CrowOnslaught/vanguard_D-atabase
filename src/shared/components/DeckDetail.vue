@@ -3,6 +3,9 @@
         <ion-header>
         <ion-toolbar>
             <div id='toolbar'>
+                <ion-buttons slot="start">
+                    <ion-back-button @click="back()" :icon='chevronBack' style="display: block;"></ion-back-button>
+                </ion-buttons>   
             <ion-title>{{deck?.name}}</ion-title>
             </div>
         </ion-toolbar>
@@ -27,55 +30,54 @@
     </ion-page>
 </template>
 
-<script lang="ts">
-import { IonPage, IonContent, modalController } from '@ionic/vue';
+<script>
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, modalController } from '@ionic/vue';
 
 import Decks from "../services/Decks";
 import Global from "../services/Global";
 import Filters from '../services/Filters';
 
-
-import CardInfo from "../models/CardInfo";
-import CardSlot from "../models/CardSlot";
-import Deck from "../models/Deck";
-
+import { chevronBack } from 'ionicons/icons';
 import CardDetail from '@/shared/components/CardDetail.vue';
 
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard },
+    setup() {
+        return {
+            chevronBack
+        }
+    },
     data()
     {
         return {
             deckId: this.$route.params.id,
-            deck: null as any,
-            cards: [] as CardInfo[],
+            deck: {id: "", name: "", nation: "", decklist: []},
+            cards: [],
 
             modalOpen: false
         }
     },
     mounted()
     {
-        this.deck = Decks.find(e => e.id == this.deckId) as Deck; 
+        this.deck = Decks.find(e => e.id == this.deckId); 
     
-        this.deck.decklist.forEach((e: CardSlot) => {
-            const ci = Global.cards.find(r => r.id == e.cardId) as CardInfo;
+        this.deck.decklist.forEach((e) => {
+            const ci = Global.cards.find(r => r.id == e.cardId);
 
             this.cards.push(ci);
         });
-
-        console.log(this.cards);
     },
     methods:
     {
-        getImageRoute(id: string)
+        getImageRoute(id)
         {
             const images = require.context('@/assets/cardImages/', false, /\.png$/);
 
             return images('./'+id+'.png');
         },
-        async openModal(c: CardInfo) 
+        async openModal(c) 
         {
             if(this.modalOpen)
                 return;
@@ -96,13 +98,17 @@ export default  {
                 this.modalOpen = false;
                 }, (500));
         },
+        back()
+        {
+            this.$router.back();
+        }
     },
     filters:
     {
-        Filter(value: any)
+        Filter(value)
         {
         //by nation
-        let result = value.filter((e: any) =>
+        let result = value.filter((e) =>
             {
             if(Filters.nations.includes(e.nation))
                 return e;
@@ -110,7 +116,7 @@ export default  {
             // console.log(1, result);
 
         //by name
-        result = result.filter((e: any) => 
+        result = result.filter((e) => 
             {
             if(e.name.toLowerCase().includes(Filters.name.toLowerCase()))
             return e;
@@ -119,7 +125,7 @@ export default  {
             // console.log(2, result);
 
         //by skill
-        result = result.filter((e: any) => 
+        result = result.filter((e) => 
             {
             if(e.skill.toLowerCase().includes(Filters.skill.toLowerCase()))
             return e;
@@ -128,7 +134,7 @@ export default  {
             // console.log(3, result);
 
         //by grades
-            result = result.filter((e: any) =>
+            result = result.filter((e) =>
             {
             if(Filters.grades.includes(e.grade))
             return e;
@@ -136,7 +142,7 @@ export default  {
             // console.log(4, result);
 
         //by power
-        result = result.filter((e: any) =>
+        result = result.filter((e) =>
         {
             if(e.power == Filters.power || Filters.power == '')
             return e;
@@ -144,7 +150,7 @@ export default  {
                     // console.log(5, result);
 
         //by shield
-        result = result.filter((e: any) =>
+        result = result.filter((e) =>
         {
             if(e.shield == Filters.shield || Filters.shield == '')
             return e;
@@ -152,7 +158,7 @@ export default  {
             // console.log(6, result);
 
         //by Abilities
-        result = result.filter((e: any) =>
+        result = result.filter((e) =>
             {
             if(Filters.abilities.includes(e.ability))
             return e;
@@ -161,7 +167,7 @@ export default  {
         // console.log(7, result);
 
         //by race
-        result = result.filter((e: any) => 
+        result = result.filter((e) => 
             {
             if(e.race.toLowerCase().includes(Filters.race.toLowerCase()))
             return e;
@@ -169,23 +175,23 @@ export default  {
         // console.log(8, result);
 
         //by sets
-        result = result.filter((e: any) =>
+        result = result.filter((e) =>
             {
-            if(e.sets.some((r: any)=> Filters.sets.indexOf(r) >= 0))
+            if(e.sets.some((r)=> Filters.sets.indexOf(r) >= 0))
             return e;
             });   
             // console.log(9, result);
 
         //by keywords
-        result = result.filter((e: any) =>
+        result = result.filter((e) =>
             {
-            if(e.keywords.some((r: any)=> Filters.keywords.indexOf(r) >= 0))
+            if(e.keywords.some((r)=> Filters.keywords.indexOf(r) >= 0))
             return e;
             });
         // console.log(10, result);
 
         //by Types
-            result = result.filter((e: any) =>
+            result = result.filter((e) =>
             {
             if(Filters.types.includes(e.type))
             return e;
@@ -193,7 +199,7 @@ export default  {
         // console.log(11, result);
 
         //by triggers
-            result = result.filter((e: any) =>
+            result = result.filter((e) =>
             {
             if(Filters.trigger.includes(e.trigger))
             return e;
