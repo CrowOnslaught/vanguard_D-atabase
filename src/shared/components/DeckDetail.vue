@@ -1,26 +1,28 @@
 <template>
     <ion-page>
-        <ion-header>
-        <ion-toolbar>
-            <div id='toolbar'>
+        <ion-header >
+        <ion-toolbar :style="getNationColor(deck.nation)">
                 <ion-buttons slot="start">
-                    <ion-back-button @click="back()" :icon='chevronBack' style="display: block;"></ion-back-button>
+                    <ion-back-button :disabled="backDisabled" @click="back()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
                 </ion-buttons>   
-            <ion-title>{{deck?.name}}</ion-title>
-            </div>
+                <ion-title>{{deck?.name}}</ion-title>
+                <ion-buttons slot='end'>
+                    <img class='nationImage' :src="getNationImage(deck.nation)" :alt="deck.nation">
+                </ion-buttons> 
         </ion-toolbar>
         </ion-header>
         <ion-content >
             <ion-grid>
                 <ion-row>
-                <ion-col v-for="c in $options.filters.Filter(cards)" :key="c.id" size="4">
-                    <ion-card type="button"  @click="openModal(c)">
-                    <img class='cardImage' :src ="getImageRoute(c.id)">
-                    <div class="cardDetails">
-                        <h4>{{c.name}}</h4>
-                    </div>
-                    </ion-card>
-                </ion-col>
+                    <ion-col v-for="c in $options.filters.Filter(cards)" :key="c.id" size="5.5">
+                        <p>{{getCardAmountInDeck(c.id)}}x</p>
+                        <ion-card type="button"  @click="openModal(c)">
+                            <img class='cardImage' :src ="getImageRoute(c.id)">
+                            <div class="cardDetails">
+                                <h4>{{c.name}}</h4>
+                            </div>
+                        </ion-card>
+                    </ion-col>
                 </ion-row>
             </ion-grid>
             <h3 class='noCards' v-if="cards.length ==0">This Deck is empty</h3>
@@ -56,12 +58,14 @@ export default  {
             deck: {id: "", name: "", nation: "", decklist: []},
             cards: [],
 
-            modalOpen: false
+            modalOpen: false,
+            backDisabled: false
         }
     },
     mounted()
     {
         this.deck = Decks.find(e => e.id == this.deckId); 
+        this.backDisabled = false;
     
         this.deck.decklist.forEach((e) => {
             const ci = Global.cards.find(r => r.id == e.cardId);
@@ -71,6 +75,66 @@ export default  {
     },
     methods:
     {
+        getCardAmountInDeck(id)
+        {
+            return this.deck.decklist.find(e => e.cardId == id).amount;
+        },
+        getNationImage(n)
+        {
+            const images = require.context('@/assets/nationImages/', false, /\.png$/);
+
+            let result = '';
+            switch(n)
+            {
+                case "Dragon Empire":
+                    result = images('./DE.png');
+                    break;
+                case "Ketter Sanctuary":
+                    result = images('./KS.png');
+                    break;
+                case "Dark States":
+                    result = images('./DS.png');
+                    break;
+                case "Stoichea":
+                    result = images('./S.png');
+                    break;
+                case "Brandt Gate":
+                    result = images('./BG.png');
+                    break;
+                case "Lyrical Monasterio":
+                    result = images('./LM.png');
+                    break;
+
+            }
+            return result;
+        },
+        getNationColor(n)
+        {
+            let result = '--background: ';
+            switch(n)
+            {
+                case "Dragon Empire":
+                    result += "DarkRed;";
+                    break;
+                case "Ketter Sanctuary":
+                    result += "DarkGoldenRod;";
+                    break;
+                case "Dark States":
+                    result += "DarkBlue;";
+                    break;
+                case "Stoichea":
+                    result += "DarkGreen;";
+                    break;
+                case "Brandt Gate":
+                    result += "LightSlateGrey;";
+                    break;
+                case "Lyrical Monasterio":
+                    result += "HotPink;";
+                    break;
+
+            }
+            return result;
+        },
         getImageRoute(id)
         {
             const images = require.context('@/assets/cardImages/', false, /\.png$/);
@@ -100,6 +164,7 @@ export default  {
         },
         back()
         {
+            this.backDisabled = true;
             this.$router.back();
         }
     },
@@ -222,7 +287,20 @@ export default  {
   text-align: center;
 }
 
-ion-col>ion-card{
+ion-col
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+ion-col>p
+{
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+ion-card{
   margin: -2px !important;    
   }
 
@@ -245,5 +323,13 @@ h4
 {
   width: 100%;
 }
+
+.nationImage
+{
+    height: 20px;
+    width: auto;
+    padding-right: 10px;
+}
+
 
 </style>

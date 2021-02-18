@@ -153,6 +153,23 @@
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
+        },
+        {
+            "id" : "9",
+            "name" : "Fire Slash Dragon, Inferno Sword",
+            "skill" : "[CONT](RC):During the battle this unit attacked, this unit gets [Power]+2000.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Dragon Empire",
+            "race" : "Flame Dragon",
+            "sets" : ["D-SD01"],
+            "keywords" : ["Persona Ride"],
+            "image" : "@/assets/cardImages/9.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
         }
     ],
     "nations": 
@@ -161,7 +178,8 @@
         "Ketter Sanctuary",
         "Dark States",
         "Stoichea",
-        "Brandt Gate"
+        "Brandt Gate",
+        "Lyrical Monasterio"
     ],
     "abilities":
     [

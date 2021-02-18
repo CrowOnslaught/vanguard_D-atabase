@@ -1,9 +1,9 @@
 <template>
     <ion-page>
         <ion-header>
-            <ion-toolbar>
+            <ion-toolbar :style="getNationColor(card.nation)">
                 <ion-buttons slot="start">
-                    <ion-back-button @click="closeModal()" :icon='chevronBack' style="display: block;"></ion-back-button>
+                    <ion-back-button @click="closeModal()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
                 </ion-buttons>        
                 <ion-title>{{card.name}}</ion-title>
             </ion-toolbar>
@@ -13,6 +13,7 @@
             <div class = 'cardDetail'>
                 <img class ='imgDetail' style="margin: auto" :src ="getImageRoute(card.id)">
                 <h3 class="titleDetail">{{card.name}}</h3>
+                <h6 class="subtitleDetail">{{card.type}}</h6>
                 <p id="textDetail"></p>
             </div>
         </ion-content>
@@ -54,6 +55,37 @@ export default defineComponent({
             const images = require.context('@/assets/cardImages/', false, /\.png$/);
             return images('./'+id+'.png');
         },
+        getIconRoute(name: string)
+        {
+            const images = require.context('@/assets/icons/', false, /\.png$/);
+            return images('./'+name+'.png').toString();
+        },
+        getNationColor(n: string)
+        {
+            let result = '--background: ';
+            switch(n)
+            {
+                case "Dragon Empire":
+                    result += "DarkRed;";
+                    break;
+                case "Ketter Sanctuary":
+                    result += "DarkGoldenRod;";
+                    break;
+                case "Dark States":
+                    result += "DarkBlue;";
+                    break;
+                case "Stoichea":
+                    result += "DarkGreen;";
+                    break;
+                case "Brandt Gate":
+                    result += "LightSlateGrey;";
+                    break;
+                case "Lyrical Monasterio":
+                    result += "HotPink;";
+                    break;
+            }
+            return result;
+        },
     },
     mounted()
     {
@@ -68,7 +100,12 @@ export default defineComponent({
             .replaceAll("(VC)", "<span class='tag circle'>(VC)</span>")
             .replaceAll("(VC/RC)", "<span class='tag circle'>(VC/RC)</span>")
             .replaceAll("(RC)", "<span class='tag circle'>(RC)</span>")
-            .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>");
+            .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>")
+
+            .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
+            .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
+            .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon'></img>")
+            .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon'></img>");
         
         this.cardText = text;
 
@@ -88,6 +125,20 @@ ion-title
     font-size: 5vw;
 }
 
+.icon
+{
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.power
+{
+    /* background-image: "../../assets/icons/power.png"; */
+    background-color: red;
+    background-size: contain;
+    background-position: center;
+}
+
 
 .tag
 {
@@ -102,12 +153,12 @@ ion-title
 }
 .cont
 {
-    background-color: rgb(206, 30, 30);
+    background-color: red;
 
 }
 .auto
 {
-    background-color: rgb(14, 122, 14);
+    background-color: green;
 
 }
 .cost
@@ -148,7 +199,14 @@ ion-title
 {
     text-align: center; 
     font-weight: bold;
-    padding: 20px 30px 20px 30px;
+    padding: 20px 30px 0px 30px;
+    margin: 0;
+}
+.subtitleDetail
+{
+    text-align: center; 
+    font-style: italic;
+    padding: 0px 30px 20px 30px;
     margin: 0;
 }
 
