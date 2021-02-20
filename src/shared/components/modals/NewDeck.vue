@@ -4,7 +4,7 @@
             </ion-item>
             <ion-item class="newDeckItem">
                 <ion-label>Name:</ion-label>
-                <ion-input placeholder="Name" v-model="selectedName"></ion-input>
+                <ion-input placeholder="Name" maxlength=10 v-model="selectedName"></ion-input>
             </ion-item>
             <ion-item class="newDeckItem">
                 <ion-label>Nation:</ion-label>

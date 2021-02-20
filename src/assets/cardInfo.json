@@ -170,6 +170,23 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
+        },
+        {
+            "id" : "10",
+            "name" : "Acrobat Presenter",
+            "skill" : "[AUTO](RC):When this unit attacks or boosts, if your vanguard is \"Diabolos, \"Violence\" Bruce\", Soul Charge (1), and if you are in \"Final Rush\", Soul Charge (1).",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dark States",
+            "race" : "Demon",
+            "sets" : ["D-SD02"],
+            "keywords" : ["Final Rush"],
+            "image" : "@/assets/cardImages/10.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
         }
     ],
     "nations": 

@@ -7,6 +7,7 @@
                 </ion-buttons>   
                 <ion-title>{{deck?.name}}</ion-title>
                 <ion-buttons slot='end'>
+                    <p class="deckAmount">{{deckAmount}}/50</p>
                     <img class='nationImage' :src="getNationImage(deck.nation)" :alt="deck.nation">
                 </ion-buttons> 
         </ion-toolbar>
@@ -36,7 +37,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController } from '@ionic/vue';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController, alertController  } from '@ionic/vue';
 import { chevronBack, ellipsisVertical } from 'ionicons/icons';
 
 import Decks from "../services/Decks";
@@ -53,7 +54,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton,  },
     setup() {
         return {
             chevronBack, ellipsisVertical
@@ -65,9 +66,10 @@ export default  {
             deckId: this.$route.params.id,
             deck: {id: "", name: "", nation: "", decklist: []},
             cards: [],
+            deckAmount: 0,
 
             modalOpen: false,
-            backDisabled: false
+            backDisabled: false,
         }
     },
     mounted()
@@ -91,11 +93,18 @@ export default  {
     {
         reload()
         {
+            this.deckAmount = 0;
             this.cards = [];
+
             this.deck.decklist.forEach((e) => {
                 const ci = Global.cards.find(r => r.id == e.cardId);
                 this.cards.push(ci);
+
+                this.deckAmount+= e.amount;
+                console.log(this.deckAmount);
             });
+
+
 
             this.$forceUpdate();
         },
@@ -230,19 +239,43 @@ export default  {
             this.backDisabled = true;
             this.$router.back();
         },
-        deleteDeck()
+        async deleteDeck()
         {
-            const index = Decks.findIndex( e=> e.id == this.deckId);
-            console.log(index);
-            if(index < 0)
-                return;
+            const alert = await alertController
+                .create({
+                cssClass: 'small-modal-delete',
+                header: `Delete ${this.deck.name}?`,
+                buttons: [
+                    {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    cssClass: 'secondary'
 
-            Decks.splice(index,1);
+                    },
+                    {
+                    text: 'Okay',
+                    handler: () => {
+                        const index = Decks.findIndex( e=> e.id == this.deckId);
+                        console.log(index);
+                        if(index < 0)
+                            return;
 
-            localStorage.setItem('decks', JSON.stringify(Decks));
+                        Decks.splice(index,1);
 
-            this.back();
-        }
+                        localStorage.setItem('decks', JSON.stringify(Decks));
+                        if(this.deck == Global.currentDeck)
+                            Global.currentDeck = Decks.length > 0? Decks[0] : null;
+
+
+                        console.log(Global.currentDeck);
+                        this.back();                    
+                        },
+                    },
+                ],
+                });
+            alert.present();
+        },
+
     },
     filters:
     {
@@ -418,4 +451,11 @@ h4
 
   --ionicon-stroke-width: 100px;
 }
+
+.deckAmount
+{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
 </style>

@@ -60,5 +60,12 @@ ion-app
   --border-style: solid;
 }
 
+.small-modal-delete>.alert-wrapper
+{
+  border-radius: 16px;
+  border: var(--ion-color-primary-shade) 3px solid;
+
+  --background: black;
+}
 
 </style>

@@ -76,8 +76,7 @@ export default  {
       this.$forceUpdate();
       localStorage.setItem('decks', JSON.stringify(this.decks));
 
-      if(Global.currentDeck == null)
-        Global.currentDeck = Decks[0];
+        Global.currentDeck = Decks[Decks.length-1];
     },
     OpenDeck(d)
     {

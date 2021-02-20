@@ -17,10 +17,6 @@
     <ion-item class="optionDeckItem">
         <ion-button fill="clear" class="cancel" @click="cancel()"> Close </ion-button>
     </ion-item>
-    <!-- <ion-item lines="none" class="optionDeckItem buttons">
-        <ion-button fill="clear" size="large" @click="cancel()"> Cancel</ion-button>
-        <ion-button slot='end' fill="clear" size="large" :disabled="selectedNation == '' || selectedName == ''" @click="createDeck()"> Create</ion-button>
-    </ion-item> -->
 </template>
 
 <script lang='ts'>

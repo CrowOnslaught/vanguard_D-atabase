@@ -18,7 +18,7 @@
         <ion-button fill="clear"  @click="removeFromDeck(2)"> Remove 2 from {{currentDeck.name}} </ion-button>
     </ion-item>
     <ion-item class="optionDeckItem" v-if="openSlotsInDeck<=1">
-        <ion-button fill="clear"  @click="removeFromDeck(3)"> Remove 3 from{{currentDeck.name}} </ion-button>
+        <ion-button fill="clear"  @click="removeFromDeck(3)"> Remove 3 from {{currentDeck.name}} </ion-button>
     </ion-item>
     <ion-item class="optionDeckItem" v-if="openSlotsInDeck<=0">
         <ion-button fill="clear"  @click="removeFromDeck(4)"> Remove 4 from {{currentDeck.name}} </ion-button>
