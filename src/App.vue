@@ -7,6 +7,7 @@
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import $ from "jquery";
 
 export default defineComponent({
   name: 'App',
@@ -14,7 +15,19 @@ export default defineComponent({
     IonApp,
     IonRouterOutlet,
   },
-
+  mounted()
+  {
+    console.log("aa");
+      $.getJSON("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json", (data) => {
+        console.log(data.cards);
+      console.log("data");
+    }).then( d => 
+    {
+      console.log("d");
+      console.log(d);
+    });
+      console.log("ddd");
+  }
 });
 </script>
 
