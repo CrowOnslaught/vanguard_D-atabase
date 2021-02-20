@@ -17,7 +17,8 @@ const Global =
     keywords :data.keywords,
     sets: data.sets,
     grades: [0, 1, 2, 3, 4],
-
+    
+    cardsVersion: data.version,
     currentDeck: Decks.length>0? Decks[0] : null,
 };
 

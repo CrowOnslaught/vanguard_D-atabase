@@ -1,5 +1,5 @@
 {
-    "version": "0.0.0.1", 
+    "version": "0.0.0.0", 
     "cards":
     [
         {
@@ -212,6 +212,7 @@
         "Human",
         "Flame Dragon",
         "Abyss Dragon",
+        "Demon",
         "None"
     ],
     "types": 

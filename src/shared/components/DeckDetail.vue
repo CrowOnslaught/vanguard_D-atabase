@@ -31,7 +31,6 @@
 
             <ion-button id="optionBut" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
 
-
         </ion-content>
     </ion-page>
 </template>
@@ -84,10 +83,12 @@ export default  {
         });
 
         Global.currentDeck = this.deck;
+
+        this.reload();
     },
     ionViewWillEnter()
     {    
-        this.reload()
+        this.reload();
     },
     methods:
     {
@@ -101,7 +102,6 @@ export default  {
                 this.cards.push(ci);
 
                 this.deckAmount+= e.amount;
-                console.log(this.deckAmount);
             });
 
 
@@ -256,7 +256,6 @@ export default  {
                     text: 'Okay',
                     handler: () => {
                         const index = Decks.findIndex( e=> e.id == this.deckId);
-                        console.log(index);
                         if(index < 0)
                             return;
 
@@ -266,8 +265,6 @@ export default  {
                         if(this.deck == Global.currentDeck)
                             Global.currentDeck = Decks.length > 0? Decks[0] : null;
 
-
-                        console.log(Global.currentDeck);
                         this.back();                    
                         },
                     },

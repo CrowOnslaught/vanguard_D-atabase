@@ -7,7 +7,9 @@
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import $ from "jquery";
+// import $ from "jquery";
+// import Global from './shared/services/Global';
+// import fs from 'fs';
 
 export default defineComponent({
   name: 'App',
@@ -15,19 +17,65 @@ export default defineComponent({
     IonApp,
     IonRouterOutlet,
   },
-  mounted()
-  {
-    console.log("aa");
-      $.getJSON("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json", (data) => {
-        console.log(data.cards);
-      console.log("data");
-    }).then( d => 
-    {
-      console.log("d");
-      console.log(d);
-    });
-      console.log("ddd");
-  }
+  // mounted()
+  // {
+  //   this.checkCardsVersion();
+  // },
+  // methods:
+  // {
+  //   async checkCardsVersion()
+  //   {
+  //     await $.getJSON("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json")
+  //     .then(data => 
+  //     {
+  //       console.log(data.version);
+  //       const cloudVersion = data.version.split('.');
+  //       const localVersion = Global.cardsVersion.split('.');
+  //       if(this.checkVersionHigher(cloudVersion, localVersion))
+  //       {
+  //         // const json = JSON.stringify(data);
+
+  //       } 
+      
+  //     }).catch(err =>
+  //     {
+  //       console.log(err);
+  //     });
+  //   },
+  //   checkVersionHigher(a: string[],b: string[])
+  //   {
+  //     if(a[0] > b[0])
+  //       return true;
+  //     else if(a[0] < b[0])
+  //       return false;
+  //     else
+  //     {
+  //       if(a[1] > b[1])
+  //         return true;
+  //       else if(a[1] < b[1])
+  //         return false;
+  //       else
+  //       {
+  //         if(a[2] > b[2])
+  //           return true;
+  //         else if(a[2] < b[2])
+  //           return false;
+  //         else
+  //         {
+  //           if(a[3] > b[3])
+  //             return true;
+  //           else if(a[3] < b[3])
+  //             return false;
+  //           else
+  //           {
+  //             return false;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
+  
 });
 </script>
 

@@ -6,7 +6,7 @@
             </ion-item>
             <ion-item class="item">
                 <ion-input 
-                    ref="nameInput"
+                    v-model="nameInput"
                     placeholder="Name" 
                     class="selInput" 
                     @input='onNameSelect($event.target.value)'></ion-input>
@@ -14,7 +14,7 @@
             </ion-item>
             <ion-item class="item">
                 <ion-input 
-                ref="skillInput"
+                v-model="skillInput"
                 placeholder="Skill" 
                 class="selInput" 
                 @input='onSkillSelect($event.target.value)'></ion-input>
@@ -58,7 +58,7 @@
             </ion-item>
             <ion-item class="item">
                 <ion-input 
-                ref="powerInput"
+                v-model="powerInput"
                 placeholder="Power" 
                 type="number"
                 class="selInput" 
@@ -67,7 +67,7 @@
             </ion-item>
             <ion-item class="item">
                 <ion-input 
-                ref="shieldInput"
+                v-model="shieldInput"
                 placeholder="Shield" 
                 type="number"
                 class="selInput" 
@@ -94,7 +94,7 @@
             </ion-item>           
             <ion-item class="item">
                 <ion-input 
-                ref="raceInput"
+                v-model="raceInput"
                 placeholder="Race" 
                 class="selInput" 
                 @input='onRaceSelect($event.target.value)'></ion-input>
@@ -178,8 +178,8 @@
 
 <script>
 import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput } from '@ionic/vue';
-import Global from '../../shared/services/Global'
-import Filters from '../../shared/services/Filters'
+import Global from '../../shared/services/Global';
+import Filters from '../../shared/services/Filters';
 
 export default  {
     name: 'Filters',
@@ -194,6 +194,12 @@ export default  {
             types: Global.types,
             triggers: Global.triggers,
             grades: Global.grades,
+
+            nameInput: '',
+            skillInput: '',
+            raceInput: '',
+            powerInput: '',
+            shieldInput: '',
 
             nationInput: Global.nations,
             gradeInput: Global.grades,
@@ -294,28 +300,27 @@ export default  {
         {
             if(value == 'name' || value== 'default')
             {
-                console.log(this.$refs);
-                this.$refs["nameInput"].value = '';
+                this.nameInput = '';
                 this.onNameSelect('');
             }
             if(value == 'skill' || value== 'default')
             {
-                this.$refs["skillInput"].value = '';
+                this.skillInput = '';
                 this.onSkillSelect('');
             }
             if(value == 'power' || value== 'default')
             {
-                this.$refs["powerInput"].value = '';
+                this.powerInput = '';
                 this.onPowerSelect('');
             }
             if(value == 'shield' || value== 'default')
             {
-                this.$refs["shieldInput"].value = '';
+                this.shieldInput = '';
                 this.onShieldSelect('');
             }
             if(value == 'race' || value== 'default')
             {
-                this.$refs["raceInput"].value = '';
+                this.raceInput = '';
                 this.onRaceSelect('');
             }
 
