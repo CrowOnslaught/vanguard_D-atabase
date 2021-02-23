@@ -29,7 +29,7 @@ export default {
     data()
     {
         return{
-            nations: Global.nations,
+            nations: Global.nations.splice(0,Global.nations.length-1),
             selectedName: '',
             selectedNation: ''
         }

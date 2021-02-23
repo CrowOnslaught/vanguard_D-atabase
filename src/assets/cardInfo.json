@@ -188,6 +188,57 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
+        },
+        {
+            "id" : "11",
+            "name" : "Blaze Maiden, Reiyu",
+            "skill" : "[AUTO]:When this unit is rode upon by \"Chakrabarthi Divine Dragon, Nirvana\", COST [Soul Blast (1)], search your deck for up to one \"Vairina\", reveal it and put it into your hand, and shuffle your deck.<br>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Dragon Empire",
+            "race" : "Human",
+            "sets" : ["D-SD01"],
+            "keywords" : ["None"],
+            "image" : "@/assets/cardImages/11.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "12",
+            "name" : "Iron Ball Dragon, Ankybowler",
+            "skill" : "",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dragon Empire",
+            "race" : "Dinodragon",
+            "sets" : ["D-SD01"],
+            "keywords" : ["None"],
+            "image" : "@/assets/cardImages/12.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "13",
+            "name" : "Spiritual King of Determination, Olbaria",
+            "skill" : "(You may only have one [Over] trigger in a deck. When revealed as a trigger, remove that card, draw a card, choose one of your units, and it gets [Power]+100 Million until end of turn! If revealed during drive check, activate its additional effect!)<br>Additional Effect-Choose one of your units, and it gets [Power]+100 Million until end of turn!",
+            "grade" : 0,
+            "power" : 5000,
+            "shield" : 50000,
+            "ability" : "Boost",
+            "nation" : "All",
+            "race" : "Elemental",
+            "sets" : ["D-SD01","D-SD02","D-SD03","D-SD04","D-SD05"],
+            "keywords" : ["None"],
+            "image" : "@/assets/cardImages/10.png",
+            "type" : "Trigger Unit",
+            "critical" : 1,
+            "trigger" : "Over"
         }
     ],
     "nations": 
@@ -197,7 +248,8 @@
         "Dark States",
         "Stoichea",
         "Brandt Gate",
-        "Lyrical Monasterio"
+        "Lyrical Monasterio",
+        "All"
     ],
     "abilities":
     [
@@ -213,6 +265,8 @@
         "Flame Dragon",
         "Abyss Dragon",
         "Demon",
+        "Dinodragon",
+        "Elemental",
         "None"
     ],
     "types": 
@@ -220,7 +274,7 @@
         "Normal Unit",
         "Trigger Unit",
         "Normal Order",
-        "Blitz order",
+        "Blitz Order",
         "Token"
     ],
     "triggers":
@@ -236,6 +290,9 @@
     [
         "D-SD01",
         "D-SD02",
+        "D-SD03",
+        "D-SD04",
+        "D-SD05",
         "D-BT01"
     ],
     "keywords":

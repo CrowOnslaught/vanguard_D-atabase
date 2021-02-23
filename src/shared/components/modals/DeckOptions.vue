@@ -19,7 +19,7 @@
     </ion-item>
 </template>
 
-<script lang='ts'>
+<script>
 
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
@@ -27,8 +27,6 @@ import { useRouter } from 'vue-router';
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
-
-import Deck from '@/shared/models/Deck';
 
 export default {
     name:'DeckOptions',
@@ -77,7 +75,7 @@ export default {
             .then(text => {
                 try
                 {
-                    const t = JSON.parse(text) as Deck;
+                    const t = JSON.parse(text);
 
                           //createID
                     let currentId = 0;
