@@ -133,6 +133,9 @@ export default  {
                 component: DeckOptions,
                 cssClass: 'small-modal-optionDeck',
                 enableBackdropDismiss: true,
+                componentProps: {
+                    deck: this.deck
+                },
             });
 
             await modal.present();
@@ -167,7 +170,7 @@ export default  {
                 case "Dark States":
                     result = images('./DS.png');
                     break;
-                case "Stoichea":
+                case "Stoicheia":
                     result = images('./S.png');
                     break;
                 case "Brandt Gate":
@@ -194,7 +197,7 @@ export default  {
                 case "Dark States":
                     result += "DarkBlue;";
                     break;
-                case "Stoichea":
+                case "Stoicheia":
                     result += "DarkGreen;";
                     break;
                 case "Brandt Gate":

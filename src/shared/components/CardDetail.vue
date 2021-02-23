@@ -74,7 +74,7 @@ export default defineComponent({
                 case "Dark States":
                     result += "DarkBlue;";
                     break;
-                case "Stoichea":
+                case "Stoicheia":
                     result += "DarkGreen;";
                     break;
                 case "Brandt Gate":

@@ -102,7 +102,7 @@ export default  {
             case "Dark States":
                 result = images('./DS.png');
                 break;
-            case "Stoichea":
+            case "Stoicheia":
                 result = images('./S.png');
                 break;
             case "Brandt Gate":
