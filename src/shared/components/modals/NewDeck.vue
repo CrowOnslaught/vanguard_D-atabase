@@ -29,10 +29,14 @@ export default {
     data()
     {
         return{
-            nations: Global.nations.splice(0,Global.nations.length-1),
+            nations: [...Global.nations],
             selectedName: '',
             selectedNation: ''
         }
+    },
+    mounted()
+    {
+        this.nations.splice(0,this.nations.length-1);
     },
     methods:
     {

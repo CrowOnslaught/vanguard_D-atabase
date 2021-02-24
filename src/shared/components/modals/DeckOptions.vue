@@ -24,10 +24,8 @@
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
-import { saveAs } from "file-saver";
 import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
 import { PDFDocument } from 'pdf-lib'
-
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -35,9 +33,10 @@ import Decks from '@/shared/services/Decks';
 export default {
     name:'DeckOptions',
     components: { IonItem, IonButton},
-    setup() {
-      const router = useRouter();
-      return { router };
+    setup() 
+    {
+        const router = useRouter();
+        return { router };
     },
     props:
     {
@@ -155,10 +154,8 @@ export default {
                                 children: [new Paragraph(image)],
                             }))
                     tablerowIndex++;
-                    console.log('index: ' + tablerowIndex, 'card: ' + cs.cardId);
                     if(tablerowIndex == 3 || (index == this.deck.decklist.length-1 && i==cs.amount-1))
                     {
-                        console.log('printRow');
                         tablerowArray.push(new TableRow({
                             children:tableCellArray
                         }));
@@ -166,7 +163,6 @@ export default {
                         tablerowIndex =0;
                         imageArray = [];
                         tableCellArray = [];
-                        console.log(tablerowArray);
                     }
                 }
             }
@@ -177,32 +173,51 @@ export default {
                 rows: tablerowArray
             });
 
-            console.log(table);
-
             doc.addSection({
             margins: { top: 0, right: 200, bottom: 0, left: 1000, },
             children: [table]
             });
 
+
             Packer.toBlob(doc).then(blob => {
-            saveAs(blob, `${this.deck.name}_proxyDeck.docx`);
-            console.log("Document created successfully");
+            // eslint-disable-next-line no-undef
+            // download(blob, `${this.deck.name}_proxyDeck.docx`, "application/docx");
+
+            console.log('starting download');
+            const link = document.createElement("a");
+
+            link.download =  `${this.deck.nation}_proxyDeck.docx`;
+            const url = window.URL.createObjectURL(blob);
+
+            link.href = url;
+            link.click();
+
+            console.log('ending download');
+
+            window.alert("Document created ");
+            })
+            .catch(err => 
+            {
+                window.alert(err);
             });
+
+
         },
+        // getPdf()
+        // {
+        //     const images = require.context('@/assets/', false, /\.pdf$/);
+        //     return images('./decklist.pdf');
+        // },
         async generateDecklist()
         {
             const formUrl = 'https://en.bushiroad.com/wp/wp-content/uploads/Deck-Registration-VG-w-consent-2018.pdf?fbclid=IwAR3SIh1uSeC23zc2LFmROWy3oVPFaUKlHCqdcjyEMblF__KjU-EqdHMWyEE';
+            // const formUrl = PdfFile;
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer()).catch(window.alert('Something failed. Maybe you need Internet conection'));
 
             const pdfDoc = await PDFDocument.load(formPdfBytes);
             const form = pdfDoc.getForm();
 
             const formFields = form.getFields()
-
-            for(const f of formFields)
-            {
-                console.log(f.getName());
-            }
 
             //Deck Name & Nation
             form.getTextField('Deck NameRow1').setText(this.deck.name);
