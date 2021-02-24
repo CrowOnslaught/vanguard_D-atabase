@@ -201,18 +201,16 @@ export default {
                 window.alert(err);
             });
 
+            modalController.dismiss();
 
         },
-        // getPdf()
-        // {
-        //     const images = require.context('@/assets/', false, /\.pdf$/);
-        //     return images('./decklist.pdf');
-        // },
         async generateDecklist()
         {
-            const formUrl = 'https://en.bushiroad.com/wp/wp-content/uploads/Deck-Registration-VG-w-consent-2018.pdf?fbclid=IwAR3SIh1uSeC23zc2LFmROWy3oVPFaUKlHCqdcjyEMblF__KjU-EqdHMWyEE';
-            // const formUrl = PdfFile;
-            const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer()).catch(window.alert('Something failed. Maybe you need Internet conection'));
+            // const formUrl = 'https://en.bushiroad.com/wp/wp-content/uploads/Deck-Registration-VG-w-consent-2018.pdf?fbclid=IwAR3SIh1uSeC23zc2LFmROWy3oVPFaUKlHCqdcjyEMblF__KjU-EqdHMWyEE';
+            // const file = await fetch('../../../assets/decklist.pdf')
+            const formUrl=('../../../assets/decklist.pdf');
+
+            const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
 
             const pdfDoc = await PDFDocument.load(formPdfBytes);
             const form = pdfDoc.getForm();
@@ -266,14 +264,11 @@ export default {
             }
 
 
-
-
-
-
-
             const pdfBytes = await pdfDoc.save();
             // eslint-disable-next-line no-undef
             download(pdfBytes, `${this.deck.name}_decklist.pdf`, "application/pdf");
+
+            modalController.dismiss();
         }
     }
 
