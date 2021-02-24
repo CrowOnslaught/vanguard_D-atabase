@@ -118,6 +118,7 @@ export default  {
   }
 
 }
+
 </script>
 
 <style scoped>
@@ -142,3 +143,4 @@ export default  {
 }
 
 </style>
+

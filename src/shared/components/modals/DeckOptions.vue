@@ -12,7 +12,7 @@
         <ion-button fill="clear" @click="cancel()"> Generate Decklist (WIP)</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
-        <ion-button fill="clear"  @click="cancel()"> Generate Proxy Deck (WIP)</ion-button>
+        <ion-button fill="clear"  @click="generateProxyDeck()"> Generate Proxy Deck (WIP)</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
         <ion-button fill="clear" class="cancel" @click="cancel()"> Close </ion-button>
@@ -24,6 +24,18 @@
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
+import { saveAs } from "file-saver";
+import {
+  Document,
+  Media,
+  Packer,
+  Paragraph,
+  TableRow,
+  TableCell,
+  Table,
+  BorderStyle,
+  WidthType
+} from "docx";
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -34,6 +46,10 @@ export default {
     setup() {
       const router = useRouter();
       return { router };
+    },
+    props:
+    {
+        deck: null
     },
     methods:
     {
@@ -101,6 +117,74 @@ export default {
             })
             .catch(err => {
                 console.error('Failed to read clipboard contents: ', err);
+            });
+        },
+        getImageRoute(id)
+        {
+            const images = require.context('@/assets/cardImages/', false, /\.png$/);
+            return images('./'+id+'.png');
+        },
+        async generateProxyDeck() 
+        {
+
+            const doc = new Document();
+            let imageArray = [];
+            const tablerowArray = [];
+            let tableCellArray = [];
+            let tablerowIndex = 0;
+
+            for(const cs of this.deck.decklist)
+            {
+                const blob = await fetch(
+                this.getImageRoute(cs.cardId)
+                ).then(r => r.blob());
+                
+                for(let i = 0; i<cs.amount; i++)
+                {
+                    const image = Media.addImage(doc, blob, 222.84, 325.19);
+                    imageArray.push(new Paragraph (image));
+                    tableCellArray.push(new TableCell ({
+                                width: { size: 223, type: WidthType.AUTO }, 
+                                columnWidths: [3350, 3350, 3350], 
+                                borders: 
+                                {
+                                    top: {style: BorderStyle.NONE, size: 0, color: "FFFFFF"},
+                                    bottom: {style: BorderStyle.NONE, size: 0, color: "FFFFFF"},
+                                    left: {style: BorderStyle.NONE, size: 0, color: "FFFFFF"},
+                                    right: {style: BorderStyle.NONE, size: 0, color: "FFFFFF"},
+                                },
+                                children: [new Paragraph(image)],
+                            }))
+                    tablerowIndex++;
+                    console.log('index: ' + tablerowIndex, 'card: ' + cs.cardId);
+                    if(tablerowIndex == 3)
+                    {
+                        tablerowArray.push(new TableRow({
+                            children:tableCellArray
+                        }));
+
+                        tablerowIndex =0;
+                        imageArray = [];
+                        tableCellArray = [];
+                        console.log(tablerowArray);
+                    }
+                }
+            }
+
+
+
+            doc.addSection({
+            margins: { top: 300, right: 200, bottom: 100, left: 500, },
+            children: [new Table({
+                width: { size: 3350, type: WidthType.AUTO }, 
+                columnWidths: [3350, 3350, 3350],
+                rows: tablerowArray
+            })]
+            });
+
+            Packer.toBlob(doc).then(blob => {
+            saveAs(blob, `${this.deck.name}_decklist.docx`);
+            console.log("Document created successfully");
             });
         }
     }

@@ -358,6 +358,23 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
+        },
+        {
+            "id" : "21",
+            "name" : "Sylvan Horned Beast, Dooger",
+            "skill" : "[CONT](RC):If you have four or more other rear-guards, this unit gets [Power]+5000.",           
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Stoicheia",
+            "race" : "High Beast",
+            "sets" : ["D-SD04"],
+            "keywords" : ["None"],
+            "image" : "@/assets/cardImages/21.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
         }
     ],
     "nations": 
