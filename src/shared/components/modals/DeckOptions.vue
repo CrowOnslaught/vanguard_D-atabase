@@ -25,17 +25,7 @@ import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
 import { saveAs } from "file-saver";
-import {
-  Document,
-  Media,
-  Packer,
-  Paragraph,
-  TableRow,
-  TableCell,
-  Table,
-  BorderStyle,
-  WidthType
-} from "docx";
+import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -133,19 +123,20 @@ export default {
             let tableCellArray = [];
             let tablerowIndex = 0;
 
-            for(const cs of this.deck.decklist)
+            for(let index = 0; index<this.deck.decklist.length; index++)
             {
+                const cs = this.deck.decklist[index];
                 const blob = await fetch(
                 this.getImageRoute(cs.cardId)
                 ).then(r => r.blob());
                 
                 for(let i = 0; i<cs.amount; i++)
                 {
-                    const image = Media.addImage(doc, blob, 222.84, 325.19);
+                    const image = Media.addImage(doc, blob, 211.7, 308.93);
                     imageArray.push(new Paragraph (image));
                     tableCellArray.push(new TableCell ({
-                                width: { size: 223, type: WidthType.AUTO }, 
-                                columnWidths: [3350, 3350, 3350], 
+                                width: { size: 212, type: WidthType.AUTO }, 
+                                columnWidths: [3182.5, 3182.5, 3182.5], 
                                 borders: 
                                 {
                                     top: {style: BorderStyle.NONE, size: 0, color: "FFFFFF"},
@@ -157,8 +148,9 @@ export default {
                             }))
                     tablerowIndex++;
                     console.log('index: ' + tablerowIndex, 'card: ' + cs.cardId);
-                    if(tablerowIndex == 3)
+                    if(tablerowIndex == 3 || (index == this.deck.decklist.length-1 && i==cs.amount-1))
                     {
+                        console.log('printRow');
                         tablerowArray.push(new TableRow({
                             children:tableCellArray
                         }));
@@ -171,15 +163,17 @@ export default {
                 }
             }
 
+            const table = new Table({
+                width: { size: 3182.5, type: WidthType.AUTO }, 
+                columnWidths: [3182.5, 3182.5, 3182.5],
+                rows: tablerowArray
+            });
 
+            console.log(table);
 
             doc.addSection({
-            margins: { top: 300, right: 200, bottom: 100, left: 500, },
-            children: [new Table({
-                width: { size: 3350, type: WidthType.AUTO }, 
-                columnWidths: [3350, 3350, 3350],
-                rows: tablerowArray
-            })]
+            margins: { top: 0, right: 200, bottom: 0, left: 1000, },
+            children: [table]
             });
 
             Packer.toBlob(doc).then(blob => {
