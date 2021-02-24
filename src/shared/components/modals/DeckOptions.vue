@@ -1,18 +1,18 @@
 <template>
     <ion-item class="optionDeckItem">
-        <ion-button fill="clear"  @click="copyText()"> Copy deck to Clipboard (WIP)</ion-button>
+        <ion-button fill="clear"  @click="copyText()"> Copy deck to Clipboard</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
-        <ion-button fill="clear"  @click="pasteText()"> Import Deck (WIP)</ion-button>
+        <ion-button fill="clear"  @click="pasteText()"> Import Deck</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
         <ion-button fill="clear" @click="deleteDeck()"> Delete Deck</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
-        <ion-button fill="clear" @click="cancel()"> Generate Decklist (WIP)</ion-button>
+        <ion-button fill="clear" @click="generateDecklist()"> Generate Decklist</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
-        <ion-button fill="clear"  @click="generateProxyDeck()"> Generate Proxy Deck (WIP)</ion-button>
+        <ion-button fill="clear"  @click="generateProxyDeck()"> Generate Proxy Deck</ion-button>
     </ion-item>
     <ion-item class="optionDeckItem">
         <ion-button fill="clear" class="cancel" @click="cancel()"> Close </ion-button>
@@ -26,6 +26,8 @@ import { useRouter } from 'vue-router';
 
 import { saveAs } from "file-saver";
 import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
+import { PDFDocument } from 'pdf-lib'
+
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -40,6 +42,12 @@ export default {
     props:
     {
         deck: null
+    },
+    mounted()
+    {
+        const recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
+        document.head.appendChild(recaptchaScript)
     },
     methods:
     {
@@ -177,9 +185,80 @@ export default {
             });
 
             Packer.toBlob(doc).then(blob => {
-            saveAs(blob, `${this.deck.name}_decklist.docx`);
+            saveAs(blob, `${this.deck.name}_proxyDeck.docx`);
             console.log("Document created successfully");
             });
+        },
+        async generateDecklist()
+        {
+            const formUrl = 'https://en.bushiroad.com/wp/wp-content/uploads/Deck-Registration-VG-w-consent-2018.pdf?fbclid=IwAR3SIh1uSeC23zc2LFmROWy3oVPFaUKlHCqdcjyEMblF__KjU-EqdHMWyEE';
+            const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer()).catch(window.alert('Something failed. Maybe you need Internet conection'));
+
+            const pdfDoc = await PDFDocument.load(formPdfBytes);
+            const form = pdfDoc.getForm();
+
+            const formFields = form.getFields()
+
+            for(const f of formFields)
+            {
+                console.log(f.getName());
+            }
+
+            //Deck Name & Nation
+            form.getTextField('Deck NameRow1').setText(this.deck.name);
+            form.getTextField('ClanRow1').setText(this.deck.nation);
+
+
+            //Test
+            form.getFields()[4].setText(form.getFields()[4].getName());
+
+            for (let i = 0; i<this.deck.decklist.length; i++)
+            {
+                const cs = this.deck.decklist[i];
+                const card = Global.cards.find(e => e.id == cs.cardId);
+
+                //Card Name
+                const mainDeckCard = "Main deck 50 cardsRow" + (i+1);
+                form.getTextField(mainDeckCard).setText(card.name);
+                
+                //Card Grade
+                formFields[16+i].setText(card.grade.toString());
+
+                //Card Amount
+                const mainDeckAmount = "Main deck Qty" + (i+1);
+                form.getTextField(mainDeckAmount).setText(cs.amount.toString());          
+                
+                //Card set (Only if there is only one set)
+                if(card.sets.length ==1)
+                {
+                    const mainDeckSet = 'No.'+ ((i+13)>=15? (i+14) : (i+13));
+                    form.getTextField(mainDeckSet).setText(card.sets[0]);
+                }
+
+                //Card trigger or sentinel
+                let triggerOrSentinel ='';
+                if(card.type == 'Trigger Unit')
+                {
+                    triggerOrSentinel += card.trigger; 
+                }
+                if(card.keywords.includes('Sentinel'))
+                {
+                    triggerOrSentinel += triggerOrSentinel==''? 'Sentinel' : '/Sentinel';
+                }
+                const mainDecktrigger = "Main deck Row" + (i+1);
+                form.getTextField(mainDecktrigger).setText(triggerOrSentinel);
+
+            }
+
+
+
+
+
+
+
+            const pdfBytes = await pdfDoc.save();
+            // eslint-disable-next-line no-undef
+            download(pdfBytes, `${this.deck.name}_decklist.pdf`, "application/pdf");
         }
     }
 
