@@ -36,7 +36,7 @@ export default {
     },
     mounted()
     {
-        this.nations.splice(0,this.nations.length-1);
+        this.nations.splice(this.nations.length-1,1);
     },
     methods:
     {

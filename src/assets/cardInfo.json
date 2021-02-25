@@ -375,6 +375,23 @@
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
+        },
+        {
+            "id" : "22",
+            "name" : "Time-fissuring Fist Colossus",
+            "skill" : "[AUTO]:When this unit is placed on (RC), Soul Charge (1). Then, if you are in \"Final Rush\", COST [Counter Blast (1)], and this unit gets [Power]+15000 until end of turn.",           
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Dark States",
+            "race" : "Gear Colossus",
+            "sets" : ["D-SD02"],
+            "keywords" : ["Final Rush", "Persona Ride"],
+            "image" : "@/assets/cardImages/22.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
         }
     ],
     "nations": 
@@ -407,6 +424,7 @@
         "Elf",
         "Wild Dragon",
         "High Beast",
+        "Gear Colossus",
         "None"
     ],
     "types": 

@@ -24,8 +24,14 @@
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
+import { saveAs } from 'file-saver';
+import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
+const { Filesystem } = Plugins;
+
+
+
 import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
-import { PDFDocument } from 'pdf-lib'
+import { encodeToBase64, PDFDocument } from 'pdf-lib'
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -179,35 +185,73 @@ export default {
             });
 
 
-            Packer.toBlob(doc).then(blob => {
-            // eslint-disable-next-line no-undef
-            // download(blob, `${this.deck.name}_proxyDeck.docx`, "application/docx");
-
-            console.log('starting download');
-            const link = document.createElement("a");
-
-            link.download =  `${this.deck.nation}_proxyDeck.docx`;
-            const url = window.URL.createObjectURL(blob);
-
-            link.href = url;
-            link.click();
-
-            console.log('ending download');
-
-            window.alert("Document created ");
-            })
-            .catch(err => 
+            
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const p = require('platform-detect');
+            /*if(p.browser)
             {
-                window.alert(err);
-            });
+                console.log('browser!');
+                Packer.toBlob(doc).then(blob => 
+                {
+                    // eslint-disable-next-line no-undef
+                    // download(blob, `${this.deck.name}_proxyDeck.docx`, "application/docx");
+
+                    saveAs(blob, `${this.deck.name}_proxyDeck.docx`);
+
+                    window.alert("Document created ");
+                })
+                .catch(err => 
+                {
+                    window.alert(err);
+                });
+
+            }
+            else */if(p.android || p.ios)
+            {
+                console.log('android!');
+
+                Packer.toBlob(doc).then(blob => 
+                {
+
+                    encodeToBase64(blob)
+                        .then( docxbase64 =>
+                        {
+                            Filesystem.writeFile(
+                            {
+                                path: `${this.deck.name}proxylist.docx`,
+                                data: docxbase64,
+                                directory: FilesystemDirectory.Documents,
+                            }).then(writeFileResponse => 
+                                {
+                                    console.log('writeFile success => ', writeFileResponse.uri);
+                                    
+                                    const link = document.createElement("a");
+                                    link.download = `${this.deck.name}proxylist.docx`;
+                                    link.href = writeFileResponse.uri;
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                    window.alert('ProxyList saved in your DOCUMENTS folder');
+
+                                }, error => {
+                                    console.log('writeFile error => ', error);
+                                });
+                        });
+                    
+                    console.log('Generating proxylist');
+
+      
+                });
+            }
+
+
 
             modalController.dismiss();
 
         },
         async generateDecklist()
         {
-            // const formUrl = 'https://en.bushiroad.com/wp/wp-content/uploads/Deck-Registration-VG-w-consent-2018.pdf?fbclid=IwAR3SIh1uSeC23zc2LFmROWy3oVPFaUKlHCqdcjyEMblF__KjU-EqdHMWyEE';
-            // const file = await fetch('../../../assets/decklist.pdf')
             const formUrl=('../../../assets/decklist.pdf');
 
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
@@ -263,13 +307,56 @@ export default {
 
             }
 
-
             const pdfBytes = await pdfDoc.save();
-            // eslint-disable-next-line no-undef
-            download(pdfBytes, `${this.deck.name}_decklist.pdf`, "application/pdf");
+            const pdfBytes64 = await pdfDoc.saveAsBase64();
 
             modalController.dismiss();
-        }
+
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const p = require('platform-detect');
+            if(p.browser)
+            {
+                console.log('browser!');
+                // eslint-disable-next-line no-undef
+                download(pdfBytes, `${this.deck.name}_decklist.pdf`, "application/pdf");
+            }
+            else if(p.android || p.ios)
+            {
+                console.log('android!');
+                            Filesystem.writeFile({
+                path: `${this.deck.name}Decklist.pdf`,
+                data: pdfBytes64,
+                directory: FilesystemDirectory.Documents,
+            }).then(writeFileResponse => {
+                console.log('writeFile success => ', writeFileResponse.uri);
+                
+                const link = document.createElement("a");
+                link.download = `${this.deck.name}decklist.pdf`;
+                link.href = writeFileResponse.uri;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                window.alert('Decklist saved in your DOCUMENTS folder');
+
+                }, error => {
+                    console.log('writeFile error => ', error);
+                });
+            }
+
+        
+
+        },
+        base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const binaryLen = binaryString.length;
+            const bytes = new Uint8Array(binaryLen);
+            for (let i = 0; i < binaryLen; i++) {
+            const ascii = binaryString.charCodeAt(i);
+            bytes[i] = ascii;
+            }
+            return bytes;
+ }
     }
 
 }
