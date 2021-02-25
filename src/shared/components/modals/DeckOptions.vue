@@ -24,6 +24,8 @@
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
+import { Base64 } from '@ionic-native/base64/ngx';
+
 import { saveAs } from 'file-saver';
 import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
 const { Filesystem } = Plugins;
@@ -31,7 +33,7 @@ const { Filesystem } = Plugins;
 
 
 import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
-import { encodeToBase64, PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib'
 
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
@@ -188,7 +190,7 @@ export default {
             
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             const p = require('platform-detect');
-            /*if(p.browser)
+            if(p.browser)
             {
                 console.log('browser!');
                 Packer.toBlob(doc).then(blob => 
@@ -206,43 +208,37 @@ export default {
                 });
 
             }
-            else */if(p.android || p.ios)
+            else if(p.android || p.ios)
             {
                 console.log('android!');
+                
+                Packer.toBase64String(doc)
+                    .then(docBase64 =>
+                    {
 
-                Packer.toBlob(doc).then(blob => 
-                {
-
-                    encodeToBase64(blob)
-                        .then( docxbase64 =>
+                        Filesystem.writeFile(
                         {
-                            Filesystem.writeFile(
+                            path: `${this.deck.name}proxyDeck.docx`,
+                            data: docBase64,
+                            directory: FilesystemDirectory.Documents,
+                        }).then(writeFileResponse => 
                             {
-                                path: `${this.deck.name}proxylist.docx`,
-                                data: docxbase64,
-                                directory: FilesystemDirectory.Documents,
-                            }).then(writeFileResponse => 
-                                {
-                                    console.log('writeFile success => ', writeFileResponse.uri);
-                                    
-                                    const link = document.createElement("a");
-                                    link.download = `${this.deck.name}proxylist.docx`;
-                                    link.href = writeFileResponse.uri;
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
+                                console.log('writeFile success => ', writeFileResponse.uri);
+                                
+                                const link = document.createElement("a");
+                                link.download = `${this.deck.name}proxyDeck.docx`;
+                                link.href = writeFileResponse.uri;
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
 
-                                    window.alert('ProxyList saved in your DOCUMENTS folder');
+                                window.alert('ProxyList saved in your DOCUMENTS folder');
 
-                                }, error => {
-                                    console.log('writeFile error => ', error);
-                                });
-                        });
-                    
-                    console.log('Generating proxylist');
-
-      
-                });
+                            }, error => {
+                                console.log('writeFile error => ', error);
+                            });
+                    })
+                    .catch(err => console.log(err));
             }
 
 
