@@ -1,4 +1,4 @@
-# vanguard_D-atabase
+# vanguar[D]ecks
 
 ## Ionic commands for android build
 

@@ -3,7 +3,7 @@
         <ion-header >
         <ion-toolbar :style="getNationColor(deck.nation)">
                 <ion-buttons slot="start">
-                    <ion-back-button :disabled="backDisabled" @click="back()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
+                    <ion-back-button @click="back()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
                 </ion-buttons>   
                 <ion-title>{{deck?.name}}</ion-title>
                 <ion-buttons slot='end'>
@@ -11,6 +11,37 @@
                     <img class='nationImage' :src="getNationImage(deck.nation)" :alt="deck.nation">
                 </ion-buttons> 
         </ion-toolbar>
+        </ion-header>
+        <ion-header>
+                        <ion-item>
+                <div class="deckStats">
+                <div class="deckStatItem">
+                    <h4>G0:</h4>
+                    <p>{{grades0}}</p>
+                </div>
+                <div class="deckStatItem">
+                    <h4>G1:</h4>
+                    <p>{{grades1}}</p>
+                </div>
+                <div class="deckStatItem">
+                    <h4>G2:</h4>
+                    <p>{{grades2}}</p>
+                </div>
+                <div class="deckStatItem">
+                    <h4>G3:</h4>
+                    <p>{{grades3}}</p>
+                </div>
+                <div class="deckStatItem">
+                    <h4>Sentinels:</h4>
+                    <p>{{sentinels}}/4</p>
+                </div>
+                <div class="deckStatItem">
+                    <h4>Triggers:</h4>
+                    <p>{{triggers}}/16</p>
+                    <p>{{heals}}/4</p>
+                </div>
+                </div>
+            </ion-item>
         </ion-header>
         <ion-content >
             <ion-grid>
@@ -36,7 +67,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController, alertController  } from '@ionic/vue';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController, alertController  } from '@ionic/vue';
 import { chevronBack, ellipsisVertical } from 'ionicons/icons';
 
 import Decks from "../services/Decks";
@@ -53,7 +84,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton,  },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton,  },
     setup() {
         return {
             chevronBack, ellipsisVertical
@@ -67,14 +98,20 @@ export default  {
             cards: [],
             deckAmount: 0,
 
+            grades0:0,
+            grades1:0,
+            grades2:0,
+            grades3:0,
+            sentinels:0,
+            triggers:0,
+            heals:0,
+
             modalOpen: false,
-            backDisabled: false,
         }
     },
     mounted()
     {
         this.deck = Decks.find(e => e.id == this.deckId); 
-        this.backDisabled = false;
     
         this.deck.decklist.forEach((e) => {
             const ci = Global.cards.find(r => r.id == e.cardId);
@@ -92,19 +129,97 @@ export default  {
     },
     methods:
     {
+        sortByGrade( a, b ) 
+        {
+            //By grade            
+            if ( a.grade > b.grade ){
+                return -1;
+            }
+            if ( a.grade < b.grade ){
+                return 1;
+            }
+
+            //By power            
+            if ( a.power > b.power ){
+                return -1;
+            }
+            if ( a.power < b.power ){
+                return 1;
+            }
+
+            //By Unit type            
+            if ( a.type == "Normal Unit" && b.type != "Normal Unit" ){
+                return -1;
+            }
+            if ( a.type != "Normal Unit" && b.type == "Normal Unit" ){
+                return 1;
+            }
+
+            //Sort by trigger Tipe
+            if ( a.type == "Trigger Unit" && a.type == "Trigger Unit" ){
+                if(a.trigger == 'Over' && (b.trigger != 'Over'))
+                    return -1
+                if(a.trigger == 'Critical' && (b.trigger != 'Over' && b.trigger != 'Critical'))
+                    return -1
+                if(a.trigger == 'Front'  && (b.trigger != 'Over' && b.trigger != 'Critical' && b.trigger != 'Front'))
+                    return -1
+                if(a.trigger == 'Draw' && (b.trigger != 'Over' && b.trigger != 'Critical' && b.trigger != 'Front') && b.trigger != 'Draw')
+                    return -1
+                if(a.trigger == 'Heal')
+                    return 1
+            }
+
+            //Sort by amount
+            if(a.amount != undefined && b.amount != undefined)
+            {
+                if(a.amount > b.amount)
+                    return -1;
+                if(a.amount < b.amount)
+                    return 1;
+            }
+
+        },
         reload()
         {
             this.deckAmount = 0;
             this.cards = [];
 
+            this.grades0=0;
+            this.grades1=0;
+            this.grades2=0;
+            this.grades3=0;
+            this.sentinels=0;
+            this.triggers=0;
+            this.heals=0;
+
+
             this.deck.decklist.forEach((e) => {
                 const ci = Global.cards.find(r => r.id == e.cardId);
+                ci.amount = e.amount;
                 this.cards.push(ci);
+
+                if(ci.grade == 0)
+                    this.grades0+= e.amount;
+                else if (ci.grade == 1)
+                    this.grades1+= e.amount;
+                else if (ci.grade == 2)
+                    this.grades2+= e.amount;
+                else if (ci.grade == 3)
+                    this.grades3+= e.amount;
+
+                if((ci.trigger != 'None'))
+                {
+                    this.triggers+= e.amount;
+                    if(ci.trigger == 'Heal')
+                        this.heals+= e.amount;
+                }
+                if(ci.keywords.includes('Sentinel'))
+                    this.sentinels += e.amount;
 
                 this.deckAmount+= e.amount;
             });
 
-
+            this.cards = this.cards.sort(this.sortByGrade);
 
             this.$forceUpdate();
         },
@@ -164,7 +279,7 @@ export default  {
                 case "Dragon Empire":
                     result = images('./DE.png');
                     break;
-                case "Ketter Sanctuary":
+                case "Keter Sanctuary":
                     result = images('./KS.png');
                     break;
                 case "Dark States":
@@ -191,7 +306,7 @@ export default  {
                 case "Dragon Empire":
                     result += "DarkRed;";
                     break;
-                case "Ketter Sanctuary":
+                case "Keter Sanctuary":
                     result += "DarkGoldenRod;";
                     break;
                 case "Dark States":
@@ -239,7 +354,6 @@ export default  {
         },
         back()
         {
-            this.backDisabled = true;
             this.$router.back();
         },
         async deleteDeck()
@@ -391,8 +505,44 @@ export default  {
 <style scoped>
 .noCards
 {
-  margin-top: 80%;
-  text-align: center;
+    margin-top: 80%;
+    text-align: center;
+}
+
+.deckStats
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.deckStatItem
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 50px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+.deckStatItem:not(:last-child)
+{
+    border-right: 1px solid gray;
+}
+
+.deckStatItem>p, .deckStatItem>h3, .deckStatItem>h4
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 ion-col

@@ -9,7 +9,7 @@
             </ion-toolbar>
         </ion-header>
 
-        <ion-content>
+        <ion-content id="background">
             <div class = 'cardDetail'>
                 <img class ='imgDetail' style="margin: auto" :src ="getImageRoute(card.id)">
                 <h3 class="titleDetail">{{card.name}}</h3>
@@ -68,7 +68,7 @@ export default defineComponent({
                 case "Dragon Empire":
                     result += "DarkRed;";
                     break;
-                case "Ketter Sanctuary":
+                case "Keter Sanctuary":
                     result += "DarkGoldenRod;";
                     break;
                 case "Dark States":
@@ -119,6 +119,7 @@ export default defineComponent({
 </script>
 
 <style>
+
 ion-title
 {
     font-size: 20px;
@@ -176,6 +177,9 @@ ion-title
 }
 
 .cardDetail{
+
+    background-color:  transparent;
+
     display: flex;
     flex-direction: column;
     justify-content: center;

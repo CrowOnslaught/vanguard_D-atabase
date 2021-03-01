@@ -1,5 +1,5 @@
 {
-  "name": "vanguard-Database",
+  "name": "vanguar(D)ecks",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "resources": "capacitor-resources -p android,ios"
   },
   "dependencies": {
     "@angular/core": "^11.2.3",
@@ -23,6 +24,7 @@
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
     "axios": "^0.21.1",
+    "capacitor-resources": "^2.0.5",
     "com-badrit-base64": "^0.2.0",
     "cordova-plugin-advanced-http": "^3.1.0",
     "cordova-plugin-android-permissions": "^1.1.2",

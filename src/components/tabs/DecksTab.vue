@@ -1,8 +1,8 @@
 <template>
   <ion-page>
-    <ion-content >
-    <ion-list>
-      <ion-item v-for="d in decks" :key="d" @click="OpenDeck(d)" >
+    <ion-content   >
+    <ion-list class="itemDeckTab">
+      <ion-item class="itemDeckTab" v-for="d in decks" :key="d" @click="OpenDeck(d)"  >
         <h2>{{d.name}}</h2>
         <img slot="end" class="nationImage" :src="getNationImage(d.nation)" :alt="d.nation">
       </ion-item>
@@ -96,7 +96,7 @@ export default  {
             case "Dragon Empire":
                 result = images('./DE.png');
                 break;
-            case "Ketter Sanctuary":
+            case "Keter Sanctuary":
                 result = images('./KS.png');
                 break;
             case "Dark States":
@@ -140,6 +140,12 @@ export default  {
     height: 50px;
 
   --ionicon-stroke-width: 100px;
+}
+
+ion-list, ion-item
+{
+  background-color: rgba(255, 0, 0, 0);
+  --background: transparent;
 }
 
 </style>

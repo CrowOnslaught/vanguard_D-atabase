@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "vanguard-Database",
+  "appId": "io.ionic.vanguardecks",
+  "appName": "vanguar[D]ecks",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",

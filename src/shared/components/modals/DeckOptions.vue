@@ -24,8 +24,6 @@
 import { IonItem, IonButton, modalController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
-import { Base64 } from '@ionic-native/base64/ngx';
-
 import { saveAs } from 'file-saver';
 import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
 const { Filesystem } = Plugins;
@@ -122,6 +120,7 @@ export default {
             })
             .catch(err => {
                 console.error('Failed to read clipboard contents: ', err);
+                window.alert('Failed reading clipboard content')
             });
         },
         getImageRoute(id)
@@ -236,9 +235,15 @@ export default {
 
                             }, error => {
                                 console.log('writeFile error => ', error);
+                                window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
+
                             });
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => 
+                    {
+                        console.log(err);
+                        window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
+                    });
             }
 
 
@@ -336,6 +341,7 @@ export default {
                 window.alert('Decklist saved in your DOCUMENTS folder');
 
                 }, error => {
+                    window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
                     console.log('writeFile error => ', error);
                 });
             }

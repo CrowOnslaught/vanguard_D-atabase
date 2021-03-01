@@ -4,7 +4,7 @@
       <ion-toolbar>
         <div id='toolbar'>
           <img id='logo' src="../assets/VGD_logo.png"/>
-          <ion-title>Vanguard [D]atabase</ion-title>
+          <ion-title>Vanguar[D]ecks</ion-title>
         </div>
       </ion-toolbar>
     </ion-header>

@@ -79,11 +79,11 @@ export default  {
           },
         });
       modal.present();
-      const {data} = await modal.onWillDismiss();
-      if(data != null)
-        setTimeout(() => {
-          this.modalOpen = false;
-        }, (500));
+      
+      await modal.onWillDismiss();
+      setTimeout(() => {
+        this.modalOpen = false;
+      }, (500));
 
     },
   },

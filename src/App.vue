@@ -86,6 +86,11 @@ ion-app
   margin: auto;
 }
 
+ion-content{
+
+    --background: black url('../resources/splash.png') no-repeat center center /cover;
+}
+
 .small-modal-newDeck .modal-wrapper
 {
 
