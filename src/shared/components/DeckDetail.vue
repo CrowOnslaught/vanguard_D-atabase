@@ -129,7 +129,7 @@ export default  {
     },
     methods:
     {
-        sortByGrade( a, b ) 
+        sortDeck( a, b ) 
         {
             //By grade            
             if ( a.grade > b.grade ){
@@ -178,6 +178,14 @@ export default  {
                     return 1;
             }
 
+            //sort by id
+            if(a.id < b.id)
+                return -1;
+
+            if(a.id > b.id)
+                return 1;
+
+
         },
         reload()
         {
@@ -219,7 +227,7 @@ export default  {
                 this.deckAmount+= e.amount;
             });
 
-            this.cards = this.cards.sort(this.sortByGrade);
+            this.cards = this.cards.sort(this.sortDeck);
 
             this.$forceUpdate();
         },

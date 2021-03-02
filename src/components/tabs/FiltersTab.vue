@@ -365,6 +365,7 @@ export default  {
 }
 </script>
 
+
 <style scoped>
 
 .selectValue
@@ -380,7 +381,8 @@ export default  {
 
 .selInput
 {
-    width: 200px;
+    width: 80vw;
+    max-width:  80vw;
 }
 
 .resetAll
@@ -396,12 +398,12 @@ export default  {
 
 .soloButton
 {
-    width: 140px;
+    width: 132px;
 }
 
 ion-input
 {
-    --color:#428cff;
+    --color: var(--ion-color-primary);
     --placeholder-color: white;
 }
 

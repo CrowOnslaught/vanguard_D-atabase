@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <div id='toolbar'>
-          <img id='logo' src="../assets/VGD_logo.png"/>
+          <img id='logo' src="../../resources/icon.png">
           <ion-title>Vanguar[D]ecks</ion-title>
         </div>
       </ion-toolbar>
@@ -64,6 +64,8 @@ export default {
   padding-left: 4px;
   height: 40px;
   width: auto;
+
+  border-radius: 50%;
 
 }
 </style>
