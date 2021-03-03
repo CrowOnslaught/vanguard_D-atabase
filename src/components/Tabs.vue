@@ -31,9 +31,14 @@
   </ion-page>
 </template>
 
-<script lang="ts">
+<script>
 import { IonTitle, IonToolbar, IonHeader, IonContent, IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
 import { layers, cog, reader } from 'ionicons/icons';
+
+import { Plugins } from '@capacitor/core';
+import {  AdSize, AdPosition } from '@capacitor-community/admob';
+const { AdMob } = Plugins;
+
 
 export default {
   name: 'Tabs',
@@ -44,7 +49,37 @@ export default {
       cog, 
       reader,
     }
-  }
+  },
+  data()
+  {
+    return{
+      options: 
+      {
+        adId: 'ca-app-pub-1601725610082442/7473278643',
+        adSize: AdSize.BANNER,
+        position: AdPosition.TOP_CENTER,
+        margin: 0,
+        // isTesting: true
+        // npa: true
+      }
+    }
+  },
+  mounted()
+  {
+       // // Show Banner Ad
+      AdMob.showBanner(this.options);
+
+      // // Subscribe Banner Event Listener
+      AdMob.addListener('onAdLoaded', (info) => {
+        console.log('Banner Ad Loaded', info);
+      });
+
+      // // Get Banner Size
+      AdMob.addListener('onAdSize', (info) => {
+        console.log(info);
+      }); 
+
+  },
 }
 </script>
 

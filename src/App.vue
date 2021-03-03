@@ -7,6 +7,10 @@
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
+
+import { Plugins } from '@capacitor/core';
+const { AdMob } = Plugins;
+
 // import $ from "jquery";
 // import Global from './shared/services/Global';
 // import fs from 'fs';
@@ -17,10 +21,11 @@ export default defineComponent({
     IonApp,
     IonRouterOutlet,
   },
-  // mounted()
-  // {
-  //   this.checkCardsVersion();
-  // },
+  mounted()
+  {
+    AdMob.initialize();
+    // this.checkCardsVersion();
+  },
   // methods:
   // {
   //   async checkCardsVersion()
@@ -84,6 +89,7 @@ ion-app
 {
   max-width: 1000px;
   margin: auto;
+  margin-top: 50px;
 }
 
 ion-content{

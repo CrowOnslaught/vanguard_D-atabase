@@ -28,7 +28,7 @@ import { saveAs } from 'file-saver';
 import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
 const { Filesystem } = Plugins;
 
-
+const { AdMob } = Plugins;
 
 import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderStyle, WidthType } from "docx";
 import { PDFDocument } from 'pdf-lib'
@@ -48,11 +48,24 @@ export default {
     {
         deck: null
     },
+    data()
+    {
+        return{
+            isLoading: false,
+            options: 
+            {
+                adId:  'ca-app-pub-1601725610082442/1372750635',
+                // isTesting: true
+                // npa: true
+            }
+        }
+    },
     mounted()
     {
         const recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
-        document.head.appendChild(recaptchaScript)
+        document.head.appendChild(recaptchaScript);
+        
     },
     methods:
     {
@@ -130,6 +143,11 @@ export default {
         },
         async generateProxyDeck() 
         {
+            await this.prepareReward()
+                .then(window.alert('REWARD VIDEO LOADED'));
+
+            await this.showReward()
+                .then(window.alert('REWARD VIDEO LOADED'));
 
             const doc = new Document();
             let imageArray = [];
@@ -253,6 +271,16 @@ export default {
         },
         async generateDecklist()
         {
+            await this.prepareReward()
+                .then(res => {
+
+                    this.showReward()
+                        .then(res1 => 
+                        console.log('Rewarding', res1));
+                });
+
+            
+
             const formUrl=('../../../assets/decklist.pdf');
 
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
@@ -348,6 +376,25 @@ export default {
 
         
 
+        },
+
+        async prepareReward()
+        {
+            this.isLoading = true;
+            const result = await AdMob.prepareRewardVideoAd(this.options)
+            .catch(e => console.log(e))
+            .finally(() => this.isLoading = false);
+            if (result === undefined) {
+            return;
+            }
+        },
+        async showReward() 
+        {
+            const result = AdMob.showRewardVideoAd()
+            .catch(e => console.log(e));
+            if (result === undefined) {
+            return;
+            }
         },
         base64ToArrayBuffer(base64) {
             const binaryString = window.atob(base64);
