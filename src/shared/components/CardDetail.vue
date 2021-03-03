@@ -102,10 +102,10 @@ export default defineComponent({
             .replaceAll("(RC)", "<span class='tag circle'>(RC)</span>")
             .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>")
 
-            // .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
-            // .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
-            .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon'></img>")
-            .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon'></img>");
+            .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
+            .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
+            .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
+            .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>");
         
         this.cardText = text;
 
@@ -132,9 +132,13 @@ ion-title
     height: 20px !important;
 }
 
+.card
+{
+    margin-bottom: -4px;
+}
+
 .power
 {
-    /* background-image: "../../assets/icons/power.png"; */
     background-color: red;
     background-size: contain;
     background-position: center;
@@ -145,7 +149,7 @@ ion-title
 {
     border-radius: 2px;
     color: white;
-    padding: 1px 4px 1px 4px;
+    padding: 1px 3px 1px 3px;
 }
 
 .act
@@ -165,6 +169,9 @@ ion-title
 .cost
 {
     background-color: black;
+    border: solid white 1px;
+    padding: 1px 2px 1px 2px;
+
 }
 .oneTurn
 {
@@ -194,8 +201,8 @@ ion-title
 }
 #textDetail
 {
-    font-size: 20px;
-    text-align: left; 
+    font-size: 16px;
+    text-align: justify; 
     padding: 0px 30px 20px 30px;
     margin: 0;
 }
@@ -204,6 +211,7 @@ ion-title
     text-align: center; 
     font-weight: bold;
     padding: 20px 30px 0px 30px;
+    font-size: 20px;
     margin: 0;
 }
 .subtitleDetail

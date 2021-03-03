@@ -172,14 +172,21 @@
                 <span v-else-if="triggerInput.length == triggers.length">All selected</span>
                 <span v-else v-for="n in triggerInput" :key="n">{{n}}</span>
             </ion-item>   
+            <ion-item class="item">
+                <ion-button class="selButton resetAll" @click="openCredits()">APP INFO</ion-button>
+            </ion-item>
         </ion-content>
     </ion-page>
 </template>
 
 <script>
-import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput } from '@ionic/vue';
+import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput, modalController } from '@ionic/vue';
+
+import CreditsVue from '@/shared/components/Credits.vue';
+
 import Global from '../../shared/services/Global';
 import Filters from '../../shared/services/Filters';
+
 
 export default  {
     name: 'Filters',
@@ -358,6 +365,15 @@ export default  {
         {
             this.SelectNone('default');
             this.SelectAll('default');
+        },
+        async openCredits()
+        {
+            const modal = await modalController
+                .create({
+                component: CreditsVue,
+                cssClass: 'my-custom-class',
+                });
+            modal.present();
         }
         
     }

@@ -1,0 +1,123 @@
+<template>
+    <ion-page>
+        <ion-header>
+            <ion-toolbar style="--background: #ff4242;">
+                <ion-buttons slot="start">
+                    <ion-back-button @click="closeModal()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
+                </ion-buttons>        
+                <ion-title>Vanguar[D]ecks Info</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">Version {{data.cardsVersion}}</p>
+                    <p class="text">This App's version have {{data.cards.length}} cards from the Standard [D] format from {{data.sets.length}} different sets.</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">Privacy Policy</p>
+                    <p class="text">My free Android application use advertising provided by Google's Admob.<br>Admob's provaco policy is availible at </p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">CREDITS</p>
+                    <p class="text subtitle">Developing & Design:</p>
+                    <p class="text">Jaume Garcia</p>
+                    <p class="text subtitle">Developing Support:</p>
+                    <p class="text">Ignasi Peláez</p>
+                    <p class="text subtitle">Design Support:</p>
+                    <p class="text">María García</p>
+                    <p class="text subtitle">Special thanks to:</p>
+                    <p class="text">Vicente Lozano, David Jurado, <br>Alejandro Nasarre, Over</p>
+                    
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">Contact</p>
+                    <p class="text">If you have fond any bug or problem, or if you have any suggestion, contact me by emailing at <a href="mailto:crowblackclaws@gmail.com">CrowBlackClaws@Gmail.com</a></p>
+                </div>
+            </ion-item>
+        </ion-content>
+    </ion-page>
+</template>
+
+<script lang="ts">
+import { IonBackButton, IonPage, IonHeader, IonContent, IonToolbar, IonTitle, IonButtons, IonItem, modalController } from '@ionic/vue';
+import { chevronBack } from 'ionicons/icons';
+import { defineComponent } from "vue";
+
+import Global from '../services/Global';
+
+export default defineComponent({
+    name: 'Credits',
+    components: { IonBackButton, IonPage, IonHeader, IonToolbar, IonContent, IonButtons, IonItem, IonTitle, },
+    setup() {
+        return {
+        chevronBack
+        }
+    },
+    data()
+    {
+        return{
+            data: Global
+        }
+    },
+    methods:
+    {
+        closeModal() {
+            modalController.dismiss({flag: true});          
+        }
+    },
+    mounted()
+    {
+        console.log('holo');
+    }
+})
+</script>
+
+<style scoped>
+
+ion-title
+{
+    font-size: 20px;
+    font-size: 5vw;
+}
+
+ion-list, ion-item
+{
+  background-color: rgba(255, 0, 0, 0);
+  --background: transparent;
+}
+
+.section
+{
+    width: 100vw;
+    margin-bottom: 20px;
+}
+
+.text
+{
+    margin: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.title
+{
+    font-size: 18px;
+    text-decoration: underline;
+    color: #ff4242;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.subtitle
+{
+    color: darkgoldenrod
+}
+
+</style>

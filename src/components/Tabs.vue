@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <div id='toolbar'>
-          <img id='logo' src="../../resources/icon.png">
+          <img id='logo' src="@/assets/icon.png">
           <ion-title>Vanguar[D]ecks</ion-title>
         </div>
       </ion-toolbar>
