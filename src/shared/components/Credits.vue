@@ -18,7 +18,7 @@
             <ion-item>
                 <div class="section">
                     <p class="text title">Privacy Policy</p>
-                    <p class="text">My free Android application use advertising provided by Google's Admob.<br>Admob's provaco policy is availible at </p>
+                    <p class="text">My free Android application use advertising provided by capacitor-community admob.<br>Community admob's privacy policy is availible at <a href="https://github.com/capacitor-community/admob/blob/master/LICENSE">https://github.com/capacitor-community/admob/blob/master/LICENSE</a></p>
                 </div>
             </ion-item>
             <ion-item>

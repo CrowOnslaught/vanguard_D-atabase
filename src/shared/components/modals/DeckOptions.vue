@@ -1,27 +1,28 @@
 <template>
-    <ion-item class="optionDeckItem">
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear"  @click="copyText()"> Copy deck to Clipboard</ion-button>
     </ion-item>
-    <ion-item class="optionDeckItem">
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear"  @click="pasteText()"> Import Deck</ion-button>
     </ion-item>
-    <ion-item class="optionDeckItem">
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear" @click="deleteDeck()"> Delete Deck</ion-button>
     </ion-item>
-    <ion-item class="optionDeckItem">
-        <ion-button fill="clear" @click="generateDecklist()"> Generate Decklist</ion-button>
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
+        <ion-button fill="clear" @click="prepareReward('decklist')"> Generate Decklist</ion-button>
     </ion-item>
-    <ion-item class="optionDeckItem">
-        <ion-button fill="clear"  @click="generateProxyDeck()"> Generate Proxy Deck</ion-button>
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
+        <ion-button fill="clear"  @click="prepareReward('proxy')"> Generate Proxy Deck</ion-button>
     </ion-item>
-    <ion-item class="optionDeckItem">
+    <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear" class="cancel" @click="cancel()"> Close </ion-button>
     </ion-item>
+    <ion-spinner v-if="isLoadingAdd"></ion-spinner>
 </template>
 
 <script>
 
-import { IonItem, IonButton, modalController } from '@ionic/vue';
+import { IonItem, IonButton, modalController, IonSpinner } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
 import { saveAs } from 'file-saver';
@@ -38,7 +39,7 @@ import Decks from '@/shared/services/Decks';
 
 export default {
     name:'DeckOptions',
-    components: { IonItem, IonButton},
+    components: { IonItem, IonButton, IonSpinner},
     setup() 
     {
         const router = useRouter();
@@ -51,7 +52,7 @@ export default {
     data()
     {
         return{
-            isLoading: false,
+            isLoadingAdd: false,
             options: 
             {
                 adId:  'ca-app-pub-1601725610082442/1372750635',
@@ -65,6 +66,7 @@ export default {
         const recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
         document.head.appendChild(recaptchaScript);
+
         
     },
     methods:
@@ -143,12 +145,6 @@ export default {
         },
         async generateProxyDeck() 
         {
-            await this.prepareReward()
-                .then(window.alert('REWARD VIDEO LOADED'));
-
-            await this.showReward()
-                .then(window.alert('REWARD VIDEO LOADED'));
-
             const doc = new Document();
             let imageArray = [];
             const tablerowArray = [];
@@ -251,6 +247,10 @@ export default {
 
                                 window.alert('ProxyList saved in your DOCUMENTS folder');
 
+                                AdMob.removeAllListeners();
+                                this.isLoadingAdd = false
+                                modalController.dismiss();
+
                             }, error => {
                                 console.log('writeFile error => ', error);
                                 window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
@@ -265,22 +265,9 @@ export default {
             }
 
 
-
-            modalController.dismiss();
-
         },
         async generateDecklist()
         {
-            await this.prepareReward()
-                .then(res => {
-
-                    this.showReward()
-                        .then(res1 => 
-                        console.log('Rewarding', res1));
-                });
-
-            
-
             const formUrl=('../../../assets/decklist.pdf');
 
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
@@ -339,8 +326,6 @@ export default {
             const pdfBytes = await pdfDoc.save();
             const pdfBytes64 = await pdfDoc.saveAsBase64();
 
-            modalController.dismiss();
-
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             const p = require('platform-detect');
             if(p.browser)
@@ -367,6 +352,10 @@ export default {
                 document.body.removeChild(link);
 
                 window.alert('Decklist saved in your DOCUMENTS folder');
+                
+                AdMob.removeAllListeners();
+                this.isLoadingAdd = false;
+                modalController.dismiss();
 
                 }, error => {
                     window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
@@ -374,27 +363,30 @@ export default {
                 });
             }
 
-        
-
         },
 
-        async prepareReward()
+        async prepareReward(reward)
         {
-            this.isLoading = true;
-            const result = await AdMob.prepareRewardVideoAd(this.options)
-            .catch(e => console.log(e))
-            .finally(() => this.isLoading = false);
-            if (result === undefined) {
-            return;
+            this.isLoadingAdd = true;
+            await AdMob.prepareRewardVideoAd(this.options)
+            .catch(e => console.log(e));
+            switch(reward)
+            {
+                case 'decklist':
+                    AdMob.addListener( 'onRewardedVideoAdClosed', (info) => this.generateDecklist());
+
+                    break;
+                case 'proxy':
+                    AdMob.addListener( 'onRewardedVideoAdClosed', (info) => this.generateProxyDeck());
+                    break;
             }
+
+            await this.showReward();
         },
         async showReward() 
         {
-            const result = AdMob.showRewardVideoAd()
-            .catch(e => console.log(e));
-            if (result === undefined) {
-            return;
-            }
+            await AdMob.showRewardVideoAd()
+                .catch(e => console.log(e));
         },
         base64ToArrayBuffer(base64) {
             const binaryString = window.atob(base64);
@@ -418,6 +410,13 @@ export default {
     width: 100%;
 }
 
+ion-spinner
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 40%;
+    color: red;
+}
 
 .optionDeckItem
 {

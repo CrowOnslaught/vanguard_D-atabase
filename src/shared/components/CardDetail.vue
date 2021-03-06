@@ -101,6 +101,7 @@ export default defineComponent({
             .replaceAll("(VC/RC)", "<span class='tag circle'>(VC/RC)</span>")
             .replaceAll("(RC)", "<span class='tag circle'>(RC)</span>")
             .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>")
+            .replaceAll("(RC/GC)", "<span class='tag circle'>(RC/GC)</span>")
 
             .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
             .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")

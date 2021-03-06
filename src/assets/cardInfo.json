@@ -3,6 +3,40 @@
     "cards":
     [
         {
+            "id" : "33",
+            "name" : "Autonomic Caution",
+            "skill" : "[CONT](RC/GC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000/[Shield]+5000.",        
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Brandt Gate",
+            "race" : "Workeroid",
+            "sets" : ["D-SD05"],
+            "keywords" : ["Prison"],
+            "image" : "@/assets/cardImages/33.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "32",
+            "name" : "Platinum Wolf",
+            "skill" : "[ACT](RC):COST [Soul Blast (2)], and this unit gets [Power]+5000 until end of turn.",        
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Keter Sanctuary",
+            "race" : "High Beast",
+            "sets" : ["D-SD03"],
+            "keywords" : [""],
+            "image" : "@/assets/cardImages/32.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "31",
             "name" : "Alert Guard Gunner",
             "skill" : "[AUTO](RC):When this unit's attack hits a vanguard, choose up to two of your opponent's rear-guards, and imprison them in your Prison. <i>(Put them into your Order Zone that has a Prison)</i>",        
@@ -580,6 +614,7 @@
         "Gear Colossus",
         "Bioroid",
         "Battleroid",
+        "Workeroid",
         "None"
     ],
     "types": 
