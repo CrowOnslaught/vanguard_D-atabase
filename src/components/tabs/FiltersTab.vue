@@ -219,7 +219,7 @@ export default  {
     },
     ionViewWillEnter()
     {
-        // console.log('holo');
+        // // console.log('holo');
     },
     methods:
     {

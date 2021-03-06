@@ -130,7 +130,7 @@ export default {
                     this.$router.back();
                 }catch(err)
                 {
-                    console.log(err);
+                    // console.log(err);
                 }
             })
             .catch(err => {
@@ -205,7 +205,7 @@ export default {
             const p = require('platform-detect');
             if(p.browser)
             {
-                console.log('browser!');
+                // console.log('browser!');
                 Packer.toBlob(doc).then(blob => 
                 {
                     // eslint-disable-next-line no-undef
@@ -223,7 +223,7 @@ export default {
             }
             else if(p.android || p.ios)
             {
-                console.log('android!');
+                // console.log('android!');
                 
                 Packer.toBase64String(doc)
                     .then(docBase64 =>
@@ -236,7 +236,7 @@ export default {
                             directory: FilesystemDirectory.Documents,
                         }).then(writeFileResponse => 
                             {
-                                console.log('writeFile success => ', writeFileResponse.uri);
+                                // console.log('writeFile success => ', writeFileResponse.uri);
                                 
                                 const link = document.createElement("a");
                                 link.download = `${this.deck.name}proxyDeck.docx`;
@@ -252,14 +252,14 @@ export default {
                                 modalController.dismiss();
 
                             }, error => {
-                                console.log('writeFile error => ', error);
+                                // console.log('writeFile error => ', error);
                                 window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
 
                             });
                     })
                     .catch(err => 
                     {
-                        console.log(err);
+                        // console.log(err);
                         window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
                     });
             }
@@ -330,19 +330,19 @@ export default {
             const p = require('platform-detect');
             if(p.browser)
             {
-                console.log('browser!');
+                // console.log('browser!');
                 // eslint-disable-next-line no-undef
                 download(pdfBytes, `${this.deck.name}_decklist.pdf`, "application/pdf");
             }
             else if(p.android || p.ios)
             {
-                console.log('android!');
+                // console.log('android!');
                             Filesystem.writeFile({
                 path: `${this.deck.name}Decklist.pdf`,
                 data: pdfBytes64,
                 directory: FilesystemDirectory.Documents,
             }).then(writeFileResponse => {
-                console.log('writeFile success => ', writeFileResponse.uri);
+                // console.log('writeFile success => ', writeFileResponse.uri);
                 
                 const link = document.createElement("a");
                 link.download = `${this.deck.name}decklist.pdf`;
@@ -359,7 +359,7 @@ export default {
 
                 }, error => {
                     window.alert("DOCUMENT CREATION FAILED\n You need to authorize 'Downloads from unknown sources' in your sistem app's configuration\n CONFIG>Applications>Vanguar[D]ecks>unknown sources")
-                    console.log('writeFile error => ', error);
+                    // console.log('writeFile error => ', error);
                 });
             }
 
@@ -369,7 +369,7 @@ export default {
         {
             this.isLoadingAdd = true;
             await AdMob.prepareRewardVideoAd(this.options)
-            .catch(e => console.log(e));
+            //.catch(e => console.log(e));
             switch(reward)
             {
                 case 'decklist':
@@ -386,7 +386,7 @@ export default {
         async showReward() 
         {
             await AdMob.showRewardVideoAd()
-                .catch(e => console.log(e));
+                //.catch(e => console.log(e));
         },
         base64ToArrayBuffer(base64) {
             const binaryString = window.atob(base64);

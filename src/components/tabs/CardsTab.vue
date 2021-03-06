@@ -39,7 +39,7 @@ export default  {
   ionViewWillEnter()
   {
     // this.data = this.BbyNation(Global.cards);
-      // console.log(Filters.nations);
+      // // console.log(Filters.nations);
   },
   methods:
   {
@@ -97,7 +97,7 @@ export default  {
           if(Filters.nations.includes(e.nation))
             return e;
         });
-        // console.log(1, result);
+        // // console.log(1, result);
 
       //by name
       result = result.filter(e => 
@@ -106,7 +106,7 @@ export default  {
           return e;
         });
 
-        // console.log(2, result);
+        // // console.log(2, result);
 
       //by skill
       result = result.filter(e => 
@@ -115,7 +115,7 @@ export default  {
           return e;
         });
 
-        // console.log(3, result);
+        // // console.log(3, result);
 
       //by grades
         result = result.filter(e =>
@@ -123,7 +123,7 @@ export default  {
           if(Filters.grades.includes(e.grade))
           return e;
         });
-        // console.log(4, result);
+        // // console.log(4, result);
 
       //by power
       result = result.filter(e =>
@@ -131,7 +131,7 @@ export default  {
         if(e.power == Filters.power || Filters.power == '')
           return e;
       });
-                // console.log(5, result);
+                // // console.log(5, result);
 
       //by shield
       result = result.filter(e =>
@@ -139,7 +139,7 @@ export default  {
         if(e.shield == Filters.shield || Filters.shield == '')
           return e;
       });
-        // console.log(6, result);
+        // // console.log(6, result);
 
       //by Abilities
       result = result.filter(e =>
@@ -148,7 +148,7 @@ export default  {
           return e;
         });
         
-      // console.log(7, result);
+      // // console.log(7, result);
 
       //by race
       result = result.filter(e => 
@@ -156,7 +156,7 @@ export default  {
           if(e.race.toLowerCase().includes(Filters.race.toLowerCase()))
           return e;
         });
-      // console.log(8, result);
+      // // console.log(8, result);
 
       //by sets
       result = result.filter(e =>
@@ -164,7 +164,7 @@ export default  {
           if(e.sets.some(r=> Filters.sets.indexOf(r) >= 0))
           return e;
         });   
-        // console.log(9, result);
+        // // console.log(9, result);
 
       //by keywords
       result = result.filter(e =>
@@ -172,7 +172,7 @@ export default  {
           if(e.keywords.some(r=> Filters.keywords.indexOf(r) >= 0))
           return e;
         });
-      // console.log(10, result);
+      // // console.log(10, result);
 
       //by Types
         result = result.filter(e =>
@@ -180,7 +180,7 @@ export default  {
           if(Filters.types.includes(e.type))
           return e;
         });
-      // console.log(11, result);
+      // // console.log(11, result);
 
       //by triggers
         result = result.filter(e =>
@@ -188,7 +188,7 @@ export default  {
           if(Filters.trigger.includes(e.trigger))
           return e;
         });
-      // console.log(12, result);
+      // // console.log(12, result);
 
 
       return result;

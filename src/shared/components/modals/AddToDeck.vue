@@ -67,7 +67,7 @@ export default {
             {
                 const cs = {cardId:this.card.id, amount:n};
                 this.currentDeck.decklist.push(cs);
-                console.log(cs, this.currentDeck, Decks);
+                // console.log(cs, this.currentDeck, Decks);
             }
 
             localStorage.setItem('decks', JSON.stringify(Decks));

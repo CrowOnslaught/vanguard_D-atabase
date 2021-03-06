@@ -33,7 +33,7 @@ export default defineComponent({
   //     await $.getJSON("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json")
   //     .then(data => 
   //     {
-  //       console.log(data.version);
+  //       // console.log(data.version);
   //       const cloudVersion = data.version.split('.');
   //       const localVersion = Global.cardsVersion.split('.');
   //       if(this.checkVersionHigher(cloudVersion, localVersion))
@@ -44,7 +44,7 @@ export default defineComponent({
       
   //     }).catch(err =>
   //     {
-  //       console.log(err);
+  //       // console.log(err);
   //     });
   //   },
   //   checkVersionHigher(a: string[],b: string[])

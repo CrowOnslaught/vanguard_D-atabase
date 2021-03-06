@@ -25,7 +25,7 @@
                 <div class="section">
                     <p class="text title">CREDITS</p>
                     <p class="text subtitle">Developing & Design:</p>
-                    <p class="text">Jaume Garcia</p>
+                    <p class="text">Jaume Garcia (Crow Onslaught)</p>
                     <p class="text subtitle">Developing Support:</p>
                     <p class="text">Ignasi Peláez</p>
                     <p class="text subtitle">Design Support:</p>
@@ -33,6 +33,12 @@
                     <p class="text subtitle">Special thanks to:</p>
                     <p class="text">Vicente Lozano, David Jurado, <br>Alejandro Nasarre, Over</p>
                     
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">Donations</p>
+                    <p class="text"> If you liked the application and want to give some support, you can do it through my Ko-fi at <a href="https://ko-fi.com/crowonslaught">www.ko-fi.com/CrowOnslaught</a></p>
                 </div>
             </ion-item>
             <ion-item>
@@ -74,7 +80,7 @@ export default defineComponent({
     },
     mounted()
     {
-        console.log('holo');
+        // console.log('holo');
     }
 })
 </script>

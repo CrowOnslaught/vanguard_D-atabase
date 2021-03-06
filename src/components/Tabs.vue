@@ -71,12 +71,12 @@ export default {
 
       // // Subscribe Banner Event Listener
       AdMob.addListener('onAdLoaded', (info) => {
-        console.log('Banner Ad Loaded', info);
+        // console.log('Banner Ad Loaded', info);
       });
 
       // // Get Banner Size
       AdMob.addListener('onAdSize', (info) => {
-        console.log(info);
+        // console.log(info);
       }); 
 
   },
