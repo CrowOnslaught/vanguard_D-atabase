@@ -53,6 +53,7 @@ export default {
     {
         return{
             isLoadingAdd: false,
+            rewarded: false,
             options: 
             {
                 adId:  'ca-app-pub-1601725610082442/1372750635',
@@ -145,6 +146,13 @@ export default {
         },
         async generateProxyDeck() 
         {
+            if(!this.rewarded)
+            {
+                window.alert('There was an error generating your Document');
+                this.isLoadingAdd = false;
+                return;
+            }
+
             const doc = new Document();
             let imageArray = [];
             const tablerowArray = [];
@@ -248,7 +256,8 @@ export default {
                                 window.alert('ProxyList saved in your DOCUMENTS folder');
 
                                 AdMob.removeAllListeners();
-                                this.isLoadingAdd = false
+                                this.isLoadingAdd = false;
+                                this.rewarded = false;
                                 modalController.dismiss();
 
                             }, error => {
@@ -268,6 +277,13 @@ export default {
         },
         async generateDecklist()
         {
+            if(!this.rewarded)
+            {
+                window.alert('There was an error generating your Decklist');
+                this.isLoadingAdd = false;
+                return;
+            }
+
             const formUrl=('../../../assets/decklist.pdf');
 
             const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
@@ -355,6 +371,7 @@ export default {
                 
                 AdMob.removeAllListeners();
                 this.isLoadingAdd = false;
+                this.rewarded = false;
                 modalController.dismiss();
 
                 }, error => {
@@ -370,6 +387,7 @@ export default {
             this.isLoadingAdd = true;
             await AdMob.prepareRewardVideoAd(this.options)
             //.catch(e => console.log(e));
+            AdMob.addListener( 'onRewarded', (info) => this.rewarded = true);
             switch(reward)
             {
                 case 'decklist':
