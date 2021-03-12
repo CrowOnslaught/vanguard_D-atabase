@@ -3,7 +3,7 @@
         <ion-button fill="clear"  @click="copyText()"> Copy deck to Clipboard</ion-button>
     </ion-item>
     <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
-        <ion-button fill="clear"  @click="pasteText()"> Import Deck</ion-button>
+        <ion-button fill="clear"  @click="openCalc()"> Open Calculator (WIP)</ion-button>
     </ion-item>
     <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear" @click="deleteDeck()"> Delete Deck</ion-button>
@@ -27,7 +27,7 @@ import { useRouter } from 'vue-router';
 
 import { saveAs } from 'file-saver';
 import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
-const { Filesystem } = Plugins;
+const { Filesystem, Clipboard  } = Plugins;
 
 const { AdMob } = Plugins;
 
@@ -104,40 +104,9 @@ export default {
                 modalController.dismiss();
             }
         },
-        pasteText()
+        async openCalc()
         {
-            navigator.clipboard.readText()
-            .then(text => {
-                try
-                {
-                    const t = JSON.parse(text);
-
-                          //createID
-                    let currentId = 0;
-                    let newId = '';
-                    while (newId == '')
-                    {
-                        if(Decks.find(e => e.id == currentId.toString()))
-                        currentId++;
-                        else
-                        newId = currentId.toString();
-                    }
-
-                    t.id = newId;
-                    Decks.push(t);
-                    localStorage.setItem('decks', JSON.stringify(Decks));
-
-                    modalController.dismiss();
-                    this.$router.back();
-                }catch(err)
-                {
-                    // console.log(err);
-                }
-            })
-            .catch(err => {
-                console.error('Failed to read clipboard contents: ', err);
-                window.alert('Failed reading clipboard content')
-            });
+            window.alert('Work in progress!!!');
         },
         getImageRoute(id)
         {

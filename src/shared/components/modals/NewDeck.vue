@@ -12,9 +12,12 @@
                     <ion-select-option v-for="n in nations" :key="n" :value='n'>{{n}}</ion-select-option>
                 </ion-select>
             </ion-item>
-            <ion-item lines="none" class="newDeckItem buttons">
+            <ion-item  class="newDeckItem buttons">
                 <ion-button fill="clear" @click="cancel()"> Cancel</ion-button>
                 <ion-button slot='end' fill="clear" :disabled="selectedNation == '' || selectedName == ''" @click="createDeck()"> Create</ion-button>
+            </ion-item>
+            <ion-item lines="none" class="newDeckItem buttons">
+                <ion-button fill="clear" id='importBot' @click="importDeck()"> Import from Clipboard</ion-button>
             </ion-item>
 </template>
 
@@ -22,6 +25,10 @@
 
 import { IonSelect, IonSelectOption, IonInput, IonItem, IonButton, IonLabel, modalController } from '@ionic/vue';
 import Global from '@/shared/services/Global';
+import Decks from '@/shared/services/Decks';
+
+import { Plugins } from '@capacitor/core'; 
+const { Clipboard  } = Plugins;
 
 export default {
     name:'NewDeck',
@@ -47,6 +54,47 @@ export default {
         cancel()
         {
             modalController.dismiss();
+        },
+        async importDeck()
+        {
+            await Clipboard.read()
+                .then(text => {
+                    try
+                    {
+                        console.log(text);
+                        const t = JSON.parse(text.value);
+                        console.log(t);
+
+                        //createID
+                        let currentId = 0;
+                        let newId = '';
+                        while (newId == '')
+                        {
+                            console.log(newId);
+                            if(Decks.find(e => e.id == currentId.toString()))
+                                currentId++;
+                            else
+                                newId = currentId.toString();
+
+                            
+                        }
+
+                        t.id = newId;
+                        console.log(t);
+                        Decks.push(t);
+                        console.log(Decks);
+                        localStorage.setItem('decks', JSON.stringify(Decks));
+
+                        modalController.dismiss({imported: true});
+                    }catch(err)
+                    {
+                        console.log(err);
+                    }
+                })
+                .catch(err => {
+                    console.error('Failed to read clipboard contents: ', err);
+                    window.alert('Failed reading clipboard content')
+                });
         }
     }
 
@@ -55,11 +103,23 @@ export default {
 
 <style>
 h1{
-    margin: 20px 20px 10px 20px;
+    margin: 20px 0px 10px 0px;
     text-align: center;
     width: 100%;
 }
 
+#import
+{
+    width: 80px;
+}
+
+#importBot
+{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
 .newDeckItem
 {

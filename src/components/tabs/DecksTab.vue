@@ -52,9 +52,16 @@ export default  {
       const {data} = await modal.onWillDismiss();
       
       if(data != null)
-        setTimeout(() => {
-          this.createEmptyDeck(data);
-        }, (500));
+      {
+        if(data.imported)
+          setTimeout(() => {
+            this.$forceUpdate();
+          }, (500));
+        else
+          setTimeout(() => {
+            this.createEmptyDeck(data);
+          }, (500));
+      }
     },
     createEmptyDeck(d)
     {

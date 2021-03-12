@@ -17,12 +17,6 @@
             </ion-item>
             <ion-item>
                 <div class="section">
-                    <p class="text title">Privacy Policy</p>
-                    <p class="text">My free Android application use advertising provided by capacitor-community admob.<br>Community admob's privacy policy is availible at <a href="https://github.com/capacitor-community/admob/blob/master/LICENSE">https://github.com/capacitor-community/admob/blob/master/LICENSE</a></p>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="section">
                     <p class="text title">CREDITS</p>
                     <p class="text subtitle">Developing & Design:</p>
                     <p class="text">Jaume Garcia (Crow Onslaught)</p>
@@ -37,10 +31,22 @@
             </ion-item>
             <ion-item>
                 <div class="section">
+                    <p class="text title">Licence</p>
+                    <p class="text">My free Android application use advertising provided by capacitor-community admob.<br>Community admob's Licence is availible at <a href="https://github.com/capacitor-community/admob/blob/master/LICENSE">https://github.com/capacitor-community/admob/blob/master/LICENSE</a></p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
+                    <p class="text title">Privacy Policy</p>
+                    <p class="text">This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.<br><a href="https://www.privacypolicies.com/live/8f907a7b-25a6-4ec9-9157-bf93b5548ffe">https://www.privacypolicies.com/live/8f907a7b-25a6-4ec9-9157-bf93b5548ffe</a></p>
+                </div>
+            </ion-item>
+            <!-- <ion-item>
+                <div class="section">
                     <p class="text title">Donations</p>
                     <p class="text"> If you liked the application and want to give some support, you can do it through my Ko-fi at <a href="https://ko-fi.com/crowonslaught">www.ko-fi.com/CrowOnslaught</a></p>
                 </div>
-            </ion-item>
+            </ion-item> -->
             <ion-item>
                 <div class="section">
                     <p class="text title">Contact</p>
@@ -121,7 +127,7 @@ ion-list, ion-item
     margin-bottom: 10px;
 }
 
-.subtitle
+.subtitle, a
 {
     color: darkgoldenrod
 }

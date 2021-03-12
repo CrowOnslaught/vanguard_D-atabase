@@ -3,7 +3,7 @@
     <ion-content >
       <ion-grid>
         <ion-row>
-          <ion-col v-for="c in $options.filters.Filter(data)" :key="c.id" size="4">
+          <ion-col v-for="c in data" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c)" @contextmenu="addToDeckModal(c)">
               <img class='cardImage' :src ="getImageRoute(c.id)">
               <div class="cardDetails">
@@ -13,7 +13,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <h3 class='noCards' v-if="$options.filters.Filter(data).length ==0">There are no cards that meet those conditions</h3>
+      <h3 class='noCards' v-if="data.length ==0">There are no cards that meet those conditions</h3>
     </ion-content>
   </ion-page>
 </template>
@@ -38,9 +38,8 @@ export default  {
   },
   ionViewWillEnter()
   {
-    // this.data = this.BbyNation(Global.cards);
-      // // console.log(Filters.nations);
-  },
+      this.data = Filters.Filter(Global.cards);
+   },
   methods:
   {
     async addToDeckModal(c)
@@ -86,113 +85,6 @@ export default  {
       }, (500));
 
     },
-  },
-  filters:
-  {
-    Filter(value)
-    {
-      //by nation
-      let result = value.filter(e =>
-        {
-          if(Filters.nations.includes(e.nation))
-            return e;
-        });
-        // // console.log(1, result);
-
-      //by name
-      result = result.filter(e => 
-        {
-          if(e.name.toLowerCase().includes(Filters.name.toLowerCase()))
-          return e;
-        });
-
-        // // console.log(2, result);
-
-      //by skill
-      result = result.filter(e => 
-        {
-          if(e.skill.toLowerCase().includes(Filters.skill.toLowerCase()))
-          return e;
-        });
-
-        // // console.log(3, result);
-
-      //by grades
-        result = result.filter(e =>
-        {
-          if(Filters.grades.includes(e.grade))
-          return e;
-        });
-        // // console.log(4, result);
-
-      //by power
-      result = result.filter(e =>
-      {
-        if(e.power == Filters.power || Filters.power == '')
-          return e;
-      });
-                // // console.log(5, result);
-
-      //by shield
-      result = result.filter(e =>
-      {
-        if(e.shield == Filters.shield || Filters.shield == '')
-          return e;
-      });
-        // // console.log(6, result);
-
-      //by Abilities
-      result = result.filter(e =>
-        {
-          if(Filters.abilities.includes(e.ability))
-          return e;
-        });
-        
-      // // console.log(7, result);
-
-      //by race
-      result = result.filter(e => 
-        {
-          if(e.race.toLowerCase().includes(Filters.race.toLowerCase()))
-          return e;
-        });
-      // // console.log(8, result);
-
-      //by sets
-      result = result.filter(e =>
-        {
-          if(e.sets.some(r=> Filters.sets.indexOf(r) >= 0))
-          return e;
-        });   
-        // // console.log(9, result);
-
-      //by keywords
-      result = result.filter(e =>
-        {
-          if(e.keywords.some(r=> Filters.keywords.indexOf(r) >= 0))
-          return e;
-        });
-      // // console.log(10, result);
-
-      //by Types
-        result = result.filter(e =>
-        {
-          if(Filters.types.includes(e.type))
-          return e;
-        });
-      // // console.log(11, result);
-
-      //by triggers
-        result = result.filter(e =>
-        {
-          if(Filters.trigger.includes(e.trigger))
-          return e;
-        });
-      // // console.log(12, result);
-
-
-      return result;
-    }
   }
 }
 </script>
