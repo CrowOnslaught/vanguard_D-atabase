@@ -354,9 +354,9 @@ export default  {
                 },
                 });
             modal.present();
-            const {data} = await modal.onWillDismiss();
-            if(data != null)
-                setTimeout(() => {
+
+            await modal.onWillDismiss();
+            setTimeout(() => {
                 this.modalOpen = false;
                 }, (500));
         },
