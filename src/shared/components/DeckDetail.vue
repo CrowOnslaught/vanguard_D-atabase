@@ -13,7 +13,7 @@
         </ion-toolbar>
         </ion-header>
         <ion-header>
-                        <ion-item>
+            <ion-item>
                 <div class="deckStats">
                 <div class="deckStatItem">
                     <h4>G0:</h4>
@@ -46,9 +46,9 @@
         <ion-content >
             <ion-grid>
                 <ion-row>
-                    <ion-col v-for="c in $options.filters.Filter(cards)" :key="c.id" size="5.5">
+                    <ion-col v-for="(c, i) in filteredDeck" :key="c.id" size="5.5">
                         <p>{{getCardAmountInDeck(c.id)}}x</p>
-                        <ion-card type="button"  @click="openModal(c)" @contextmenu="addToDeckModal(c)">
+                        <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
                             <img class='cardImage' :src ="getImageRoute(c.id)">
                             <div class="cardDetails">
                                 <h4>{{c.name}}</h4>
@@ -58,9 +58,9 @@
                 </ion-row>
             </ion-grid>
             <h3 class='noCards' v-if="cards.length ==0">This Deck is empty</h3>
-            <h3 class='noCards' v-else-if="$options.filters.Filter(cards).length ==0">There are no cards that meet those conditions</h3>
+            <h3 class='noCards' v-else-if="filteredDeck.length ==0">There are no cards that meet those conditions</h3>
 
-            <ion-button id="optionBut" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
+            <ion-button id="optionBut" :style="getNationColor(deck.nation)" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
 
         </ion-content>
     </ion-page>
@@ -107,6 +107,7 @@ export default  {
             heals:0,
 
             modalOpen: false,
+            filteredDeck: []
         }
     },
     mounted()
@@ -228,6 +229,7 @@ export default  {
             });
 
             this.cards = this.cards.sort(this.sortDeck);
+            this.filteredDeck = Filters.Filter(this.cards);
 
             this.$forceUpdate();
         },
@@ -329,6 +331,9 @@ export default  {
                 case "Lyrical Monasterio":
                     result += "HotPink;";
                     break;
+                default:
+                    result += "rgb(30, 30, 30);";
+                    break;
 
             }
             return result;
@@ -339,7 +344,7 @@ export default  {
 
             return images('./'+id+'.png');
         },
-        async openModal(c) 
+        async openModal(c, i) 
         {
             if(this.modalOpen)
                 return;
@@ -350,7 +355,9 @@ export default  {
                 component: CardDetail,
                 cssClass: 'my-custom-class',
                 componentProps: {
-                    card: c
+                    card: c,
+                    cardList: this.filteredDeck,
+                    index: i
                 },
                 });
             modal.present();

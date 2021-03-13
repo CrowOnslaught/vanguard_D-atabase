@@ -88,13 +88,10 @@ export default {
                         modalController.dismiss({imported: true});
                     }catch(err)
                     {
-                        console.log(err);
+                        window.alert('Failed generating a deck from Clipboard Content');
                     }
                 })
-                .catch(err => {
-                    console.error('Failed to read clipboard contents: ', err);
-                    window.alert('Failed reading clipboard content')
-                });
+                .catch( window.alert('Failed reading clipboard content'));
         }
     }
 

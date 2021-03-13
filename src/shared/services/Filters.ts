@@ -107,7 +107,6 @@ const Filters = {
         });
         // // console.log(12, result);
 
-        console.log("filter", result.length);
         return result;
     },
 };

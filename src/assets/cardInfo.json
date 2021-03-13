@@ -4,8 +4,8 @@
     [
         {
             "id" : "50",
-            "name" : "Dragritter, Arvalis",
-            "skill" : "[AUTO]:When this unit is placed on (RC), COST [Counter Blast (1) & Soul Blast (1)], choose one of your opponent's grade 2 or greater rear-guards, and retire it.",        
+            "name" : "Dragritter, Zafar",
+            "skill" : "[AUTO]:When this unit intercepts, COST [Soul Blast (1)], and this unit gets [Shield]+5000 until end of that battle.",        
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,

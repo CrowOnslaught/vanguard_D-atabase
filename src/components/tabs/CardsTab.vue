@@ -3,8 +3,8 @@
     <ion-content >
       <ion-grid>
         <ion-row>
-          <ion-col v-for="c in data" :key="c.id" size="4">
-            <ion-card type="button"  @click="openModal(c)" @contextmenu="addToDeckModal(c)">
+          <ion-col v-for="(c, i) in data" :key="c.id" size="4">
+            <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
               <img class='cardImage' :src ="getImageRoute(c.id)">
               <div class="cardDetails">
                 <h4>{{c.name}}</h4>
@@ -52,7 +52,7 @@ export default  {
           component: AddToDeckVue,
           cssClass: 'small-modal-addToDeck',
           componentProps: {
-            card: c
+            card: c,
           },
         });
       modal.present();
@@ -63,7 +63,7 @@ export default  {
 
       return images('./'+id+'.png');
     },
-    async openModal(c) 
+    async openModal(c, i) 
     {
       if(this.modalOpen)
         return;
@@ -74,7 +74,9 @@ export default  {
           component: CardDetail,
           cssClass: 'my-custom-class',
           componentProps: {
-            card: c
+            card: c,
+            cardList: this.data,
+            index: i
           },
         });
       modal.present();
