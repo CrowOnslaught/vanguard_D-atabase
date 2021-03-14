@@ -3,7 +3,7 @@
         <ion-button fill="clear"  @click="copyText()"> Copy deck to Clipboard</ion-button>
     </ion-item>
     <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
-        <ion-button fill="clear"  @click="openCalc()"> Open Calculator (WIP)</ion-button>
+        <ion-button fill="clear"  @click="openCalc()"> Mulligan Calculator</ion-button>
     </ion-item>
     <ion-item v-if="!isLoadingAdd" class="optionDeckItem">
         <ion-button fill="clear" @click="deleteDeck()"> Delete Deck</ion-button>
@@ -27,7 +27,7 @@ import { useRouter } from 'vue-router';
 
 import { saveAs } from 'file-saver';
 import { Plugins, FilesystemDirectory } from '@capacitor/core'; 
-const { Filesystem, Clipboard  } = Plugins;
+const { Filesystem  } = Plugins;
 
 const { AdMob } = Plugins;
 
@@ -35,7 +35,8 @@ import { Document, Media, Packer, Paragraph, TableRow, TableCell, Table, BorderS
 import { PDFDocument } from 'pdf-lib'
 
 import Global from '@/shared/services/Global';
-import Decks from '@/shared/services/Decks';
+
+import Calculator from '../Calculator';
 
 export default {
     name:'DeckOptions',
@@ -47,7 +48,8 @@ export default {
     },
     props:
     {
-        deck: null
+        deck: null,
+        cardList: null
     },
     data()
     {
@@ -106,7 +108,22 @@ export default {
         },
         async openCalc()
         {
-            window.alert('Work in progress!!!');
+            this.modalOpen = true;
+            const modal = await modalController
+                .create({
+                component: Calculator,
+                cssClass: 'my-custom-class',
+                componentProps: {
+                    nation: this.deck.nation,
+                    deckList: this.cardList
+                },
+                });
+            modal.present();
+            
+            await modal.onWillDismiss();
+            setTimeout(() => {
+                this.modalOpen = false;
+            }, (500));
         },
         getImageRoute(id)
         {

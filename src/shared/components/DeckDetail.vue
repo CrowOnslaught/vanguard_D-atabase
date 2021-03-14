@@ -259,7 +259,8 @@ export default  {
                 cssClass: 'small-modal-optionDeck',
                 enableBackdropDismiss: true,
                 componentProps: {
-                    deck: this.deck
+                    deck: this.deck,
+                    cardList: this.cards
                 },
             });
 

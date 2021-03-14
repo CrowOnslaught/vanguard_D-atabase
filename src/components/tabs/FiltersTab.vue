@@ -173,7 +173,7 @@
                 <span v-else v-for="n in triggerInput" :key="n">{{n}}</span>
             </ion-item>   
             <ion-item class="item">
-                <ion-button class="selButton resetAll" @click="openCredits()">APP INFO</ion-button>
+                <ion-button class="selButton resetAll" @click="openCredits()">ABOUT</ion-button>
             </ion-item>
         </ion-content>
     </ion-page>
