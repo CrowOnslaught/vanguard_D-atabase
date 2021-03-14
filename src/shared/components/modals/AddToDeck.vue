@@ -65,7 +65,7 @@ export default {
                 cardSlot.amount +=n;
             else
             {
-                const cs = {cardId:this.card.id, amount:n};
+                const cs = {cardId:this.card.id, amount:n, inRideDeck: false};
                 this.currentDeck.decklist.push(cs);
                 // console.log(cs, this.currentDeck, Decks);
             }

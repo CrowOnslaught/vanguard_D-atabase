@@ -61,16 +61,13 @@ export default {
                 .then(text => {
                     try
                     {
-                        console.log(text);
                         const t = JSON.parse(text.value);
-                        console.log(t);
 
                         //createID
                         let currentId = 0;
                         let newId = '';
                         while (newId == '')
                         {
-                            console.log(newId);
                             if(Decks.find(e => e.id == currentId.toString()))
                                 currentId++;
                             else
@@ -88,10 +85,15 @@ export default {
                         modalController.dismiss({imported: true});
                     }catch(err)
                     {
+                        console.log(err);
                         window.alert('Failed generating a deck from Clipboard Content');
                     }
                 })
-                .catch( window.alert('Failed reading clipboard content'));
+                .catch(err=>
+                {
+                    window.alert('Failed reading clipboard content')
+                    console.log(err);
+                });
         }
     }
 

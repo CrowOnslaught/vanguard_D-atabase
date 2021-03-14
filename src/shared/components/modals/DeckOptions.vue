@@ -49,7 +49,8 @@ export default {
     props:
     {
         deck: null,
-        cardList: null
+        cardList: null,
+        rideDeck: null
     },
     data()
     {
@@ -70,7 +71,7 @@ export default {
         recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
         document.head.appendChild(recaptchaScript);
 
-        
+        console.log(this.cardList);
     },
     methods:
     {
@@ -85,7 +86,7 @@ export default {
         copyText() 
         {
             const el = document.createElement('textarea');  
-            el.value = JSON.stringify(Global.currentDeck);                            
+            el.value = JSON.stringify(this.deck);                            
             el.setAttribute('readonly', '');                
             el.style.position = 'absolute';                     
             el.style.left = '-9999px';                      
@@ -277,20 +278,27 @@ export default {
             const pdfDoc = await PDFDocument.load(formPdfBytes);
             const form = pdfDoc.getForm();
 
-            const formFields = form.getFields()
+            const formFields = form.getFields();
 
             //Deck Name & Nation
             form.getTextField('Deck NameRow1').setText(this.deck.name);
             form.getTextField('ClanRow1').setText(this.deck.nation);
 
+            //Ride deck
+            const rideDeckTitle = "G zone maximum 16 cardsRow1";
+            form.getTextField(rideDeckTitle).setText('--- RIDE DECK ---');
+            let rideDeckIndex=2;
 
-            //Test
-            form.getFields()[4].setText(form.getFields()[4].getName());
-
-            for (let i = 0; i<this.deck.decklist.length; i++)
+            for (let i = 0; i<this.cardList.length; i++)
             {
-                const cs = this.deck.decklist[i];
-                const card = Global.cards.find(e => e.id == cs.cardId);
+                const card = this.cardList[i];
+
+                if(this.rideDeck.includes(card.id))
+                {
+                    const rideDeckCard = "G zone maximum 16 cardsRow"+ rideDeckIndex;
+                    form.getTextField(rideDeckCard).setText(card.name);
+                    rideDeckIndex++;
+                }
 
                 //Card Name
                 const mainDeckCard = "Main deck 50 cardsRow" + (i+1);
@@ -301,14 +309,14 @@ export default {
 
                 //Card Amount
                 const mainDeckAmount = "Main deck Qty" + (i+1);
-                form.getTextField(mainDeckAmount).setText(cs.amount.toString());          
+                form.getTextField(mainDeckAmount).setText(card.amount.toString());          
                 
                 //Card set (Only if there is only one set)
                 if(card.sets.length ==1)
                 {
                     const mainDeckSet = 'No.'+ ((i+13)>=15? (i+14) : (i+13));
-                    form.getTextField(mainDeckSet).setText(card.sets[0]);
-                }
+                    form.getTextField(mainDeckSet).setText(card.setCode[0]);
+            }
 
                 //Card trigger or sentinel
                 let triggerOrSentinel ='';
@@ -370,6 +378,23 @@ export default {
 
         async prepareReward(reward)
         {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const p = require('platform-detect');
+            if(p.browser)
+            {
+                this.rewarded = true;
+                switch(reward)
+                {
+                    case 'decklist':
+                        this.generateDecklist();
+                        break;
+                    case 'proxy':
+                        this.generateProxyDeck();
+                        break;
+                }
+                return;
+            }
+
             this.isLoadingAdd = true;
             await AdMob.prepareRewardVideoAd(this.options)
             //.catch(e => console.log(e));

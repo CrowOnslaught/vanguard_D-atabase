@@ -1,7 +1,7 @@
 <template>
     <ion-page>
         <ion-header >
-        <ion-toolbar :style="getNationColor(deck.nation)">
+        <ion-toolbar :style="getNationColor(deck.nation, '--background: ')">
                 <ion-buttons slot="start">
                     <ion-back-button @click="back()" :icon='chevronBack' style="display: block; color: white;"></ion-back-button>
                 </ion-buttons>   
@@ -46,8 +46,12 @@
         <ion-content >
             <ion-grid>
                 <ion-row>
-                    <ion-col v-for="(c, i) in filteredDeck" :key="c.id" size="5.5">
-                        <p>{{getCardAmountInDeck(c.id)}}x</p>
+                    <ion-col v-for="(c, i) in filteredDeck" :key="c.id" size="6">
+                        <div class='cardSideInfo'>
+                            <ion-label v-if="c.type == 'Normal Unit'" position="stacked" :style="getNationColor(deck.nation, 'color: ')">Ride <br> Deck</ion-label>
+                            <ion-checkbox v-if="c.type == 'Normal Unit'" :id='setCheckBoxId(c.id)' @click="onCheckBox(c.grade, c.id)" :style="getNationColor(deck.nation, '--background-checked: ')"></ion-checkbox>
+                            <p>{{getCardAmountInDeck(c.id)}}x</p>
+                        </div>
                         <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
                             <img class='cardImage' :src ="getImageRoute(c.id)">
                             <div class="cardDetails">
@@ -60,14 +64,14 @@
             <h3 class='noCards' v-if="cards.length ==0">This Deck is empty</h3>
             <h3 class='noCards' v-else-if="filteredDeck.length ==0">There are no cards that meet those conditions</h3>
 
-            <ion-button id="optionBut" :style="getNationColor(deck.nation)" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
+            <ion-button id="optionBut" :style="getNationColor(deck.nation, '--background: ')" @click="options()"> <ion-icon :icon="ellipsisVertical"></ion-icon></ion-button>
 
         </ion-content>
     </ion-page>
 </template>
 
 <script>
-import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton, modalController, alertController  } from '@ionic/vue';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonCheckbox, IonLabel, IonButton, modalController, alertController  } from '@ionic/vue';
 import { chevronBack, ellipsisVertical } from 'ionicons/icons';
 
 import Decks from "../services/Decks";
@@ -84,7 +88,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonButton,  },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonCheckbox, IonLabel, IonIcon, IonButton,  },
     setup() {
         return {
             chevronBack, ellipsisVertical
@@ -97,6 +101,8 @@ export default  {
             deck: {id: "", name: "", nation: "", decklist: []},
             cards: [],
             deckAmount: 0,
+
+            rideDeck: [undefined,undefined,undefined,undefined],
 
             grades0:0,
             grades1:0,
@@ -128,8 +134,61 @@ export default  {
     {    
         this.reload();
     },
+    ionViewDidEnter() 
+    {
+    // Put here the code you want to execute
+        try
+        {
+            this.rideDeck.forEach(e =>
+            {
+                if(e != undefined)
+                    document.getElementById(`checkBox${e}`).checked = true;
+            });
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+    },
     methods:
     {
+        onCheckBox(grade, id)
+        {
+            // const checkBox = 
+
+            if(this.rideDeck[grade] == undefined) // No card in ridedek
+            {
+                this.rideDeck[grade] = id;
+            }
+            else //There is a card in ride deck
+            {
+                console.log(this.rideDeck[grade], id);
+                if(this.rideDeck[grade] == id) //You clicked the same card
+                    this.rideDeck[grade] = undefined;
+                else //you clicked another card of the same grade as the already assigned
+                {
+                    const removedId = this.rideDeck[grade];
+
+                    const ci = this.deck.decklist.find(e => e.cardId == removedId);
+                    ci.inRideDeck =  false;
+
+                    document.getElementById(`checkBox${removedId}`).checked = false;
+                    this.rideDeck[grade] = id;
+                }
+            }
+
+            const ci = this.deck.decklist.find(e => e.cardId == id);
+            ci.inRideDeck =  this.rideDeck[grade] == id;
+
+            localStorage.setItem('decks', JSON.stringify(Decks));
+            // document.getElementById(`checkBox${id}`).checked = true;
+            console.log(this.rideDeck);
+
+        },
+        setCheckBoxId(id)
+        {
+            return `checkBox${id}`;
+        },
         sortDeck( a, b ) 
         {
             //By grade            
@@ -193,6 +252,8 @@ export default  {
             this.deckAmount = 0;
             this.cards = [];
 
+            this.rideDeck = [undefined,undefined,undefined,undefined],
+
             this.grades0=0;
             this.grades1=0;
             this.grades2=0;
@@ -205,7 +266,16 @@ export default  {
             this.deck.decklist.forEach((e) => {
                 const ci = Global.cards.find(r => r.id == e.cardId);
                 ci.amount = e.amount;
+                ci.inRideDeck = e.inRideDeck == undefined? false : e.inRideDeck;
                 this.cards.push(ci);
+
+                if(ci.inRideDeck)
+                {
+                    this.rideDeck[ci.grade] = ci.id;
+                    //console.log(document.getElementById(`checkBox${ci.id}`), `checkBox${ci.id}`);
+                }
+                //     document.getElementById(`checkBox${e.cardId}`).checked = true;
+                // console.log(ci.name, ci.inRideDeck);
 
                 if(ci.grade == 0)
                     this.grades0+= e.amount;
@@ -260,7 +330,8 @@ export default  {
                 enableBackdropDismiss: true,
                 componentProps: {
                     deck: this.deck,
-                    cardList: this.cards
+                    cardList: this.cards,
+                    rideDeck: this.rideDeck
                 },
             });
 
@@ -309,9 +380,9 @@ export default  {
             }
             return result;
         },
-        getNationColor(n)
+        getNationColor(n, p)
         {
-            let result = '--background: ';
+            let result = p;
             switch(n)
             {
                 case "Dragon Empire":
@@ -365,6 +436,7 @@ export default  {
 
             await modal.onWillDismiss();
             setTimeout(() => {
+                this.reload();
                 this.modalOpen = false;
                 }, (500));
         },
@@ -405,120 +477,22 @@ export default  {
                 });
             alert.present();
         },
-
     },
-    filters:
-    {
-        Filter(value)
-        {
-        //by nation
-        let result = value.filter((e) =>
-            {
-            if(Filters.nations.includes(e.nation))
-                return e;
-            });
-            // // console.log(1, result);
-
-        //by name
-        result = result.filter((e) => 
-            {
-            if(e.name.toLowerCase().includes(Filters.name.toLowerCase()))
-            return e;
-            });
-
-            // // console.log(2, result);
-
-        //by skill
-        result = result.filter((e) => 
-            {
-            if(e.skill.toLowerCase().includes(Filters.skill.toLowerCase()))
-            return e;
-            });
-
-            // // console.log(3, result);
-
-        //by grades
-            result = result.filter((e) =>
-            {
-            if(Filters.grades.includes(e.grade))
-            return e;
-            });
-            // // console.log(4, result);
-
-        //by power
-        result = result.filter((e) =>
-        {
-            if(e.power == Filters.power || Filters.power == '')
-            return e;
-        });
-                    // // console.log(5, result);
-
-        //by shield
-        result = result.filter((e) =>
-        {
-            if(e.shield == Filters.shield || Filters.shield == '')
-            return e;
-        });
-            // // console.log(6, result);
-
-        //by Abilities
-        result = result.filter((e) =>
-            {
-            if(Filters.abilities.includes(e.ability))
-            return e;
-            });
-            
-        // // console.log(7, result);
-
-        //by race
-        result = result.filter((e) => 
-            {
-            if(e.race.toLowerCase().includes(Filters.race.toLowerCase()))
-            return e;
-            });
-        // // console.log(8, result);
-
-        //by sets
-        result = result.filter((e) =>
-            {
-            if(e.sets.some((r)=> Filters.sets.indexOf(r) >= 0))
-            return e;
-            });   
-            // // console.log(9, result);
-
-        //by keywords
-        result = result.filter((e) =>
-            {
-            if(e.keywords.some((r)=> Filters.keywords.indexOf(r) >= 0))
-            return e;
-            });
-        // // console.log(10, result);
-
-        //by Types
-            result = result.filter((e) =>
-            {
-            if(Filters.types.includes(e.type))
-            return e;
-            });
-        // // console.log(11, result);
-
-        //by triggers
-            result = result.filter((e) =>
-            {
-            if(Filters.trigger.includes(e.trigger))
-            return e;
-            });
-        // // console.log(12, result);
-
-
-        return result;
-        }
-    },  
 }
 </script>
 
 
 <style scoped>
+
+ion-row
+{
+    width: 95%;
+    margin: auto;
+
+    /* display: flex;
+    justify-content: center; */
+}
+
 .noCards
 {
     margin-top: 80%;
@@ -574,28 +548,43 @@ ion-col>p
     font-size: 30px;
 }
 
-ion-card{
-  margin: -2px !important;    
-  }
+ion-card
+{
+    margin: -2px !important;    
+}
+
+.cardSideInfo
+{
+    height: 116px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.cardSideInfo>p
+{
+    width: 36px;
+    font-size: 20px;
+}
 
 .cardDetails
 {
-  min-height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h4
 {
-  text-align:center;
-  font-size: 15px;
-  margin: 0px;
-  vertical-align: middle;
+    text-align:center;
+    font-size: 15px;
+    margin: 0px;
+    vertical-align: middle;
 }
 
 .cardImage
 {
-  width: 100%;
+    width: 100%;
 }
 
 .nationImage
@@ -615,13 +604,21 @@ h4
     width: 50px;
     height: 50px;
 
-  --ionicon-stroke-width: 100px;
+    --ionicon-stroke-width: 100px;
 }
 
 .deckAmount
 {
     font-weight: bold;
     margin-right: 10px;
+}
+
+ion-checkbox
+{
+    margin-top: 15px;
+    margin-right: 10px ;
+    --border-color-checked: white;
+    --border-color: white;
 }
 
 </style>

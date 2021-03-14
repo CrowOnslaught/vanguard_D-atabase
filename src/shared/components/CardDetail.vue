@@ -155,6 +155,7 @@ export default defineComponent({
     mounted()
     {
         this.setCardText();
+        console.log(this.card)
     }
 })
 </script>
@@ -188,6 +189,7 @@ ion-title
     margin: 0;
     top: 450px;
     left: -30px;
+
 }
 
 #nextCard
