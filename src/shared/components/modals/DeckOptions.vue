@@ -86,7 +86,7 @@ export default {
         copyText() 
         {
             const el = document.createElement('textarea');  
-            el.value = JSON.stringify(this.deck);                            
+            el.value = JSON.stringify(this.deck);     
             el.setAttribute('readonly', '');                
             el.style.position = 'absolute';                     
             el.style.left = '-9999px';                      

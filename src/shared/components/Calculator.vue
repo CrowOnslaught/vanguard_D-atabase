@@ -263,38 +263,39 @@ export default defineComponent({
 
       this.deck.forEach((e: any) => {
         
+        let cardAmount = e.amount;
         if(e.inRideDeck == true) //If in ride deck, dont count one copy of the card for the stadistics
-          e.amount -=1;
+          cardAmount -=1;
 
         if (e.grade == 0)
         {
-          this.grades0 += e.amount;
+          this.grades0 += cardAmount;
           if(e.type == "Normal Unit")
-            this.unit0 += e.amount;
+            this.unit0 += cardAmount;
         }
         else if (e.grade == 1)
         {
-          this.grades1 += e.amount;
+          this.grades1 += cardAmount;
           if(e.type == "Normal Unit")
-            this.unit1 += e.amount;
+            this.unit1 += cardAmount;
         }
         else if (e.grade == 2) 
         {
           if(e.type == "Normal Unit")
-            this.unit2 += e.amount;
-          this.grades2 += e.amount;
+            this.unit2 += cardAmount;
+          this.grades2 += cardAmount;
         }
         else if (e.grade == 3) 
         {
           if(e.type == "Normal Unit")
-            this.unit3 += e.amount;
-          this.grades3 += e.amount;
+            this.unit3 += cardAmount;
+          this.grades3 += cardAmount;
         }
 
         if(e.type == "Normal Order" || e.type == "Blitz Order" || e.type == "Set Order")
-          this.orders += e.amount;
+          this.orders += cardAmount;
         else if(e.type == 'Trigger Unit')
-          this.triggers += e.amount;
+          this.triggers += cardAmount;
       });
     },
     closeModal() {
