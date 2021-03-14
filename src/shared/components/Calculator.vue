@@ -14,7 +14,7 @@
         </ion-header>
 
         <ion-content id="background">
-            <h2> Inital Hand draw percentages*</h2>
+            <h2> Starting-Hand Draw Percentages</h2>
             <p> This table shows the probability of drawing one or more copies of the desired card on the initial hand of 5 cards. </p>
             <div id="table" >
                 <div class="row header" :style="getNationColor(nation, 'background-color: ')">
@@ -34,7 +34,7 @@
                     <div class="col">{{r.result5}}</div>
                 </div>
             </div>
-            <h2> Mulligan draw percentages*</h2>
+            <h2> Mulligan Draw Percentages</h2>
             <p> This table shows the probability of drawing one or more copyes of the desired card when mulligating, assuming you did <strong>NOT</strong> draw any of them in your starting 5-card hand. </p>
             <div id="table">
                 <div class="row header" :style="getNationColor(nation, 'background-color: ')">
@@ -54,8 +54,7 @@
                     <div class="col">{{r.result5}}</div>
                 </div>
             </div>
-            <p><i>*( For the cards you're wearing in the Ride Deck, you should remove 1 copy of the decklist to get more accurated results, since this table calculates as all the copies are still in main deck )</i></p>
-
+            <p><i>* (One less card is counted than the Main Deck because that card is assumed to be on the Ride Deck.)</i></p>
         </ion-content>
     </ion-page>
 </template>
@@ -107,6 +106,12 @@ export default defineComponent({
       grades1: 0,
       grades2: 0,
       grades3: 0,
+      triggers: 0,
+      orders: 0,
+      unit0: 0,
+      unit1: 0,
+      unit2: 0,
+      unit3: 0,
 
       tableRows: [] as any[],
       mulliganTableRows: [] as any[],
@@ -121,27 +126,48 @@ export default defineComponent({
   methods: {
     calculate() 
     {
-        this.tableRows.push(this.calculateRow(this.grades0, `Grades 0 [${this.grades0}]`));
-        this.tableRows.push(this.calculateRow(this.grades1, `Grades 1 [${this.grades1}]`));
-        this.tableRows.push(this.calculateRow(this.grades2, `Grades 2 [${this.grades2}]`));
-        this.tableRows.push(this.calculateRow(this.grades3, `Grades 3 [${this.grades3}]`));
+        this.tableRows.push(this.calculateRow(this.grades0, `*Grades 0 [${this.grades0}]`));
+        this.tableRows.push(this.calculateRow(this.grades1, `*Grades 1 [${this.grades1}]`));
+        this.tableRows.push(this.calculateRow(this.grades2, `*Grades 2 [${this.grades2}]`));
+        this.tableRows.push(this.calculateRow(this.grades3, `*Grades 3 [${this.grades3}]`));
+        this.tableRows.push(this.calculateRow(this.orders, `Orders[${this.orders}]`));
+        this.tableRows.push(this.calculateRow(this.triggers, `Triggers [${this.triggers}]`));
+        this.tableRows.push(this.calculateRow(this.unit0, `*Grades 0 Units [${this.unit0}]`));
+        this.tableRows.push(this.calculateRow(this.unit1, `*Grades 1 Units [${this.unit1}]`));
+        this.tableRows.push(this.calculateRow(this.unit2, `*Grades 2 Units [${this.unit2}]`));
+        this.tableRows.push(this.calculateRow(this.unit3, `*Grades 3 Units [${this.unit3}]`));
 
-        this.deck.forEach((e: any) => 
-        {
-            this.tableRows.push(this.calculateRow(e.amount, `${e.name} [${e.amount}]`));
-        });
+        this.tableRows.push(this.calculateRow(4, '4 copies in main deck'));
+        this.tableRows.push(this.calculateRow(3, '3 copies in main deck'));
+        this.tableRows.push(this.calculateRow(2, '2 copies in main deck'));
+        this.tableRows.push(this.calculateRow(1, '1 copies in main deck'));
+        // this.deck.forEach((e: any) => 
+        // {
+        //     this.tableRows.push(this.calculateRow(e.amount, `${e.name} [${e.amount}]`));
+        // });
 
         console.log(this.tableRows);
 
-        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades0, `Grades 0 [${this.grades0}]`));
-        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades1, `Grades 1 [${this.grades1}]`));
-        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades2, `Grades 2 [${this.grades2}]`));
-        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades3, `Grades 3 [${this.grades3}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades0, `*Grades 0 [${this.grades0}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades1, `*Grades 1 [${this.grades1}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades2, `*Grades 2 [${this.grades2}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.grades3, `*Grades 3 [${this.grades3}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.orders, `Orders[${this.orders}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.triggers, `Triggers [${this.triggers}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.unit0, `*Grades 0 Units [${this.unit0}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.unit1, `*Grades 1 Units [${this.unit1}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.unit2, `*Grades 2 Units [${this.unit2}]`));
+        this.mulliganTableRows.push(this.calculateMulliganRow(this.unit3, `*Grades 3 Units [${this.unit3}]`));
 
-        this.deck.forEach((e: any) => 
-        {
-            this.mulliganTableRows.push(this.calculateMulliganRow(e.amount, `${e.name} [${e.amount}]`));
-        });
+        this.mulliganTableRows.push(this.calculateMulliganRow(4, '4 copies in main deck'));
+        this.mulliganTableRows.push(this.calculateMulliganRow(3, '3 copies in main deck'));
+        this.mulliganTableRows.push(this.calculateMulliganRow(2, '2 copies in main deck'));
+        this.mulliganTableRows.push(this.calculateMulliganRow(1, '1 copies in main deck'));
+
+        // this.deck.forEach((e: any) => 
+        // {
+        //     this.mulliganTableRows.push(this.calculateMulliganRow(e.amount, `${e.name} [${e.amount}]`));
+        // });
 
     },
     calculateRow(k: number, name: string)
@@ -234,13 +260,67 @@ export default defineComponent({
       this.grades1 = 0;
       this.grades2 = 0;
       this.grades3 = 0;
+      this.orders = 0;
+      this.triggers = 0;
+      this.unit0 = 0; 
+      this.unit1 = 0; 
+      this.unit2 = 0; 
+      this.unit3 = 0; 
 
       this.deck.forEach((e: any) => {
-        if (e.grade == 0) this.grades0 += e.amount;
-        else if (e.grade == 1) this.grades1 += e.amount;
-        else if (e.grade == 2) this.grades2 += e.amount;
-        else if (e.grade == 3) this.grades3 += e.amount;
+        if (e.grade == 0)
+        {
+          this.grades0 += e.amount;
+          if(e.type == "Normal Unit")
+            this.unit0 += e.amount;
+        }
+        else if (e.grade == 1)
+        {
+          this.grades1 += e.amount;
+          if(e.type == "Normal Unit")
+            this.unit1 += e.amount;
+        }
+        else if (e.grade == 2) 
+        {
+          if(e.type == "Normal Unit")
+            this.unit2 += e.amount;
+          this.grades2 += e.amount;
+        }
+        else if (e.grade == 3) 
+        {
+          if(e.type == "Normal Unit")
+            this.unit3 += e.amount;
+          this.grades3 += e.amount;
+        }
+
+        if(e.type == "Normal Order" || e.type == "Blitz Order" || e.type == "Set Order")
+          this.orders += e.amount;
+        else if(e.type == 'Trigger Unit')
+          this.triggers += e.amount;
       });
+
+      //Removing one copy of each grade from the main deck because they are in the ride deck
+      if(this.grades0>0)
+      {
+        this.grades0 -= 1;
+        if(this.unit0>0)
+          this.unit0 -= 1;
+      }
+      if(this.grades1>0)
+      {
+        this.grades1 -= 1;
+        this.unit1 -= 1;
+      }
+      if(this.grades2>0)
+      {
+        this.grades2 -= 1;
+        this.unit2 -= 1;
+      }
+      if(this.grades3>0)
+      {
+        this.grades3 -= 1;
+        this.unit3 -= 1;
+      }
     },
     closeModal() {
       modalController.dismiss({ flag: true });
