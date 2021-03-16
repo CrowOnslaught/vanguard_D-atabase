@@ -135,6 +135,7 @@ export default defineComponent({
                 .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
                 .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
                 .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
+                .replaceAll("[Critical]", "<img src="+this.getIconRoute('crit')+" alt:'[Critical]' class='icon card'></img>")
                 .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>");
             
             this.cardText = text;
