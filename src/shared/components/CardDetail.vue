@@ -11,7 +11,7 @@
 
         <ion-content id="background">
             <div class = 'cardDetail'>
-                <img class ='imgDetail' style="margin: auto" :src ="getImageRoute(currentCard.id)">
+                <img class ='imgDetail' :src ="getImageRoute(currentCard.id)">
                 <h3 class="titleDetail">{{currentCard.name}}</h3>
                 <h6 class="subtitleDetail">{{currentCard.type}}</h6>
                 <p id="textDetail"></p>
@@ -20,12 +20,15 @@
             <ion-button id="addToDeckBut" :style="getNationColor(currentCard.nation, '--background: ')" @click="addToDeckModal(currentCard)"> <ion-icon :icon="add"></ion-icon></ion-button>
             <ion-button v-if='currentIndex != 0' fill="clear" id="previousCard" :style="getNationColor(currentCard.nation, 'color: ')" @click="swipeCard(false)"> <ion-icon :icon="chevronBackCircle"></ion-icon></ion-button>
             <ion-button v-if='currentIndex != cardList.length-1' fill="clear" id="nextCard" :style="getNationColor(currentCard.nation, 'color: ')" @click="swipeCard(true)"> <ion-icon :icon="chevronForwardCircle"></ion-icon></ion-button>
+            <ion-item-divider :style="getNationColor(currentCard.nation, '--background: ')" class="footer">
+                <p><span class="set" v-for="(s, i) of currentCard.sets" :key="i">{{s}}</span></p>
+            </ion-item-divider>
         </ion-content>
     </ion-page>
 </template>
 
 <script lang="ts">
-import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, modalController } from '@ionic/vue';
+import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonItemDivider, modalController } from '@ionic/vue';
 
 import { chevronBack, add, chevronForwardCircle, chevronBackCircle } from 'ionicons/icons';
 import { defineComponent } from "vue";
@@ -37,7 +40,7 @@ import AddToDeckVue from './modals/AddToDeck.vue';
 
 export default defineComponent({
     name: 'CardDetails',
-    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle },
+    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle, IonItemDivider},
     setup() {
         return {
         chevronBack, add, chevronForwardCircle, chevronBackCircle
@@ -135,8 +138,9 @@ export default defineComponent({
                 .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
                 .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
                 .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
+                .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>")
                 .replaceAll("[Critical]", "<img src="+this.getIconRoute('crit')+" alt:'[Critical]' class='icon card'></img>")
-                .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>");
+                .replaceAll("[Front]", "<img src="+this.getIconRoute('front')+" alt:'[Front]' class='icon card'></img>");
             
             this.cardText = text;
 
@@ -266,8 +270,10 @@ ion-title
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
+    min-height: 691px;
 
 }
 .imgDetail
@@ -275,14 +281,14 @@ ion-title
     height: auto;
     width: 80%;
     padding-top: 20px;
+    margin-top: 0px;
 }
 #textDetail
 {
     font-size: 16px;
     text-align: justify; 
     padding: 0px 30px 20px 30px;
-    margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .titleDetail
 {
@@ -298,6 +304,19 @@ ion-title
     font-style: italic;
     padding: 0px 30px 20px 30px;
     margin: 0;
+}
+
+.footer
+{
+    width: fit-content;
+    max-width: 78%;
+    padding: 0 20px 0 20px;
+
+}
+
+.set:not(:last-child)::after
+{
+    content: " | ";
 }
 
 </style>
