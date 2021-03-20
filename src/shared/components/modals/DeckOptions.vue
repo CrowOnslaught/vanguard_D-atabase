@@ -128,8 +128,11 @@ export default {
         },
         getImageRoute(id)
         {
-            const images = require.context('@/assets/cardImages/', false, /\.png$/);
-            return images('./'+id+'.png');
+            console.log(id);
+            const result = `https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/${id}.png`
+            console.log(result);
+
+            return result.image;
         },
         async generateProxyDeck() 
         {
@@ -149,9 +152,16 @@ export default {
             for(let index = 0; index<this.deck.decklist.length; index++)
             {
                 const cs = this.deck.decklist[index];
-                const blob = await fetch(
-                this.getImageRoute(cs.cardId)
-                ).then(r => r.blob());
+                console.log(cs);
+
+                // const blob = await fetch(
+                // this.getImageRoute(cs.cardId)
+                // ).then(r => r.blob());
+
+                    const blob = await fetch(
+                    `https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/${cs.cardId}.png`
+                    ).then(r => r.blob());
+
                 
                 for(let i = 0; i<cs.amount; i++)
                 {
@@ -426,7 +436,25 @@ export default {
             bytes[i] = ascii;
             }
             return bytes;
- }
+        },
+        processfile(imageURL) {
+                const image = new Image();
+                const onload = function () {
+                    const canvas = document.createElement("canvas");
+                    canvas.width =this.width;
+                    canvas.height =this.height;
+
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(this, 0, 0);
+
+                    canvas.toBlob(function(blob) {
+                        return blob;
+                    });
+                };
+
+                image.onload = onload;
+                image.src = imageURL;
+            }
     }
 
 }

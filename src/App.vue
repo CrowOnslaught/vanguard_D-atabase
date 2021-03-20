@@ -1,5 +1,6 @@
 <template>
   <ion-app>
+      <ion-spinner id="spinner" v-if="!loaded"></ion-spinner>
       <ion-router-outlet />
   </ion-app>
 </template>
@@ -9,6 +10,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 import { Plugins } from '@capacitor/core';
+import Global from './shared/services/Global';
 const { AdMob } = Plugins;
 
 // import $ from "jquery";
@@ -21,65 +23,83 @@ export default defineComponent({
     IonApp,
     IonRouterOutlet,
   },
+  data()
+  {
+    return{
+      loaded: false
+    }
+  },
   mounted()
   {
+    this.checkCardsVersion();
     AdMob.initialize();
-    // this.checkCardsVersion();
+    console.log('bbbbbbb');
   },
-  // methods:
-  // {
-  //   async checkCardsVersion()
-  //   {
-  //     await $.getJSON("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json")
-  //     .then(data => 
-  //     {
-  //       // console.log(data.version);
-  //       const cloudVersion = data.version.split('.');
-  //       const localVersion = Global.cardsVersion.split('.');
-  //       if(this.checkVersionHigher(cloudVersion, localVersion))
-  //       {
-  //         // const json = JSON.stringify(data);
-
-  //       } 
+  methods:
+  {
+    async checkCardsVersion()
+    {
       
-  //     }).catch(err =>
-  //     {
-  //       // console.log(err);
-  //     });
-  //   },
-  //   checkVersionHigher(a: string[],b: string[])
-  //   {
-  //     if(a[0] > b[0])
-  //       return true;
-  //     else if(a[0] < b[0])
-  //       return false;
-  //     else
-  //     {
-  //       if(a[1] > b[1])
-  //         return true;
-  //       else if(a[1] < b[1])
-  //         return false;
-  //       else
-  //       {
-  //         if(a[2] > b[2])
-  //           return true;
-  //         else if(a[2] < b[2])
-  //           return false;
-  //         else
-  //         {
-  //           if(a[3] > b[3])
-  //             return true;
-  //           else if(a[3] < b[3])
-  //             return false;
-  //           else
-  //           {
-  //             return false;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
+      await fetch("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json")
+      .then(res => res.json())
+      .then(data => 
+      {
+        const cloudVersion = data.version.split('.');
+        const localVersion = Global.cardsVersion.split('.');
+        if(this.checkVersionHigher(cloudVersion, localVersion))
+        {
+          console.log(data);
+          Global.cards = data.cards;
+          Global.nations = data.nations;
+          Global.races = data.races;
+          Global.abilities = data.abilities;
+          Global.types = data.types;
+          Global.triggers = data.triggers;
+          Global.keywords = data.keywords;
+          Global.sets = data.sets;
+        } 
+      
+        this.$router.push('/tabs/cards');
+        this.loaded = true;
+      }).catch(err =>
+      {
+        
+        console.log('_____________________________',err);
+      });
+    },
+    checkVersionHigher(a: string[],b: string[])
+    {
+      if(a[0] > b[0])
+        return true;
+      else if(a[0] < b[0])
+        return false;
+      else
+      {
+        if(a[1] > b[1])
+          return true;
+        else if(a[1] < b[1])
+          return false;
+        else
+        {
+          if(a[2] > b[2])
+            return true;
+          else if(a[2] < b[2])
+            return false;
+          else
+          {
+            if(a[3] > b[3])
+              return true;
+            else if(a[3] < b[3])
+              return false;
+            else
+            {
+              return false;
+            }
+          }
+        }
+      }
+    }
+  },
   
 });
 </script>
@@ -90,6 +110,13 @@ ion-app
   max-width: 1000px;
   margin: auto;
   margin-top: 50px;
+}
+
+#spinner
+{
+  position: absolute;
+  top: 45%;
+  left: 45%;
 }
 
 ion-content{

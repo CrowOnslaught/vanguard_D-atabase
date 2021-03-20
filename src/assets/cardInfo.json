@@ -1,5 +1,5 @@
 {
-    "version": "1.0.5.2", 
+    "version": "1.0.5.1", 
     "cards":
     [
         {
@@ -15,7 +15,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 106"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/100.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/100.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -33,7 +33,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 007"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/99.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/99.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -51,7 +51,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 014"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/98.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/98.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Heal"
@@ -69,7 +69,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 011"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/97.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/97.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Critical"
@@ -87,7 +87,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 004"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/96.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/96.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -105,7 +105,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 014"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/95.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/95.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Heal"
@@ -123,7 +123,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 011"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/94.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/94.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Critical"
@@ -141,7 +141,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 004"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/93.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/93.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -159,7 +159,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 014"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/92.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/92.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Heal"
@@ -177,7 +177,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 012"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/91.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/91.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Draw"
@@ -195,7 +195,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 013"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/90.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/90.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Front"
@@ -213,7 +213,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 011"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/89.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/89.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Critical"
@@ -231,7 +231,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 009"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/88.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/88.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -249,7 +249,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 007"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/87.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/87.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -267,7 +267,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 004"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/86.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/86.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -285,7 +285,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 014"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/85.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/85.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Heal"
@@ -303,7 +303,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 012"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/84.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/84.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Draw"
@@ -321,7 +321,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 013"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/83.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/83.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Front"
@@ -339,7 +339,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 011"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/82.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/82.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Critical"
@@ -357,7 +357,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 009"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/81.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/81.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -375,7 +375,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 005"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/80.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/80.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -393,7 +393,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 004"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/79.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/79.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -411,7 +411,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 014"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/78.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/78.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Heal"
@@ -429,7 +429,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 012"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/77.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/77.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Draw"
@@ -447,7 +447,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 013"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/76.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/76.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Front"
@@ -463,9 +463,9 @@
             "nation" : "Dragon Empire",
             "race" : "Human",
             "sets" : ["D-SD01"],
-            "setCode" : ["D-SD 011"],
+            "setCode" : ["D-SD01 011"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/75.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/75.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Critical"
@@ -481,9 +481,9 @@
             "nation" : "Dragon Empire",
             "race" : "Flame Dragon",
             "sets" : ["D-SD01"],
-            "setCode" : ["D-SD 004"],
+            "setCode" : ["D-SD01 004"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/74.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/74.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -499,9 +499,9 @@
             "nation" : "Brandt Gate",
             "race" : "None",
             "sets" : ["D-BT01"],
-            "setCode" : ["D-BT 092"],
+            "setCode" : ["D-BT01 092"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/73.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/73.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -517,9 +517,9 @@
             "nation" : "Brandt Gate",
             "race" : "Alien",
             "sets" : ["D-BT01"],
-            "setCode" : ["D-BT 083"],
+            "setCode" : ["D-BT01 083"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/72.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/72.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -535,9 +535,9 @@
             "nation" : "Brandt Gate",
             "race" : "Battleroid",
             "sets" : ["D-BT01"],
-            "setCode" : ["D-BT 038"],
+            "setCode" : ["D-BT01 038"],
             "keywords" : ["Persona Ride", "Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/71.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/71.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -553,9 +553,9 @@
             "nation" : "Dark States",
             "race" : "Workeroid",
             "sets" : ["D-BT01"],
-            "setCode" : ["D-BT 074"],
+            "setCode" : ["D-BT01 074"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/70.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/70.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -571,9 +571,9 @@
             "nation" : "Dark States",
             "race" : "None",
             "sets" : ["D-BT01"],
-            "setCode" : ["D-BT 037"],
+            "setCode" : ["D-BT01 037"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/69.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/69.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -591,7 +591,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 001"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/68.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/68.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Over"
@@ -609,7 +609,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 010"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/67.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/67.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -627,7 +627,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 009"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/66.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/66.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -645,7 +645,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 008"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/65.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/65.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -663,7 +663,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 007"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/64.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/64.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -681,7 +681,7 @@
             "sets" : ["D-PR"],
             "setCode" : ["D-PR 006"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/63.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/63.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -699,7 +699,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 029"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/62.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/62.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -717,7 +717,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 067"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/61.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/61.png",
             "type" : "Normal Order",
             "critical" : 1,
             "trigger" : "None"
@@ -735,7 +735,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 101"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/60.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/60.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -753,7 +753,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 099"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/59.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/59.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -771,7 +771,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 046"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/58.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/58.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -789,7 +789,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 008"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/57.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/57.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -807,7 +807,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 076"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/56.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/56.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -825,7 +825,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 075"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/55.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/55.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -843,7 +843,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 033"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/54.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/54.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -861,7 +861,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 003"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/53.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/53.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -879,7 +879,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 053"],
             "keywords" : ["Alchemagic"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/52.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/52.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -897,7 +897,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 109"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/51.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/51.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -915,7 +915,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 058"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/50.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/50.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -933,7 +933,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 030"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/49.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/49.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -951,7 +951,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 006"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/48.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/48.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -969,7 +969,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 007"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/47.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/47.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -987,7 +987,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 015"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/46.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/46.png",
             "type" : "Blitz Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1005,7 +1005,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 007"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/45.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/45.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1023,7 +1023,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 052"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/44.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/44.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1041,7 +1041,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 049"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/43.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/43.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1059,7 +1059,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 042"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/42.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/42.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1077,7 +1077,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 036"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/41.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/41.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1095,7 +1095,7 @@
             "sets" : ["D-BT01", "D-PR"],
             "setCode" : ["D-BT01 031", "D-PR 002"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/40.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/40.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1113,7 +1113,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 055"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/39.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/39.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1131,7 +1131,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 054"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/38.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/38.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1149,7 +1149,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 111"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/37.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/37.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1167,7 +1167,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 050"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/36.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/36.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1185,7 +1185,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 009"],
             "keywords" : ["Alchemagic", "Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/35.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/35.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1203,7 +1203,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 015"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/34.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/34.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1221,7 +1221,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 008"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/33.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/33.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1239,7 +1239,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 008"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/32.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/32.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1257,7 +1257,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 005"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/31.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/31.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1275,7 +1275,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 015"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/30.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/30.png",
             "type" : "Set Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1293,7 +1293,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 003"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/29.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/29.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1311,7 +1311,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 001"],
             "keywords" : ["Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/28.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/28.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1329,7 +1329,7 @@
             "sets" : ["D-SD05"],
             "setCode" : ["D-SD05 001"],
             "keywords" : ["Persona Ride", "Prison"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/27.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/27.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1347,7 +1347,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 008"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/26.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/26.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1365,7 +1365,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 015"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/25.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/25.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1383,7 +1383,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 006"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/24.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/24.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1401,7 +1401,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 005"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/23.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/23.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1419,7 +1419,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 005"],
             "keywords" : ["Final Rush", "Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/22.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/22.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1437,7 +1437,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 006"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/21.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/21.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1455,7 +1455,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 003"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/20.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/20.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1473,7 +1473,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 002"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/19.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/19.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1491,7 +1491,7 @@
             "sets" : ["D-SD04"],
             "setCode" : ["D-SD04 001"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/18.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/18.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1509,7 +1509,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 003"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/17.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/17.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1527,7 +1527,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 002"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/16.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/16.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1545,7 +1545,7 @@
             "sets" : ["D-SD03"],
             "setCode" : ["D-SD03 001"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/15.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/15.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1563,7 +1563,7 @@
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 013"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/14.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/14.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Over"
@@ -1581,7 +1581,7 @@
             "sets" : ["D-SD01","D-SD02","D-SD03","D-SD04","D-SD05"],
             "setCode" : ["D-SD01 010","D-SD02 010","D-SD03 010","D-SD04 010","D-SD05 010"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/13.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/13.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Over"
@@ -1599,7 +1599,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 007"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/12.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/12.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1617,7 +1617,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 002"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/11.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/11.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1635,7 +1635,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 008"],
             "keywords" : ["Final Rush"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/10.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/10.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1653,7 +1653,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 005"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/9.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/9.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1671,7 +1671,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 015"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/8.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/8.png",
             "type" : "Normal Order",
             "critical" : 0,
             "trigger" : "None"
@@ -1689,7 +1689,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 003"],
             "keywords" : ["Final Rush"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/7.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/7.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1707,7 +1707,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 002"],
             "keywords" : ["Final Rush"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/6.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/6.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1725,7 +1725,7 @@
             "sets" : ["D-SD02"],
             "setCode" : ["D-SD02 001"],
             "keywords" : ["Final Rush", "Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/5.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/5.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1743,7 +1743,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 008"],
             "keywords" : ["Sentinel"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/4.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/4.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1761,7 +1761,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 003"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/3.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/3.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1779,7 +1779,7 @@
             "sets" : ["D-SD01", "D-BT01"],
             "setCode" : ["D-SD01 001", "D-BT01 ???"],
             "keywords" : ["Persona Ride"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/2.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/2.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1797,7 +1797,7 @@
             "sets" : ["D-SD01"],
             "setCode" : ["D-SD01 006"],
             "keywords" : ["overDress"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/1.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/1.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"
@@ -1815,7 +1815,7 @@
             "sets" : ["D-SD01","D-BT01"],
             "setCode" : ["D-SD01 009", "D-BT01 ???"],
             "keywords" : ["None"],
-            "image" : "https://github.com/CrowOnslaught/VanguarDecks-cardImages/blob/master/cardImages/0.png?raw=true",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/0.png",
             "type" : "Normal Unit",
             "critical" : 1,
             "trigger" : "None"

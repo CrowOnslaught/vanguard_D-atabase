@@ -5,7 +5,7 @@
         <ion-row>
           <ion-col v-for="(c, i) in data" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
-              <img class='cardImage' :src ="getImageRoute(c.id)">
+              <ion-img class='cardImage' :src ="getImageRoute(c)"></ion-img>
               <div class="cardDetails">
                 <h4>{{c.name}}</h4>
               </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { IonContent, IonPage, IonGrid, IonCol, IonRow, IonCard, modalController } from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonCol, IonRow, IonCard, IonImg, modalController } from '@ionic/vue';
 import Global from '../../shared/services/Global';
 import Filters from '../../shared/services/Filters';
 
@@ -28,7 +28,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
   name: 'Cards',
-  components: {IonContent, IonPage, IonGrid, IonCol,IonRow, IonCard },
+  components: {IonContent, IonPage, IonGrid, IonCol,IonRow, IonCard, IonImg },
   data()
   {
     return{
@@ -57,11 +57,19 @@ export default  {
         });
       modal.present();
     },
-    getImageRoute(id)
+    getImageRoute(c)
     {
-      const images = require.context('@/assets/cardImages/', false, /\.png$/);
-
-      return images('./'+id+'.png');
+      let result = '';
+      try
+      {
+        const images = require.context('@/assets/cardImages/', false, /\.png$/);
+        result = images('./'+c.id+'.png');
+      }
+      catch(err)
+      {
+        result = c.image;
+      }
+      return result;
     },
     async openModal(c, i) 
     {
@@ -120,5 +128,6 @@ h4
 .cardImage
 {
   width: 100%;
+  min-height: 168.52px;
 }
 </style>

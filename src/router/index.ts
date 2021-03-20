@@ -3,13 +3,13 @@ import { RouteRecordRaw } from 'vue-router';
 import Tabs from '../components/Tabs.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', redirect: '/tabs/cards'},
+  // { path: '/', redirect: '/tabs'},
   {
     path: '/tabs',
     component :Tabs,
     children:
     [
-      { path: '', redirect: '/tabs/cards'},
+      // { path: '', redirect: '/tabs/cards'},
       { 
         path: 'cards', 
         component: () => import('@/components/tabs/CardsTab.vue')

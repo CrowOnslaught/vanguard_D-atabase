@@ -53,7 +53,7 @@
                             <p>{{getCardAmountInDeck(c.id)}}x</p>
                         </div>
                         <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
-                            <img class='cardImage' :src ="getImageRoute(c.id)">
+                            <ion-img class='cardImage' :src ="getImageRoute(c)"></ion-img>
                             <div class="cardDetails">
                                 <h4>{{c.name}}</h4>
                             </div>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonCheckbox, IonLabel, IonButton, modalController, alertController  } from '@ionic/vue';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons,IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonIcon, IonCheckbox, IonImg, IonLabel, IonButton, modalController, alertController  } from '@ionic/vue';
 import { chevronBack, ellipsisVertical } from 'ionicons/icons';
 
 import Decks from "../services/Decks";
@@ -88,7 +88,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
     name: 'DeckDetail',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonCard, IonCheckbox, IonLabel, IonIcon, IonButton,  },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonItem, IonGrid, IonRow, IonCol, IonImg, IonCard, IonCheckbox, IonLabel, IonIcon, IonButton,  },
     setup() {
         return {
             chevronBack, ellipsisVertical
@@ -410,11 +410,20 @@ export default  {
             }
             return result;
         },
-        getImageRoute(id)
+        getImageRoute(c)
         {
-            const images = require.context('@/assets/cardImages/', false, /\.png$/);
+            let result = '';
 
-            return images('./'+id+'.png');
+            try
+            {
+                const images = require.context('@/assets/cardImages/', false, /\.png$/);
+                result = images('./'+c.id+'.png');
+            }
+            catch(err)
+            {
+                result = c.image;
+            }
+            return result;
         },
         async openModal(c, i) 
         {
@@ -585,6 +594,7 @@ h4
 .cardImage
 {
     width: 100%;
+    height: 191.43px;
 }
 
 .nationImage

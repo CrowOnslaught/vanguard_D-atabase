@@ -11,7 +11,7 @@
 
         <ion-content id="background">
             <div class = 'cardDetail'>
-                <img class ='imgDetail' :src ="getImageRoute(currentCard.id)">
+                <ion-img class ='imgDetail' :src ="getImageRoute(currentCard)"></ion-img>
                 <h3 class="titleDetail">{{currentCard.name}}</h3>
                 <h6 class="subtitleDetail">{{currentCard.type}}</h6>
                 <p id="textDetail"></p>
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonItemDivider, modalController } from '@ionic/vue';
+import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonItemDivider, IonImg, modalController } from '@ionic/vue';
 
 import { chevronBack, add, chevronForwardCircle, chevronBackCircle } from 'ionicons/icons';
 import { defineComponent } from "vue";
@@ -40,7 +40,7 @@ import AddToDeckVue from './modals/AddToDeck.vue';
 
 export default defineComponent({
     name: 'CardDetails',
-    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle, IonItemDivider},
+    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle, IonImg, IonItemDivider},
     setup() {
         return {
         chevronBack, add, chevronForwardCircle, chevronBackCircle
@@ -65,10 +65,20 @@ export default defineComponent({
         closeModal() {
             modalController.dismiss({flag: true});          
         },
-        getImageRoute(id: string)
+        getImageRoute(c: CardInfo)
         {
-            const images = require.context('@/assets/cardImages/', false, /\.png$/);
-            return images('./'+id+'.png');
+            let result = '';
+
+            try
+            {
+                const images = require.context('@/assets/cardImages/', false, /\.png$/);
+                result = images('./'+c.id+'.png');
+            }
+            catch(err)
+            {
+                result = c.image;
+            }
+            return result;
         },
         getIconRoute(name: string)
         {
@@ -188,22 +198,22 @@ ion-title
 
 #previousCard
 {
-    position: absolute;
+    position: fixed;
     font-size: 30px;
     padding: 0;
     margin: 0;
-    top: 450px;
+    top: 45%;
     left: -30px;
 
 }
 
 #nextCard
 {
-    position: absolute;
+    position: fixed;
     font-size: 30px;
     padding: 0;
     margin: 0;
-    top: 450px;
+    top: 45%;
     right: -30px;
 }
 
