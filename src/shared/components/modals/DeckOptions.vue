@@ -18,6 +18,7 @@
         <ion-button fill="clear" class="cancel" @click="cancel()"> Close </ion-button>
     </ion-item>
     <ion-spinner v-if="isLoadingAdd"></ion-spinner>
+    <p id='spinnerText' v-if="isLoadingAdd"> Genereating Document... This may take a few minutes </p>
 </template>
 
 <script>
@@ -473,6 +474,13 @@ ion-spinner
     text-align: center;
     margin-top: 40%;
     color: red;
+}
+
+#spinnerText
+{
+    color:red;
+    text-align: center;
+    padding-top: -20px;
 }
 
 .optionDeckItem

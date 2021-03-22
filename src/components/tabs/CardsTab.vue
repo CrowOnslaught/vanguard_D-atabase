@@ -5,7 +5,7 @@
         <ion-row>
           <ion-col v-for="(c, i) in data" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
-              <ion-img class='cardImage' :src ="getImageRoute(c)"></ion-img>
+              <img class='cardImage' :src ="getImageRoute(c)">
               <div class="cardDetails">
                 <h4>{{c.name}}</h4>
               </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { IonContent, IonPage, IonGrid, IonCol, IonRow, IonCard, IonImg, modalController } from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonCol, IonRow, IonCard, modalController } from '@ionic/vue';
 import Global from '../../shared/services/Global';
 import Filters from '../../shared/services/Filters';
 
@@ -28,7 +28,7 @@ import AddToDeckVue from '@/shared/components/modals/AddToDeck.vue';
 
 export default  {
   name: 'Cards',
-  components: {IonContent, IonPage, IonGrid, IonCol,IonRow, IonCard, IonImg },
+  components: {IonContent, IonPage, IonGrid, IonCol,IonRow, IonCard },
   data()
   {
     return{

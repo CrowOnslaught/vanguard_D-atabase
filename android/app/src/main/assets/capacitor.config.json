@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.vanguardecks",
-  "appName": "Vanguar[D]ecks",
+  "appName": "vanguar[D]ecks",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
