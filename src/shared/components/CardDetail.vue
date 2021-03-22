@@ -11,9 +11,9 @@
 
         <ion-content id="background">
             <div class = 'cardDetail'>
-                <ion-img class ='imgDetail' :src ="getImageRoute(currentCard)"></ion-img>
+                <img class ='imgDetail' :src ="getImageRoute(currentCard)">
                 <h3 class="titleDetail">{{currentCard.name}}</h3>
-                <h6 class="subtitleDetail">{{currentCard.type}}</h6>
+                <h6 class="subtitleDetail"><span v-if="currentCard.race != 'None'">{{currentCard.race}} |</span> {{currentCard.type}}</h6>
                 <p id="textDetail"></p>
             </div>
 
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonItemDivider, IonImg, modalController } from '@ionic/vue';
+import { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonItemDivider, modalController } from '@ionic/vue';
 
 import { chevronBack, add, chevronForwardCircle, chevronBackCircle } from 'ionicons/icons';
 import { defineComponent } from "vue";
@@ -40,7 +40,7 @@ import AddToDeckVue from './modals/AddToDeck.vue';
 
 export default defineComponent({
     name: 'CardDetails',
-    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle, IonImg, IonItemDivider},
+    components: { IonBackButton, IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonTitle, IonItemDivider},
     setup() {
         return {
         chevronBack, add, chevronForwardCircle, chevronBackCircle
@@ -68,15 +68,14 @@ export default defineComponent({
         getImageRoute(c: CardInfo)
         {
             let result = '';
-
             try
             {
-                const images = require.context('@/assets/cardImages/', false, /\.png$/);
-                result = images('./'+c.id+'.png');
+                result = c.image;
             }
             catch(err)
             {
-                result = c.image;
+                const images = require.context('@/assets/cardImages/', false, /\.png$/);
+                result = images('./'+c.id+'.png');
             }
             return result;
         },
@@ -180,7 +179,6 @@ export default defineComponent({
 ion-title
 {
     font-size: 20px;
-    font-size: 5vw;
 }
 
 #addToDeckBut
@@ -292,6 +290,7 @@ ion-title
     width: 80%;
     padding-top: 20px;
     margin-top: 0px;
+    min-height: 457px;
 }
 #textDetail
 {

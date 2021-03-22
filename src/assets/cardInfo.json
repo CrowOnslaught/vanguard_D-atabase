@@ -1,7 +1,61 @@
 {
-    "version": "1.0.5.1", 
+    "version": "1.0.5.2", 
     "cards":
     [
+        {
+            "id" : "103",
+            "name" : "Sealed Road",
+            "skill" : "Play this with COST [Counter Blast (2)]!<br><br>Choose one of your opponent's vanguards, and that unit gets [Critical]-1 until end of that battle.",
+            "grade" : 2,
+            "power" : 0,
+            "shield" : 0,
+            "ability" : "None",
+            "nation" : "Stoicheia",
+            "race" : "None",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 120"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/103.png",
+            "type" : "Blitz Order",
+            "critical" : 0,
+            "trigger" : "None"
+        },
+        {
+            "id" : "102",
+            "name" : "Collusion Mutant, Admantis",
+            "skill" : "[AUTO]:When this unit is placed on (RC), choose one of your other rear-guards, and it gets [Power]+5000 until end of turn.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Stoicheia",
+            "race" : "Insect",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 112"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/102.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "101",
+            "name" : "Spurring Maiden, Ellenia",
+            "skill" : "[AUTO]:When this unit is placed on (RC) from hand, COST [Counter Blast (1) & Soul Blast (1)], choose a grade 2 or less card from your drop, call it to (RC), and it gets [Power]+5000 until end of turn.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Stoicheia",
+            "race" : "Bioroid",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 024"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/101.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
         {
             "id" : "100",
             "name" : "Swinging Sword of Judgement",
@@ -1866,6 +1920,7 @@
         "Aquaroid",
         "Alien",
         "Succubus",
+        "Insect",
         "None"
     ],
     "types": 

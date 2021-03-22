@@ -413,11 +413,10 @@ export default  {
         getImageRoute(c)
         {
             let result = '';
-
             try
             {
-                const images = require.context('@/assets/cardImages/', false, /\.png$/);
-                result = images('./'+c.id+'.png');
+                const images = require.context('@/assets/cardImages/', false, /\.jpg$/);
+                result = images('./'+c.id+'.jpg');
             }
             catch(err)
             {
@@ -434,7 +433,7 @@ export default  {
             const modal = await modalController
                 .create({
                 component: CardDetail,
-                cssClass: 'my-custom-class',
+                cssClass: 'card-detail-modal',
                 componentProps: {
                     card: c,
                     cardList: this.filteredDeck,
@@ -593,8 +592,8 @@ h4
 
 .cardImage
 {
-    width: 100%;
-    height: 191.43px;
+    width: 132px;
+    height: 191.66px;
 }
 
 .nationImage

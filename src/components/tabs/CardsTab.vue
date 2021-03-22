@@ -62,8 +62,8 @@ export default  {
       let result = '';
       try
       {
-        const images = require.context('@/assets/cardImages/', false, /\.png$/);
-        result = images('./'+c.id+'.png');
+        const images = require.context('@/assets/cardImages/', false, /\.jpg$/);
+        result = images('./'+c.id+'.jpg');
       }
       catch(err)
       {
@@ -80,7 +80,7 @@ export default  {
       const modal = await modalController
         .create({
           component: CardDetail,
-          cssClass: 'my-custom-class',
+          cssClass: 'card-detail-modal',
           componentProps: {
             card: c,
             cardList: this.data,

@@ -4,22 +4,6 @@
             <ion-item class="item">
                 <ion-button class="selButton resetAll" @click="ResetAll()"> RESET ALL</ion-button>
             </ion-item>
-            <ion-item class="item">
-                <ion-input 
-                    v-model="nameInput"
-                    placeholder="Name" 
-                    class="selInput" 
-                    @input='onNameSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectNone('name')"> Clear </ion-button>
-            </ion-item>
-            <ion-item class="item">
-                <ion-input 
-                v-model="skillInput"
-                placeholder="Skill" 
-                class="selInput" 
-                @input='onSkillSelect($event.target.value)'></ion-input>
-                <ion-button class="selButton soloButton" @click="SelectNone('skill')"> Clear </ion-button>
-            </ion-item>
             <ion-item lines="none">
                 <ion-select
                     selected-text="Nations"
@@ -55,6 +39,76 @@
                 <span v-if="gradeInput.length == 0">None selected</span>
                 <span v-else-if="gradeInput.length == grades.length">All selected</span>
                 <span v-else v-for="n in gradeInput" :key="n">{{n}}</span>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-select
+                    selected-text="Card Types"
+                    v-model='typeInput'
+                    class="selInput"
+                    multiple="true"
+                    @ionChange="onTypeSelect($event.target.value)"
+                    :value="types">
+                    <ion-select-option v-for="n in types" :key="n" :value='n'>{{n}}</ion-select-option>
+                </ion-select>
+                <ion-button class="selButton" @click="SelectAll('type')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('type')"> SELECT<br>NONE</ion-button>
+            </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="typeInput.length == 0">None selected</span>
+                <span v-else-if="typeInput.length == types.length">All selected</span>
+                <span v-else v-for="n in typeInput" :key="n">{{n}}</span>
+            </ion-item> 
+            <ion-item class="item">
+                <ion-input 
+                    v-model="nameInput"
+                    placeholder="Name" 
+                    class="selInput" 
+                    @input='onNameSelect($event.target.value)'></ion-input>
+                <ion-button class="selButton soloButton" @click="SelectNone('name')"> Clear </ion-button>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-select
+                    selected-text="Sets"
+                    v-model='setInput'
+                    class="selInput"
+                    multiple="true"
+                    @ionChange="onSetSelect($event.target.value)"
+                    :value="sets">
+                    <ion-select-option v-for="n in sets" :key="n" :value='n'>{{n}}</ion-select-option>
+                </ion-select>
+                <ion-button class="selButton" @click="SelectAll('set')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('set')"> SELECT<br>NONE</ion-button>
+            </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="setInput.length == 0">None selected</span>
+                <span v-else-if="setInput.length == sets.length">All selected</span>
+                <span v-else v-for="n in setInput" :key="n">{{n}}</span>
+            </ion-item> 
+            <ion-item lines="none">
+                <ion-select
+                    selected-text="Keywords"
+                    v-model='keywordInput'
+                    class="selInput"
+                    multiple="true"
+                    @ionChange="onKeywordSelect($event.target.value)"
+                    :value="keywords">
+                <ion-select-option v-for="n in keywords" :key="n" :value='n'>{{n}}</ion-select-option>
+                </ion-select>
+                <ion-button class="selButton" @click="SelectAll('keyword')"> SELECT<br>ALL</ion-button>
+                <ion-button class="selButton" @click="SelectNone('keyword')"> SELECT<br>NONE</ion-button>
+            </ion-item>
+            <ion-item class="selectValue">
+                <span v-if="keywordInput.length == 0">None selected</span>
+                <span v-else-if="keywordInput.length == keywords.length">All selected</span>
+                <span v-else v-for="n in keywordInput" :key="n">{{n}}</span>
+            </ion-item>  
+            <ion-item class="item">
+                <ion-input 
+                v-model="skillInput"
+                placeholder="Skill" 
+                class="selInput" 
+                @input='onSkillSelect($event.target.value)'></ion-input>
+                <ion-button class="selButton soloButton" @click="SelectNone('skill')"> Clear </ion-button>
             </ion-item>
             <ion-item class="item">
                 <ion-input 
@@ -99,61 +153,7 @@
                 class="selInput" 
                 @input='onRaceSelect($event.target.value)'></ion-input>
                 <ion-button class="selButton soloButton" @click="SelectNone('race')"> Clear </ion-button>
-            </ion-item>
-            <ion-item lines="none">
-                <ion-select
-                    selected-text="Sets"
-                    v-model='setInput'
-                    class="selInput"
-                    multiple="true"
-                    @ionChange="onSetSelect($event.target.value)"
-                    :value="sets">
-                    <ion-select-option v-for="n in sets" :key="n" :value='n'>{{n}}</ion-select-option>
-                </ion-select>
-                <ion-button class="selButton" @click="SelectAll('set')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('set')"> SELECT<br>NONE</ion-button>
-            </ion-item>
-            <ion-item class="selectValue">
-                <span v-if="setInput.length == 0">None selected</span>
-                <span v-else-if="setInput.length == sets.length">All selected</span>
-                <span v-else v-for="n in setInput" :key="n">{{n}}</span>
-            </ion-item>     
-            <ion-item lines="none">
-                <ion-select
-                    selected-text="Keywords"
-                    v-model='keywordInput'
-                    class="selInput"
-                    multiple="true"
-                    @ionChange="onKeywordSelect($event.target.value)"
-                    :value="keywords">
-                <ion-select-option v-for="n in keywords" :key="n" :value='n'>{{n}}</ion-select-option>
-                </ion-select>
-                <ion-button class="selButton" @click="SelectAll('keyword')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('keyword')"> SELECT<br>NONE</ion-button>
-            </ion-item>
-            <ion-item class="selectValue">
-                <span v-if="keywordInput.length == 0">None selected</span>
-                <span v-else-if="keywordInput.length == keywords.length">All selected</span>
-                <span v-else v-for="n in keywordInput" :key="n">{{n}}</span>
-            </ion-item>   
-            <ion-item lines="none">
-                <ion-select
-                    selected-text="Card Types"
-                    v-model='typeInput'
-                    class="selInput"
-                    multiple="true"
-                    @ionChange="onTypeSelect($event.target.value)"
-                    :value="types">
-                    <ion-select-option v-for="n in types" :key="n" :value='n'>{{n}}</ion-select-option>
-                </ion-select>
-                <ion-button class="selButton" @click="SelectAll('type')"> SELECT<br>ALL</ion-button>
-                <ion-button class="selButton" @click="SelectNone('type')"> SELECT<br>NONE</ion-button>
-            </ion-item>
-            <ion-item class="selectValue">
-                <span v-if="typeInput.length == 0">None selected</span>
-                <span v-else-if="typeInput.length == types.length">All selected</span>
-                <span v-else v-for="n in typeInput" :key="n">{{n}}</span>
-            </ion-item>   
+            </ion-item>       
             <ion-item lines="none">
                 <ion-select
                     selected-text="Triggers"

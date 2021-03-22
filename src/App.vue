@@ -33,7 +33,6 @@ export default defineComponent({
   {
     this.checkCardsVersion();
     AdMob.initialize();
-    console.log('bbbbbbb');
   },
   methods:
   {
@@ -63,7 +62,8 @@ export default defineComponent({
         this.loaded = true;
       }).catch(err =>
       {
-        
+        window.alert('Check internet conection');
+        this.$router.push('/tabs/cards');
         console.log('_____________________________',err);
       });
     },
@@ -165,6 +165,12 @@ ion-content{
   border: var(--ion-color-primary-shade) 3px solid;
 
   --background: black;
+}
+
+.card-detail-modal>.modal-wrapper
+{
+  width: 100%;
+  height: 100%;
 }
 
 </style>
