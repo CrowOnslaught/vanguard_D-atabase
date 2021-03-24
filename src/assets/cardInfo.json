@@ -1,7 +1,43 @@
 {
-    "version": "1.0.5.3", 
+    "version": "1.0.5.4", 
     "cards":
     [
+        {
+            "id" : "119",
+            "name" : "Divine Sister, Pastelito",
+            "skill" : "[AUTO](RC)1/Turn:When your drive check reveals a trigger unit, COST [Soul Blast (1)], and this unit gets [Power]+5000 until end of turn.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Keter Sanctuary",
+            "race" : "Elf",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 098"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/119.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "118",
+            "name" : "Divine Sister, Tartine",
+            "skill" : "[AUTO]:When this unit is placed on (RC), COST [Soul Blast (1) & [Rest] this unit], look at two cards from the top of your deck, choose a card from among them, put it on the top of your deck, and put the rest on the bottom of your deck.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Keter Sanctuary",
+            "race" : "Elf",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 047"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/118.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
         {
             "id" : "117",
             "name" : "Dark Strain Dragon",
