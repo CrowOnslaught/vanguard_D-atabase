@@ -17,6 +17,12 @@
             </ion-item>
             <ion-item>
                 <div class="section">
+                    <p class="text title">Cardfight! Vanguard OverDress</p>
+                    <p class="text subtitle">Learn more about OverDress and the [D] format <a href="https://en.cf-vanguard.com/information/vg_project_2_presentation/">HERE</a></p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="section">
                     <p class="text title">CREDITS</p>
                     <p class="text subtitle">Developing & Design:</p>
                     <p class="text">Jaume Garcia (Crow Onslaught)</p>
