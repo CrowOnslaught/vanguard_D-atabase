@@ -130,28 +130,37 @@ export default defineComponent({
         },
         setCardText()
         {
-            let text = this.currentCard.skill;
-            text = text.replaceAll("[AUTO]", "<span class='tag auto'>[AUTO]</span>")
-                .replaceAll("[ACT]", "<span class='tag act'>[ACT]</span>")
-                .replaceAll("[CONT]", "<span class='tag cont'>[CONT]</span>")
-            
-                .replaceAll("COST", "<span class='tag cost'>COST</span>")
-                .replaceAll("1/Turn", "<span class='tag oneTurn'>1/Turn</span>")
+            let text = ''
+            try
+            {
+                text = this.currentCard.skill;
+                text = text.replaceAll("[AUTO]", "<span class='tag auto'>[AUTO]</span>")
+                    .replaceAll("[ACT]", "<span class='tag act'>[ACT]</span>")
+                    .replaceAll("[CONT]", "<span class='tag cont'>[CONT]</span>")
                 
-                .replaceAll("(VC)", "<span class='tag circle'>(VC)</span>")
-                .replaceAll("(VC/RC)", "<span class='tag circle'>(VC/RC)</span>")
-                .replaceAll("(RC)", "<span class='tag circle'>(RC)</span>")
-                .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>")
-                .replaceAll("(RC/GC)", "<span class='tag circle'>(RC/GC)</span>")
+                    .replaceAll("COST", "<span class='tag cost'>COST</span>")
+                    .replaceAll("1/Turn", "<span class='tag oneTurn'>1/Turn</span>")
+                    
+                    .replaceAll("(VC)", "<span class='tag circle'>(VC)</span>")
+                    .replaceAll("(VC/RC)", "<span class='tag circle'>(VC/RC)</span>")
+                    .replaceAll("(RC)", "<span class='tag circle'>(RC)</span>")
+                    .replaceAll("(GC)", "<span class='tag circle'>(GC)</span>")
+                    .replaceAll("(RC/GC)", "<span class='tag circle'>(RC/GC)</span>")
 
-                .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
-                .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
-                .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
-                .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>")
-                .replaceAll("[Critical]", "<img src="+this.getIconRoute('crit')+" alt:'[Critical]' class='icon card'></img>")
-                .replaceAll("[Front]", "<img src="+this.getIconRoute('front')+" alt:'[Front]' class='icon card'></img>");
-            
-            this.cardText = text;
+                    .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
+                    .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
+                    .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
+                    .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>")
+                    .replaceAll("[Critical]", "<img src="+this.getIconRoute('crit')+" alt:'[Critical]' class='icon card'></img>")
+                    .replaceAll("[Front]", "<img src="+this.getIconRoute('front')+" alt:'[Front]' class='icon card'></img>");
+                
+                this.cardText = text;
+            }
+            catch
+            {
+                this.cardText = this.currentCard.skill;
+                text = this.currentCard.skill;
+            }
 
             const p = document.getElementById("textDetail");
             if (p !=null)
@@ -226,13 +235,10 @@ ion-title
     margin-bottom: -4px;
 }
 
-.power
+.red
 {
-    background-color: red;
-    background-size: contain;
-    background-position: center;
+    color:red;
 }
-
 
 .tag
 {

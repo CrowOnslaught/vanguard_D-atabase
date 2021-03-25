@@ -1,7 +1,43 @@
 {
-    "version": "1.0.5.5", 
+    "version": "1.0.5.6", 
     "cards":
     [
+        {
+            "id" : "130",
+            "name" : "Steam Artist, Pithana",
+            "skill" : "[ACT](RC):COST [Put this unit into your soul], choose one of your units, and it gets [Power]+2000 until end of turn.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dark States",
+            "race" : "Gearoid",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 072"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/130.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "129",
+            "name" : "Beast Tamer, Megan",
+            "skill" : "[CONT](RC):If a card was Soul Charge during your turn, this unit gets [Power]+2000.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Dark States",
+            "race" : "Elf",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 070"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/129.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
         {
             "id" : "128",
             "name" : "Steam Detective, Uvaritt",
@@ -11,7 +47,7 @@
             "shield" : 5000,
             "ability" : "Boost",
             "nation" : "Dark States",
-            "race" : "Human",
+            "race" : "Gearoid",
             "sets" : ["D-BT01"],
             "setCode" : ["D-BT01 073"],
             "keywords" : ["Final Rush"],
@@ -23,7 +59,7 @@
         {
             "id" : "127",
             "name" : "Protobulb Dragon",
-            "skill" : "[AUTO](RC):When this unit attacks or boosts, if you are in \"Final Rush\", [COST][Counter-Blast 1 & put another rear-guard into your soul], choose a card from your soul, and put it into your hand.",
+            "skill" : "[AUTO](RC):When this unit attacks or boosts, if you are in \"Final Rush\", COST [Counter-Blast 1 & put another rear-guard into your soul], choose a card from your soul, and put it into your hand.",
             "grade" : 1,
             "power" : 8000,
             "shield" : 5000,
@@ -41,7 +77,7 @@
         {
             "id" : "126",
             "name" : "Hades Dragon Deity of Resentment, Gallmageheld",
-            "skill" : "<i>(You may only have one [Over] trigger in a deck. When revealed as a trigger, remove that card, draw a card, choose one of your units, and it gets [Power]+100 Million until end of turn! If revealed during drive check, activate its additional effect!)</i><br><br><b>Additional Effect -</b>You get <span class='red'>\"During your turn, all of your vanguards get [Power] +10000/[Critical] +1\"</span> until end of this fight!",
+            "skill" : "<i>(You may only have one [Over] trigger in a deck. When revealed as a trigger, remove that card, draw a card, choose one of your units, and it gets [Power]+100 Million until end of turn! If revealed during drive check, activate its additional effect!)</i><br><br><b>Additional Effect -</b> You get <span class='red'>\"During your turn, all of your vanguards get [Power] +10000/[Critical] +1\"</span> until end of this fight!",
             "grade" : 0,
             "power" : 5000,
             "shield" : 50000,
@@ -59,7 +95,7 @@
         {
             "id" : "125",
             "name" : "Upward Acrobat, Marjorie",
-            "skill" : "[AUTO](RC)[1/Turn]:When this unit attacks, If you are in \"Final Rush\", [COST][put one of your other rear-guards into your soul], draw a card, Soul-Charge 1, and this unit gets [Power] +10000 until end of turn.",
+            "skill" : "[AUTO](RC)[1/Turn]:When this unit attacks, If you are in \"Final Rush\", COST [put one of your other rear-guards into your soul], draw a card, Soul-Charge 1, and this unit gets [Power] +10000 until end of turn.",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
@@ -77,7 +113,7 @@
         {
             "id" : "124",
             "name" : "Diabolos Boys, Eden",
-            "skill" : "[CONT](RC):If you are in \"Final Rush\", this unit gets [Power] +5000, and if this unit [Stand] this turn by a card effect, [Critical] +1.<br><br>[AUTO](RC):When this unit's attack hits, [COST][Counter-Blast 1], choose one of your opponent's rear-guards, and retire it.",
+            "skill" : "[CONT](RC):If you are in \"Final Rush\", this unit gets [Power]+5000, and if this unit [Stand] this turn by a card effect, [Critical] +1.<br><br>[AUTO](RC):When this unit's attack hits, COST [Counter Blast (1)], choose one of your opponent's rear-guards, and retire it.",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -203,7 +239,7 @@
         {
             "id" : "117",
             "name" : "Dark Strain Dragon",
-            "skill" : "[ACT](RC):If you have three or more grade 3 units, COST [Soul Blast (2)], and all of your grade 3 units get \"Boost\" until end of turn.",
+            "skill" : "[ACT](RC):If you have three or more grade 3 units, COST [Soul Blast (2)], and all of your grade 3 units get <span class='red'>\"Boost\"</span> until end of turn.",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
@@ -1499,7 +1535,7 @@
         {
             "id" : "45",
             "name" : "Looting Petal Stomalia",
-            "skill" : "[ACT](RC)1/Turn:COST [Counter Blast (1) & Soul Blast (1)], and this unit gets \"Boost\" and [Power]+5000 until end of turn.",        
+            "skill" : "[ACT](RC)1/Turn:COST [Counter Blast (1) & Soul Blast (1)], and this unit gets <span class='red'>\"Boost\"</span> and [Power]+5000 until end of turn.",        
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -2021,7 +2057,7 @@
         {
             "id" : "16",
             "name" : "Knight of Heavenly Spear, Rooks",
-            "skill" : "[AUTO]:When this unit is rode upon by \"Apex Ruler, Bastion\", COST[reveal three grade 3 cards from your hand], and draw a card.<br><br>[CONT](RC):During your turn, if you have three or more grade 3 units, this unit gets \"Boost\", and [Power]+5000.",
+            "skill" : "[AUTO]:When this unit is rode upon by \"Apex Ruler, Bastion\", COST[reveal three grade 3 cards from your hand], and draw a card.<br><br>[CONT](RC):During your turn, if you have three or more grade 3 units, this unit gets <span class='red'>\"Boost\"</span>, and [Power]+5000.",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -2375,6 +2411,7 @@
         "Cyberoid",
         "Cyber Beast",
         "World",
+        "Gear Dragon",
         "None"
     ],
     "types": 
