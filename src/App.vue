@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { IonApp, IonRouterOutlet, IonSpinner } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 import { Plugins } from '@capacitor/core';
@@ -22,6 +22,7 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet,
+    IonSpinner
   },
   data()
   {

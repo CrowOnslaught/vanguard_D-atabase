@@ -3,7 +3,7 @@
     <ion-content >
       <ion-grid>
         <ion-row>
-          <ion-col v-for="(c, i) in data" :key="c.id" size="4">
+          <ion-col v-for="(c, i) in sortDeck" :key="c.id" size="4">
             <ion-card type="button"  @click="openModal(c, i)" @contextmenu="addToDeckModal(c)">
               <img class='cardImage' :src ="getImageRoute(c)">
               <div class="cardDetails">
@@ -39,9 +39,66 @@ export default  {
   ionViewWillEnter()
   {
       this.data = Filters.Filter(Global.cards);
-   },
+  },
+  computed:
+  {
+    sortDeck: function()
+    {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.data.sort(this.sort);
+    }
+  },
   methods:
   {
+    sort(a, b)
+    {
+      const filter = Filters.order;
+      const inverse = filter.startsWith('-')? -1 : 1;
+
+      //By name
+      if(filter.endsWith('name'))  
+      {
+        if ( a.name > b.name ){
+            return -1 * inverse;
+        }
+        if ( a.name < b.name ){
+            return 1 *inverse;
+        }
+      }    
+
+      //By set
+      if(filter.endsWith('setCode'))  
+      {
+        if ( a.setCode > b.setCode ){
+            return -1 * inverse;
+        }
+        if ( a.setCode < b.setCode ){
+            return 1 *inverse;
+        }
+      }    
+
+      //By grade     
+      if(filter.endsWith('grade'))  
+      {
+        if ( a.grade > b.grade ){
+            return -1 * inverse;
+        }
+        if ( a.grade < b.grade ){
+            return 1 *inverse;
+        }
+      }     
+
+      if(filter.endsWith('id'))
+      {
+        //sort by id
+        if(Number(a.id) < Number(b.id))
+            return -1 *inverse;
+  
+        if(Number(a.id) > Number(b.id))
+            return 1 *inverse;
+      }  
+
+    },
     async addToDeckModal(c)
     {
       if(Global.currentDeck == null)

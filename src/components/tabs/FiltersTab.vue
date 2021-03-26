@@ -4,6 +4,22 @@
             <ion-item class="item">
                 <ion-button class="selButton resetAll" @click="ResetAll()"> RESET ALL</ion-button>
             </ion-item>
+            <ion-item class= 'orderItem'>
+                <ion-select
+                    value='id'
+                    selected-text="Order by"
+                    class="orderSel"
+                    @ionChange="onSortOrder($event.target.value)">
+                    <ion-select-option value='name'>name</ion-select-option>
+                    <ion-select-option value='setCode'>set number</ion-select-option>
+                    <ion-select-option value='grade'>grade</ion-select-option>
+                    <ion-select-option value='id' selected>revealed</ion-select-option>
+                </ion-select>
+                <!-- <div id="checkBox"> -->
+                    <p>Descendant:</p>
+                    <ion-checkbox checked="true" class="selButton" @click="onSortOrderBox()"> Descendant</ion-checkbox>
+                <!-- </div> -->
+            </ion-item>
             <ion-item lines="none">
                 <ion-select
                     selected-text="Nations"
@@ -180,7 +196,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput, modalController } from '@ionic/vue';
+import { IonPage, IonContent, IonSelect, IonItem, IonSelectOption, IonButton, IonInput, modalController, IonCheckbox } from '@ionic/vue';
 
 import CreditsVue from '@/shared/components/Credits.vue';
 
@@ -190,7 +206,7 @@ import Filters from '../../shared/services/Filters';
 
 export default  {
     name: 'Filters',
-    components: {IonContent, IonPage, IonSelect, IonItem, IonSelectOption, IonButton, IonInput},
+    components: {IonContent, IonPage, IonSelect, IonItem, IonSelectOption, IonButton, IonInput, IonCheckbox},
     data()
     {
         return{
@@ -214,7 +230,9 @@ export default  {
             setInput: Global.sets,
             keywordInput: Global.keywords,
             typeInput: Global.types,
-            triggerInput: Global.triggers
+            triggerInput: Global.triggers,
+
+            sortDescendant: false
         }
     },
     ionViewWillEnter()
@@ -223,6 +241,25 @@ export default  {
     },
     methods:
     {
+        onSortOrder(value)
+        {
+            Filters.order = (this.sortDescendant? '-' : '') + value;
+            console.log(Filters.order);
+        },
+        onSortOrderBox()
+        {
+            this.sortDescendant = !this.sortDescendant;
+
+            if(!this.sortDescendant && Filters.order.startsWith('-'))
+            {
+                Filters.order= Filters.order.substr(1);
+            }
+            else if(this.sortDescendant && !Filters.order.startsWith('-'))
+            {
+                Filters.order = '-' + Filters.order;
+            }
+            console.log(Filters.order);
+        },
         onNationSelect(value)
         {
             Filters.nations = value;
@@ -404,6 +441,22 @@ export default  {
 .resetAll
 {
     width: 100%;
+}
+
+.orderItem
+{
+
+}
+
+.orderSel
+{
+    width: 60%;
+}
+
+ion-checkbox
+{
+    width: 40px;
+    height: 40px;
 }
 
 .selButton

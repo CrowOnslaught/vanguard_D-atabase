@@ -15,6 +15,7 @@ const Filters = {
     types: data.types,
     trigger: data.triggers,
     newFilters: true,
+    order: '-id',
 
     setDefault() {
         this.name = "";

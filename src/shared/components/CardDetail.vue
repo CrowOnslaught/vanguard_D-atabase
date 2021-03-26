@@ -21,7 +21,7 @@
             <ion-button v-if='currentIndex != 0' fill="clear" id="previousCard" :style="getNationColor(currentCard.nation, 'color: ')" @click="swipeCard(false)"> <ion-icon :icon="chevronBackCircle"></ion-icon></ion-button>
             <ion-button v-if='currentIndex != cardList.length-1' fill="clear" id="nextCard" :style="getNationColor(currentCard.nation, 'color: ')" @click="swipeCard(true)"> <ion-icon :icon="chevronForwardCircle"></ion-icon></ion-button>
             <ion-item-divider :style="getNationColor(currentCard.nation, '--background: ')" class="footer">
-                <p><span class="set" v-for="(s, i) of currentCard.sets" :key="i">{{s}}</span></p>
+                <p><span class="set" v-for="(s, i) of currentCard.setCode" :key="i">{{s}}</span></p>
             </ion-item-divider>
         </ion-content>
     </ion-page>
