@@ -149,8 +149,12 @@ export default defineComponent({
 
                     .replaceAll("[Power]", "<img src="+this.getIconRoute('power')+" alt:'[Power]' class='icon'></img>")
                     .replaceAll("[Shield]", "<img src="+this.getIconRoute('shield')+" alt:'[Shield]' class='icon'></img>")
+
                     .replaceAll("[Rest]", "<img src="+this.getIconRoute('rest')+" alt:'[Rest]' class='icon card'></img>")
                     .replaceAll("[Stand]", "<img src="+this.getIconRoute('stand')+" alt:'[Stand]' class='icon card'></img>")
+
+                    .replaceAll("[overDress]", "<img src="+this.getIconRoute('oDress')+" alt:'[overDress]' class='icon-large card'></img>")
+
                     .replaceAll("[Critical]", "<img src="+this.getIconRoute('crit')+" alt:'[Critical]' class='icon card'></img>")
                     .replaceAll("[Front]", "<img src="+this.getIconRoute('front')+" alt:'[Front]' class='icon card'></img>");
                 
@@ -230,6 +234,12 @@ ion-title
     height: 20px !important;
 }
 
+.icon-large
+{
+    width: 70px !important;
+    height: 24px !important;
+}
+
 .card
 {
     margin-bottom: -4px;
@@ -301,6 +311,7 @@ ion-title
 #textDetail
 {
     font-size: 16px;
+    line-height: 20px;
     text-align: justify; 
     padding: 0px 30px 20px 30px;
     margin-bottom: 30px;
