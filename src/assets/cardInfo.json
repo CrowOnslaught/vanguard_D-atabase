@@ -3,6 +3,42 @@
     "cards":
     [
         {
+            "id" : "157",
+            "name" : "Divine Sister, Lepisto",
+            "skill" : "[AUTO](RC):When your drive check reveals a trigger unit, COST [Counter Blast (2)], [Stand] this unit, and it gets [Power]+5000 until end of turn.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Keter Sanctuary",
+            "race" : "Elf",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 096"],
+            "keywords" : ["Persona Ride"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/157.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "156",
+            "name" : "Divine Sister, Faciata",
+            "skill" : "[AUTO](RC)1/Turn:When your drive check reveals a trigger unit, COST [Soul Blast (2)], and Counter Charge (1).",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Keter Sanctuary",
+            "race" : "Elf",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 048"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/156.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "155",
             "name" : "Ghost Chase",
             "skill" : "Choose one of your units, and it gets [Power]+5000 until end of that battle. Choose one of your rear-guards that is not being attacked, and return it to your hand.",
