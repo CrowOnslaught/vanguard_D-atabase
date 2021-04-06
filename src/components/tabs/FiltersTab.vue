@@ -237,7 +237,7 @@ export default  {
     },
     ionViewWillEnter()
     {
-        // // console.log('holo');
+        this.nationInput= Filters.nations;
     },
     methods:
     {

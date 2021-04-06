@@ -22,6 +22,7 @@ import Decks from "../../shared/services/Decks";
 import { useRouter } from 'vue-router';
 import NewDeck from '@/shared/components/modals/NewDeck.vue';
 import Global from '@/shared/services/Global';
+import Filters from '@/shared/services/Filters';
 
 
 export default  {
@@ -60,6 +61,7 @@ export default  {
         else
           setTimeout(() => {
             this.createEmptyDeck(data);
+            Filters.nations = [data.nation];
           }, (500));
       }
     },

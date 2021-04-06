@@ -2,6 +2,9 @@
             <ion-item class="newDeckItem">
                 <h1>Create Deck</h1>
             </ion-item>
+            <ion-item lines="none" class="newDeckItem buttons">
+                <ion-button fill="clear" id='importBot' @click="importDeck()"> Import from Clipboard</ion-button>
+            </ion-item>
             <ion-item class="newDeckItem">
                 <ion-label>Name:</ion-label>
                 <ion-input placeholder="Name" maxlength=23 v-model="selectedName"></ion-input>
@@ -15,9 +18,6 @@
             <ion-item  class="newDeckItem buttons">
                 <ion-button fill="clear" @click="cancel()"> Cancel</ion-button>
                 <ion-button slot='end' fill="clear" :disabled="selectedNation == '' || selectedName == ''" @click="createDeck()"> Create</ion-button>
-            </ion-item>
-            <ion-item lines="none" class="newDeckItem buttons">
-                <ion-button fill="clear" id='importBot' @click="importDeck()"> Import from Clipboard</ion-button>
             </ion-item>
 </template>
 
