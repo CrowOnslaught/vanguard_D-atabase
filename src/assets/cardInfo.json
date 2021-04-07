@@ -3,6 +3,42 @@
     "cards":
     [
         {
+            "id" : "164",
+            "name" : "Tearing Malice",
+            "skill" : "Play this with COST [retire two rear-guards]!<br><br>Draw a card, put this card into your soul, and Counter Charge (1).",
+            "grade" : 2,
+            "power" : 0,
+            "shield" : 0,
+            "ability" : "None",
+            "nation" : "Stoicheia",
+            "race" : "None",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 118"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/164.png",
+            "type" : "Normal Order",
+            "critical" : 0,
+            "trigger" : "None"
+        },
+        {
+            "id" : "163",
+            "name" : "Inheritance Maiden, Hendrina",
+            "skill" : "[AUTO]:When this unit is placed on (RC), you may discard three cards from the top of your deck.<br><br>[ACT](RC):COST [Retire this unit], until end of turn, the next time when you would play an order as Alchemagic, you do not have to pay all Soul Blast from that cost.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Stoicheia",
+            "race" : "Bioroid",
+            "sets" : ["D-BT01"],
+            "setCode" : ["D-BT01 023"],
+            "keywords" : ["Alchemagic"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/163.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "162",
             "name" : "Fantasmagorie Magician, Curtis",
             "skill" : "[AUTO]:When this unit is placed on (RC), if your vanguard is \"Master of Gravity, Baromagnes\", Soul Charge (2).<br><br>[ACT](RC):If your soul has ten or more cards, COST [Counter Blast (2)], and all of your front row units get [Power]+5000 until end of turn.",
