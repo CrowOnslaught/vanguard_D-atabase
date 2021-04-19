@@ -6,8 +6,8 @@ android {
         applicationId "io.ionic.vanguardecks"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 7
-        versionName "1.0.5.7"
+        versionCode 8
+        versionName "1.0.5.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
