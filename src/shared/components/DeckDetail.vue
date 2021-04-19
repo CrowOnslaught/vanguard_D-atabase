@@ -162,7 +162,6 @@ export default  {
             }
             else //There is a card in ride deck
             {
-                console.log(this.rideDeck[grade], id);
                 if(this.rideDeck[grade] == id) //You clicked the same card
                     this.rideDeck[grade] = undefined;
                 else //you clicked another card of the same grade as the already assigned
@@ -180,10 +179,11 @@ export default  {
             const ci = this.deck.decklist.find(e => e.cardId == id);
             ci.inRideDeck =  this.rideDeck[grade] == id;
 
+            const c = this.cards.find(e => e.id == id);
+            c.inRideDeck =  this.rideDeck[grade] == id;
+
             localStorage.setItem('decks', JSON.stringify(Decks));
             // document.getElementById(`checkBox${id}`).checked = true;
-            console.log(this.rideDeck);
-
         },
         setCheckBoxId(id)
         {

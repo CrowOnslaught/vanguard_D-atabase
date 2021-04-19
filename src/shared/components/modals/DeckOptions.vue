@@ -71,8 +71,6 @@ export default {
         const recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
         document.head.appendChild(recaptchaScript);
-
-        console.log(this.cardList);
     },
     methods:
     {
