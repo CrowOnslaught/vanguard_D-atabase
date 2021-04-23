@@ -36,9 +36,13 @@ export default  {
       modalOpen: false
     }
   },
+  mounted()
+  {
+    this.checkCardsVersion();
+  },
   ionViewWillEnter()
   {
-      this.data = Filters.Filter(Global.cards);
+    this.data = Filters.Filter(Global.cards);
   },
   computed:
   {
@@ -50,6 +54,30 @@ export default  {
   },
   methods:
   {
+    async checkCardsVersion()
+    {
+      
+      await fetch("https://raw.githubusercontent.com/CrowOnslaught/vanguard_D-atabase/master/src/assets/cardInfo.json")
+      .then(res => res.json())
+      .then(data => 
+      {
+        console.log(data);
+        Global.cards = data.cards;
+        Global.nations = data.nations;
+        Global.races = data.races;
+        Global.abilities = data.abilities;
+        Global.types = data.types;
+        Global.triggers = data.triggers;
+        Global.keywords = data.keywords;
+        Global.sets = data.sets;
+              
+        this.data = Filters.Filter(Global.cards);
+      }).catch(err =>
+      {
+        window.alert('Check internet conection');
+        console.log('loaded local data',err);
+      });
+    },
     sort(a, b)
     {
       const filter = Filters.order;

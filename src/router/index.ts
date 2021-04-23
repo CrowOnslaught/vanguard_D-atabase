@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     component :Tabs,
     children:
     [
-      // { path: '', redirect: '/tabs/cards'},
+      { path: '/', redirect: '/tabs/cards'},
       { 
         path: 'cards', 
         component: () => import('@/components/tabs/CardsTab.vue')
