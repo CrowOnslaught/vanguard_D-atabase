@@ -405,6 +405,30 @@ export default {
             }
 
             this.isLoadingAdd = true;
+
+            //Listen to ad error
+            switch(reward)
+            {
+                case 'decklist':
+                    AdMob.addListener( 'onRewardedVideoAdFailedToLoad', (info) => 
+                    {
+                        window.alert('There was an error loading the add. Generating Document anyways');
+                        this.rewarded = true;
+                        this.generateDecklist();
+                    });
+                    // AdMob.addListener( 'onAdFailedToLoad', (info) => this.generateDecklist());
+                    break;
+                case 'proxy':
+                    AdMob.addListener( 'onRewardedVideoAdFailedToLoad', (info) => 
+                    {
+                        window.alert('There was an error loading the add. Generating Document anyways');
+                        this.rewarded = true;
+                        this.generateProxyDeck();
+                    });
+                    // AdMob.addListener( 'onAdFailedToLoad', (info) => this.generateProxyDeck());
+                    break;
+            }
+
             await AdMob.prepareRewardVideoAd(this.options)
             //.catch(e => console.log(e));
             AdMob.addListener( 'onRewarded', (info) => this.rewarded = true);

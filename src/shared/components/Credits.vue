@@ -29,7 +29,7 @@
                     <p class="text subtitle">Developing Support:</p>
                     <p class="text">Ignasi Peláez</p>
                     <p class="text subtitle">Design Support:</p>
-                    <p class="text">María García</p>
+                    <p class="text">María García (<a href="https://www.instagram.com/purpleravenart/">PurpleRavenArt</a>)</p>
                     <p class="text subtitle">Special thanks to:</p>
                     <p class="text">Vicente Lozano, David Jurado, <br>Alejandro Nasarre, Over</p>
                     
@@ -122,6 +122,7 @@ ion-list, ion-item
     margin: 8px;
     font-size: 16px;
     text-align: center;
+    color: white;
 }
 
 .title
@@ -131,9 +132,15 @@ ion-list, ion-item
     color: #ff4242;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.subtitle, a
+a
+{
+    color: rgb(175, 172, 172);
+}
+
+.subtitle
 {
     color: darkgoldenrod
 }
