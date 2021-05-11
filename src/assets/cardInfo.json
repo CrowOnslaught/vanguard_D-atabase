@@ -3,6 +3,42 @@
     "cards":
     [
         {
+            "id" : "216",
+            "name" : "Whirlpool Robo, Ramdrought",
+            "skill" : "[CONT](RC):If you have a Set Order in your order zone, this unit gets <span class='red'>\"Intercept\"</span>.",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Brandt Gate",
+            "race" : "Battleroid",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 092"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/216.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "215",
+            "name" : "Cardinal Noid, Plastia",
+            "skill" : "[AUTO](RC):When this unit's attack while boosted by a Shadow Army token hits, draw a card.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Brandt Gate",
+            "race" : "Cyberoid",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 038"],
+            "keywords" : ["Persona Ride"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/215.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "214",
             "name" : "Diabolos Madonna, Viola",
             "skill" : "[AUTO](RC):When this unit attacks, if your vanguard is \"Diabolos, \"Violence\" Bruce\", COST [Counter Blast (2)], and this unit gets [Power]+10000 until end of turn.",
