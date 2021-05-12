@@ -3,6 +3,42 @@
     "cards":
     [
         {
+            "id" : "218",
+            "name" : "Sylvan Horned Beast, Crocotte",
+            "skill" : "[AUTO](RC):When this unit attacks or boosts, COST [Soul Blast (1)], and this unit gets [Power]+2000 until end of that battle for each of your rear-guards.",
+            "grade" : 1,
+            "power" : 6000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Stoicheia",
+            "race" : "High Beast",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 118"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/218.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "217",
+            "name" : "Sylvan Horned Beast, Bojalcon",
+            "skill" : "[ACT](RC):COST [Counter Blast (1)], and until end of turn, this unit gets <span class='red'>\"[CONT](Back Row RC):When this unit would attack, it battles all your opponent's front row units in one attack.\"</span>.",
+            "grade" : 2,
+            "power" : 10000,
+            "shield" : 5000,
+            "ability" : "Intercept",
+            "nation" : "Stoicheia",
+            "race" : "High Beast",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 111"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/217.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "216",
             "name" : "Whirlpool Robo, Ramdrought",
             "skill" : "[CONT](RC):If you have a Set Order in your order zone, this unit gets <span class='red'>\"Intercept\"</span>.",
