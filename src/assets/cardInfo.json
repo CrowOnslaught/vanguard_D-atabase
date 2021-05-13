@@ -3,6 +3,42 @@
     "cards":
     [
         {
+            "id" : "220",
+            "name" : "Cyclone Cycler",
+            "skill" : "[AUTO](RC):When this unit boosts, if your soul has five or more cards, COST [Counter Blast (1) & put this unit into your soul], choose three of your front row units, and they get [Power]+5000 until end of turn. <i>(The [Power] increase from this unit's boosting disappears)</i>",
+            "grade" : 1,
+            "power" : 8000,
+            "shield" : 5000,
+            "ability" : "Boost",
+            "nation" : "Dark States",
+            "race" : "Human",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 077"],
+            "keywords" : ["None"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/220.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
+            "id" : "219",
+            "name" : "Time Jarate Dragon",
+            "skill" : "[AUTO]:When this unit is placed on (RC), COST [put a card from your hand into your soul], and draw a card.",
+            "grade" : 3,
+            "power" : 13000,
+            "shield" : 0,
+            "ability" : "Twin Drive",
+            "nation" : "Dark States",
+            "race" : "Gear Dragon",
+            "sets" : ["D-BT02"],
+            "setCode" : ["D-BT02 032"],
+            "keywords" : ["Persona Ride"],
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/219.png",
+            "type" : "Normal Unit",
+            "critical" : 1,
+            "trigger" : "None"
+        },
+        {
             "id" : "218",
             "name" : "Sylvan Horned Beast, Crocotte",
             "skill" : "[AUTO](RC):When this unit attacks or boosts, COST [Soul Blast (1)], and this unit gets [Power]+2000 until end of that battle for each of your rear-guards.",
