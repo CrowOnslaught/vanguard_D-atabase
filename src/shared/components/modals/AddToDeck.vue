@@ -23,6 +23,12 @@
     <ion-item class="optionDeckItem" v-if="openSlotsInDeck<=0">
         <ion-button fill="clear"  @click="removeFromDeck(4)"> Remove 4 from {{currentDeck.name}} </ion-button>
     </ion-item>
+    <ion-item v-if='card.setCode.length > 1' class="setSelector">
+        <ion-label>Set:</ion-label>
+        <ion-select v-model="selectedSet">
+            <ion-select-option v-for="n in card.setCode" :key="n" :value='n'>{{n}}</ion-select-option>
+        </ion-select>    
+    </ion-item>
     <ion-item class="optionDeckItem">
         <ion-button fill="clear" class="cancel" @click="close()"> Close </ion-button>
     </ion-item>
@@ -30,44 +36,56 @@
 
 <script>
 
-import { IonItem, IonButton, modalController } from '@ionic/vue';
+import { IonItem, IonButton, modalController, IonSelect, IonLabel, IonSelectOption } from '@ionic/vue';
 import Global from '@/shared/services/Global';
 import Decks from '@/shared/services/Decks';
 
 export default {
     name:'AddToDeck',
-    components: { IonItem, IonButton},
+    components: { IonItem, IonButton, IonSelect, IonSelectOption, IonLabel},
     data()
     {
         return{
             currentDeck: Global.currentDeck,
             openSlotsInDeck: 4,
+            selectedSet: this.card.setCode[0]
         }
     },
     props:
     {
         card:null,
     },
+    computed:{
+        cardIdCode: function()
+        {
+            if(this.card.id.includes('|'))
+                return this.card.id;
+
+            return this.card.id + "|" + this.selectedSet;
+        }
+    },
+    watch:
+    {
+        selectedSet: function()
+        {
+            this.checkAmountInDeck();
+        }
+    },
     mounted()
     {
-        const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
-        if(cardSlot == undefined)
-            this.openSlotsInDeck = 4;
-        else
-            this.openSlotsInDeck = 4- cardSlot.amount;
+        this.checkAmountInDeck();
     },
     methods:
     {
         addToDeck(n)
         {
-            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
+            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.cardIdCode)
             if(cardSlot != undefined)
                 cardSlot.amount +=n;
             else
             {
-                const cs = {cardId:this.card.id, amount:n, inRideDeck: false};
+                const cs = {cardId: this.cardIdCode, amount:n, inRideDeck: false};
                 this.currentDeck.decklist.push(cs);
-                // console.log(cs, this.currentDeck, Decks);
             }
 
             localStorage.setItem('decks', JSON.stringify(Decks));
@@ -75,7 +93,7 @@ export default {
         },
         removeFromDeck(n)
         {
-            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.card.id)
+            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.cardIdCode)
             if(cardSlot != undefined)
             {
                 cardSlot.amount -=n;
@@ -88,6 +106,15 @@ export default {
 
             localStorage.setItem('decks', JSON.stringify(Decks));
             this.close();        
+        },
+        checkAmountInDeck()
+        {
+            console.log(this.cardIdCode)
+            const cardSlot = this.currentDeck.decklist.find((e) => e.cardId == this.cardIdCode)
+            if(cardSlot == undefined)
+                this.openSlotsInDeck = 4;
+            else
+                this.openSlotsInDeck = 4- cardSlot.amount;
         },
         close()
         {
@@ -109,6 +136,12 @@ export default {
 .optionDeckItem
 {
     font-size: 15px;
+}
+
+.setSelector
+{
+    color: red;
+    text-align: left;
 }
 
 .buttons

@@ -119,9 +119,12 @@ export default  {
     mounted()
     {
         this.deck = Decks.find(e => e.id == this.deckId); 
-    
         this.deck.decklist.forEach((e) => {
-            const ci = Global.cards.find(r => r.id == e.cardId);
+            const cardInfo = Global.cards.find(r => r.id.split('|')[0] == e.cardId.split('|')[0]);
+            const ci = {...cardInfo};
+            ci.id = e.cardId;
+            if(e.cardId.split('|')[1])
+                ci.setCode = [e.cardId.split('|')[1]]
 
             this.cards.push(ci);
         });
@@ -142,7 +145,7 @@ export default  {
             this.rideDeck.forEach(e =>
             {
                 if(e != undefined)
-                    document.getElementById(`checkBox${e}`).checked = true;
+                    document.getElementById(`checkBox${e.replace(' ', '').replace('|','')}`).checked = true;
             });
         }
         catch(e)
@@ -155,7 +158,6 @@ export default  {
         onCheckBox(grade, id)
         {
             // const checkBox = 
-
             if(this.rideDeck[grade] == undefined) // No card in ridedek
             {
                 this.rideDeck[grade] = id;
@@ -170,8 +172,9 @@ export default  {
 
                     const ci = this.deck.decklist.find(e => e.cardId == removedId);
                     ci.inRideDeck =  false;
+                    console.log(ci);
 
-                    document.getElementById(`checkBox${removedId}`).checked = false;
+                    document.getElementById(`checkBox${ci.cardId.replace(' ', '').replace('|','')}`).checked = false;
                     this.rideDeck[grade] = id;
                 }
             }
@@ -187,7 +190,7 @@ export default  {
         },
         setCheckBoxId(id)
         {
-            return `checkBox${id}`;
+            return `checkBox${id.replace(' ', '').replace('|','')}`;
         },
         sortDeck( a, b ) 
         {
@@ -229,6 +232,14 @@ export default  {
                     return 1
             }
 
+            
+            //sort by id
+            if(a.id < b.id)
+                return -1;
+
+            if(a.id > b.id)
+                return 1;
+
             //Sort by amount
             if(a.amount != undefined && b.amount != undefined)
             {
@@ -237,15 +248,6 @@ export default  {
                 if(a.amount < b.amount)
                     return 1;
             }
-
-            //sort by id
-            if(a.id < b.id)
-                return -1;
-
-            if(a.id > b.id)
-                return 1;
-
-
         },
         reload()
         {
@@ -262,11 +264,17 @@ export default  {
             this.triggers=0;
             this.heals=0;
 
-
             this.deck.decklist.forEach((e) => {
-                const ci = Global.cards.find(r => r.id == e.cardId);
+                const cardInfo = Global.cards.find(r => 
+                    r.id == e.cardId.split('|')[0]
+                );
+                const ci = {...cardInfo};
+                ci.id = e.cardId;
                 ci.amount = e.amount;
                 ci.inRideDeck = e.inRideDeck == undefined? false : e.inRideDeck;
+                if(e.cardId.split('|')[1])
+                    ci.setCode = [e.cardId.split('|')[1]]
+
                 this.cards.push(ci);
 
                 if(ci.inRideDeck)

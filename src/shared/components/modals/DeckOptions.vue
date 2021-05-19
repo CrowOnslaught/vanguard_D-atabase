@@ -71,6 +71,8 @@ export default {
         const recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', "https://unpkg.com/downloadjs@1.4.7")
         document.head.appendChild(recaptchaScript);
+
+        console.log(this.cardList);
     },
     methods:
     {
@@ -158,7 +160,7 @@ export default {
                 // ).then(r => r.blob());
 
                     const blob = await fetch(
-                    `https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/${cs.cardId}.png`
+                    `https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/${cs.cardId.split('|')[0]}.png`
                     ).then(r => r.blob());
 
                 
@@ -321,11 +323,11 @@ export default {
                 form.getTextField(mainDeckAmount).setText(card.amount.toString());          
                 
                 //Card set (Only if there is only one set)
-                if(card.sets.length ==1)
+                if(card.setCode.length ==1)
                 {
                     const mainDeckSet = 'No.'+ ((i+13)>=15? (i+14) : (i+13));
                     form.getTextField(mainDeckSet).setText(card.setCode[0]);
-            }
+                }
 
                 //Card trigger or sentinel
                 let triggerOrSentinel ='';
