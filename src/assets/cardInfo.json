@@ -23,7 +23,7 @@
         {
             "id" : "249",
             "name" : "Heavenly Bow of Guidance, Lefersos",
-            "skill" : "[CONT](RC):If you persona rode this turn, this unit gets <span class='red'>\"Boost\"</span>.<br><br>[AUTO](Back Row RC)1/Turn:When your other unit [Stand] by a card's effect, [Stand] this unit.",
+            "skill" : "[CONT](RC):If you persona rode this turn, this unit gets <span class='red'>\"Boost\"</span>.<br><br>[AUTO]<span class='tag circle'>(Back Row RC)</span>1/Turn:When your other unit [Stand] by a card's effect, [Stand] this unit.",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
@@ -599,7 +599,7 @@
         {
             "id" : "217",
             "name" : "Sylvan Horned Beast, Bojalcon",
-            "skill" : "[ACT](RC):COST [Counter Blast (1)], and until end of turn, this unit gets <span class='red'>\"[CONT](Back Row RC):When this unit would attack, it battles all your opponent's front row units in one attack.\"</span>.",
+            "skill" : "[ACT](RC):COST [Counter Blast (1)], and until end of turn, this unit gets <span class='red'>\"[CONT]<span class='tag circle'>(Back Row RC)</span>:When this unit would attack, it battles all your opponent's front row units in one attack.\"</span>.",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -1733,7 +1733,7 @@
         {
             "id" : "153",
             "name" : "Sylvan Horned Beast, Gyunosla",
-            "skill" : "[AUTO](Back Row RC):When this unit attacks, COST [Counter Blast (1)], choose one of your other rear-guards, and it gets this unit's [Power] until end of turn. <i>(Increase its [Power] at that time)</i>",
+            "skill" : "[AUTO]<span class='tag circle'>(Back Row RC)</span>:When this unit attacks, COST [Counter Blast (1)], choose one of your other rear-guards, and it gets this unit's [Power] until end of turn. <i>(Increase its [Power] at that time)</i>",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
