@@ -905,7 +905,7 @@
         {
             "id" : "209",
             "name" : "Hydrorail Dragon",
-            "skill" : "[AUTO]:When this unit is placed on (RC), COST [Soul Blast (1) & call a grade 1 from your hand to (RC)], and the unit called for this cost gets [Power]+5000 until end of turn.",
+            "skill" : "[AUTO](RC):When this unit's attack hits a vanguard, COST [retire this unit], choose a grade 3 unit card from your drop, and put it into your hand.",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
@@ -1066,7 +1066,7 @@
         },
         {
             "id" : "200",
-            "name" : "Fairy of Elegy",
+            "name" : "Elegy Pixy",
             "skill" : "<i>(You may only have up to four [Heal] triggers in a deck)</i>",
             "grade" : 0,
             "power" : 5000,
