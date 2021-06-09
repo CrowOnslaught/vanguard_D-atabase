@@ -3,7 +3,7 @@
     "cards":
     [
         {
-            "id" : "284",
+            "id" : "285",
             "name" : "Frenzied Heiress",
             "skill" : "[CONT](GC):If your opponent's vanguard is grade 3 or greater, this unit gets [Shield]+5000.",
             "grade" : 0,
@@ -15,7 +15,7 @@
             "sets" : ["D-BT02"],
             "setCode" : ["D-BT02 054"],
             "keywords" : ["None"],
-            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/284.png",
+            "image" : "https://raw.githubusercontent.com/CrowOnslaught/VanguarDecks-cardImages/master/cardImages/285.png",
             "type" : "Trigger Unit",
             "critical" : 1,
             "trigger" : "Front"
