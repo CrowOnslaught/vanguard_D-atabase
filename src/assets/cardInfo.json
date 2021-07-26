@@ -2542,7 +2542,7 @@
         },
         {
             "id" : "210",
-            "name" : "Sylvan Horned Beast, Courcy",
+            "name" : "Sylvan Horned Beast, Koocy",
             "skill" : "[CONT]:This card cannot be ridden or called other than to the back row of the middle column.",
             "grade" : 1,
             "power" : 15000,
@@ -2578,7 +2578,7 @@
         },
         {
             "id" : "208",
-            "name" : "Goldgaon",
+            "name" : "Gold Gaon",
             "skill" : "[AUTO]:When this unit is placed on (RC), COST [Soul Blast (1) & call a grade 1 from your hand to (RC)], and the unit called for this cost gets [Power]+5000 until end of turn.",
             "grade" : 2,
             "power" : 10000,
@@ -2596,7 +2596,7 @@
         },
         {
             "id" : "207",
-            "name" : "Harp Bow of Heavenly Music, Alfion",
+            "name" : "Bowstring of Heavenly Peace, Affion",
             "skill" : "[ACT](RC)1/Turn:If you have three or more grade 3 units, COST [Counter Blast (1)], this unit gets [Power]+5000 until end of turn, and if you persona rode this turn, draw a card.",
             "grade" : 3,
             "power" : 13000,
@@ -2650,7 +2650,7 @@
         },
         {
             "id" : "204",
-            "name" : "Degraded Age Dragon",
+            "name" : "Degrade Edge Dragon",
             "skill" : "[AUTO]:When this unit is placed on (RC), if your soul has five or more cards, COST [discard a card from your hand], choose one of your opponent's back row rear-guards, and retire it.",
             "grade" : 1,
             "power" : 8000,
@@ -2686,7 +2686,7 @@
         },
         {
             "id" : "202",
-            "name" : "Rough Eating Dragon, Hungersaurus",
+            "name" : "Psomophagy Dragon, Hungersaurus",
             "skill" : "[CONT](RC):During your turn, this unit gets [Power]+5000, and if your opponent has a front row rear-guard, this unit cannot attack the vanguard.",
             "grade" : 2,
             "power" : 10000,
@@ -2740,7 +2740,7 @@
         },
         {
             "id" : "199",
-            "name" : "Grudge Hatchet",
+            "name" : "Grudgeful Hatchet",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -2794,7 +2794,7 @@
         },
         {
             "id" : "196",
-            "name" : "Dream Gnawing",
+            "name" : "Dream Nibbling",
             "skill" : "[AUTO]:When this unit is rode upon, if you went second, draw a card.",
             "grade" : 0,
             "power" : 6000,
@@ -2812,7 +2812,7 @@
         },
         {
             "id" : "195",
-            "name" : "Gloomy Tour",
+            "name" : "Dark Pilgrimage",
             "skill" : "[AUTO](RC):When this unit boosts, this unit gets [Power]+2000 until end of turn.",
             "grade" : 1,
             "power" : 8000,
@@ -2830,7 +2830,7 @@
         },
         {
             "id" : "194",
-            "name" : "Noble of Wisdom, Edgar",
+            "name" : "Astute Noble, Eddga",
             "skill" : "[AUTO](RC):When this unit attacks, COST [Counter Blast (1)] and, this unit gets [Power]+5000 until end of turn.",
             "grade" : 3,
             "power" : 13000,
@@ -2848,7 +2848,7 @@
         },
         {
             "id" : "193",
-            "name" : "Hopeful Testudo",
+            "name" : "Hopeful Testode",
             "skill" : "If you have three or more units, choose one of your units, and it gets [Power]+15000 until end of that battle.",
             "grade" : 3,
             "power" : 0,
@@ -2866,7 +2866,7 @@
         },
         {
             "id" : "192",
-            "name" : "Cycle Ring Sorceress",
+            "name" : "Circuling Sorceress",
             "skill" : "<i>(You may only have up to four [Heal] triggers in a deck)</i>",
             "grade" : 0,
             "power" : 5000,
@@ -2884,7 +2884,7 @@
         },
         {
             "id" : "191",
-            "name" : "White Raven Sorcerer, Taxus",
+            "name" : "White Crow Sorcerer, Taxus",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -2902,7 +2902,7 @@
         },
         {
             "id" : "190",
-            "name" : "Knight of Raise, Airfredo",
+            "name" : "Exalting Knight, Eafred",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -2938,7 +2938,7 @@
         },
         {
             "id" : "188",
-            "name" : "Swordsman of Heavenly Winds, Wechel",
+            "name" : "Knight of Heavenly Wind, Vachel",
             "skill" : "[AUTO](RC):When this unit boosts, this unit gets [Power]+2000 until end of turn.",
             "grade" : 1,
             "power" : 8000,
@@ -2956,7 +2956,7 @@
         },
         {
             "id" : "187",
-            "name" : "Remission Sword, Fanuel",
+            "name" : "Remission Sword, Phanuel",
             "skill" : "[AUTO](RC):When this unit attacks, if you have three or more grade 3 units, COST [Counter Blast (2)] and, this unit gets [Critical]+1 until end of battle.",
             "grade" : 3,
             "power" : 13000,
@@ -2992,7 +2992,7 @@
         },
         {
             "id" : "185",
-            "name" : "Cardinal Prima, Navirem",
+            "name" : "Cardinal Prima, Nabilem",
             "skill" : "<i>(You may only have up to four [Heal] triggers in a deck)</i>",
             "grade" : 0,
             "power" : 5000,
@@ -3010,7 +3010,7 @@
         },
         {
             "id" : "184",
-            "name" : "Cardinal Draco, Abrard",
+            "name" : "Cardinal Draco, Aeblood",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3028,7 +3028,7 @@
         },
         {
             "id" : "183",
-            "name" : "Cardinal Fang, Fulgurus",
+            "name" : "Cardinal Fang, Fulgrus",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3046,7 +3046,7 @@
         },
         {
             "id" : "182",
-            "name" : "Cardinal Draco, Barbisonde",
+            "name" : "Cardinal Draco, Barbizonde",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3118,7 +3118,7 @@
         },
         {
             "id" : "178",
-            "name" : "Steam Scara, Malnigal",
+            "name" : "Steam Scara, Mal-Nigal",
             "skill" : "<i>(You may only have up to four [Heal] triggers in a deck)</i>",
             "grade" : 0,
             "power" : 5000,
@@ -3136,7 +3136,7 @@
         },
         {
             "id" : "177",
-            "name" : "Hackle Hustle",
+            "name" : "Huckle Hustle",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3154,7 +3154,7 @@
         },
         {
             "id" : "176",
-            "name" : "Vital Reaver",
+            "name" : "Vital Leaver",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3190,7 +3190,7 @@
         },
         {
             "id" : "174",
-            "name" : "White Light Dragon, Parasolas",
+            "name" : "White Light Dragon, Parasolace",
             "skill" : "<i>(You may only have up to four [Heal] triggers in a deck)</i>",
             "grade" : 0,
             "power" : 5000,
@@ -3226,7 +3226,7 @@
         },
         {
             "id" : "172",
-            "name" : "Express Dragon, Steeldilopho",
+            "name" : "Rushing Dragon, Steel Dilopho",
             "skill" : "",
             "grade" : 0,
             "power" : 5000,
@@ -3262,7 +3262,7 @@
         },
         {
             "id" : "170",
-            "name" : "Extreme Dragon, Velocihazard",
+            "name" : "Extremist Dragon, Velocihazard",
             "skill" : "[AUTO](RC):When this unit boosts, this unit gets [Power]+2000 until end of turn.",
             "grade" : 1,
             "power" : 8000,
@@ -3334,7 +3334,7 @@
         },
         {
             "id" : "165",
-            "name" : "Aurora Battle Princess, Agarrar Rouge",
+            "name" : "Aurora Battle Princess, Agra Rouge",
             "skill" : "[CONT](RC/GC):If two or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+5000/[Shield]+10000.<br><br>[AUTO]:When this unit is placed on (RC), COST [Soul Blast (1)], choose one of your opponent's front row rear-guards, and imprison it in your Prison. <i>(Put it into your Order Zone that has a Prison)</i>",
             "grade" : 2,
             "power" : 10000,
@@ -3352,7 +3352,7 @@
         },
         {
             "id" : "164",
-            "name" : "Tearing Malice",
+            "name" : "Tearful Malice",
             "skill" : "Play this with COST [retire two rear-guards]!<br><br>Draw a card, put this card into your soul, and Counter Charge (1).",
             "grade" : 2,
             "power" : 0,
@@ -3388,7 +3388,7 @@
         },
         {
             "id" : "162",
-            "name" : "Fantasmagorie Magician, Curtis",
+            "name" : "Phantasma Magician, Curtis",
             "skill" : "[AUTO]:When this unit is placed on (RC), if your vanguard is \"Master of Gravity, Baromagnes\", Soul Charge (2).<br><br>[ACT](RC):If your soul has ten or more cards, COST [Counter Blast (2)], and all of your front row units get [Power]+5000 until end of turn.",
             "grade" : 3,
             "power" : 13000,
@@ -3442,7 +3442,7 @@
         },
         {
             "id" : "159",
-            "name" : "Steam Battler, Gungunuram",
+            "name" : "Steam Battler, Gungnram",
             "skill" : "[AUTO]:When this unit is placed on (RC), Soul Charge (1).<br><br>[ACT](RC)1/Turn:COST [Soul Blast (3)], and draw a card.",
             "grade" : 1,
             "power" : 8000,
@@ -3532,7 +3532,7 @@
         },
         {
             "id" : "154",
-            "name" : "Sylvan Horned Beast, Aleio",
+            "name" : "Sylvan Horned Beast, Agleo",
             "skill" : "[ACT](RC)COST [Retire this unit], choose two of your units, and they get [Power]+5000 until end of turn.",
             "grade" : 2,
             "power" : 10000,
@@ -3550,7 +3550,7 @@
         },
         {
             "id" : "153",
-            "name" : "Sylvan Horned Beast, Gyunosla",
+            "name" : "Sylvan Horned Beast, Giunosla",
             "skill" : "[AUTO]<span class='tag circle'>(Back Row RC)</span>:When this unit attacks, COST [Counter Blast (1)], choose one of your other rear-guards, and it gets this unit's [Power] until end of turn. <i>(Increase its [Power] at that time)</i>",
             "grade" : 2,
             "power" : 10000,
@@ -3568,7 +3568,7 @@
         },
         {
             "id" : "152",
-            "name" : "Knight of War Damage, Fossad",
+            "name" : "Knight of War Damage, Fosado",
             "skill" : "[CONT](RC):This unit cannot be chosen by your opponent's card effects.<br><br>[AUTO](RC):When this unit's attack hits, Counter Charge (1)/Soul Charge (1).",
             "grade" : 3,
             "power" : 13000,
@@ -3604,7 +3604,7 @@
         },
         {
             "id" : "150",
-            "name" : "Eminence Jarboberos",
+            "name" : "Eminence Jaboberus",
             "skill" : "[AUTO](RC):When this unit boosts, this unit gets [Power]+2000 until end of turn.",
             "grade" : 1,
             "power" : 8000,
@@ -3748,7 +3748,7 @@
         },
         {
             "id" : "142",
-            "name" : "Mystic Amethyst, Kokabiel",
+            "name" : "Actual Analyst, Kokabiel",
             "skill" : "[CONT](GC):If your vanguard is \"Apex Ruler, Bastion\", this unit gets [Shield]+5000 for every two of your grade 3 units. <i>(Includes this unit)</i>",
             "grade" : 3,
             "power" : 13000,
@@ -3766,7 +3766,7 @@
         },
         {
             "id" : "141",
-            "name" : "Great Snake Witch, Solaria",
+            "name" : "Big Snake Witch, Solaria",
             "skill" : "[AUTO]:When this card is discarded from hand during your turn, COST [Counter Blast (1) & Soul Blast (1)], and draw a card.",
             "grade" : 3,
             "power" : 13000,
@@ -3928,7 +3928,7 @@
         },
         {
             "id" : "132",
-            "name" : "Stealth Dragon, Hadoshugen",
+            "name" : "Stealth Dragon, Hadou Shugen",
             "skill" : "[AUTO]:When this unit is placed on (RC), if you have a unit in the [overDress] state, COST [Counter Blast (1)], choose one of your opponent's rear-guards, and retire it.",
             "grade" : 3,
             "power" : 13000,
@@ -3982,7 +3982,7 @@
         },
         {
             "id" : "129",
-            "name" : "Beast Tamer, Megan",
+            "name" : "Soulful Wild Master, Megan",
             "skill" : "[CONT](RC):If a card was Soul Charge during your turn, this unit gets [Power]+2000.",
             "grade" : 2,
             "power" : 10000,
@@ -4450,7 +4450,7 @@
         },
         {
             "id" : "103",
-            "name" : "Sealed Road",
+            "name" : "Sealed Path",
             "skill" : "Play this with COST [Counter Blast (2)]!<br><br>Choose one of your opponent's vanguards, and that unit gets [Critical]-1 until end of that battle.",
             "grade" : 2,
             "power" : 0,
@@ -4504,7 +4504,7 @@
         },
         {
             "id" : "100",
-            "name" : "Swinging Sword of Judgement",
+            "name" : "Downswing of Sword of Judgement",
             "skill" : "Play this with COST [Soul Blast (1) grade 3]!<br><br>Choose one of your opponent's rear-guards. Your opponent puts all of their rear-guards in the same column as that rear-guard on the bottom of their deck in any order.",
             "grade" : 3,
             "power" : 0,
