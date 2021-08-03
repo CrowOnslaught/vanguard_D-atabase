@@ -77,7 +77,7 @@
         {
             "id" : "387",
             "name" : "Little Lady, Helmina",
-            "skill" : "[AUTO]:When this unit is placed on (RC), if you have another <Ghost> on (RC), choose one of your rear-guards, and it gets [Power]+5000 until end of turn.",
+            "skill" : "[AUTO]:When this unit is placed on (RC), if you have another \"Ghost\" on (RC), choose one of your rear-guards, and it gets [Power]+5000 until end of turn.",
             "grade" : 1,
             "power" : 8000,
             "shield" : 5000,
@@ -221,7 +221,7 @@
         {
             "id" : "379",
             "name" : "Bodyguards Captain, Marleen",
-            "skill" : "[CONT](RC/GC):If you have three or more <Ghost> on (RC), this unit gets [Power]+2000/[Shield]+5000.",
+            "skill" : "[CONT](RC/GC):If you have three or more \"Ghost\" on (RC), this unit gets [Power]+2000/[Shield]+5000.",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -599,7 +599,7 @@
         {
             "id" : "358",
             "name" : "Hand Holding, Ernesta",
-            "skill" : "[AUTO](Back Row RC):When your other <Ghost> is placed on (RC) during your battle phase, [Stand] this unit.",
+            "skill" : "[AUTO](Back Row RC):When your other \"Ghost\" is placed on (RC) during your battle phase, [Stand] this unit.",
             "grade" : 1,
             "power" : 8000,
             "shield" : 5000,
@@ -671,7 +671,7 @@
         {
             "id" : "354",
             "name" : "Rondeau of Dusk Moon, Feltyroza",
-            "skill" : "[AUTO](VC):When your drive check reveals a <Ghost> normal unit, you may call that unit to an open front row (RC). Then, if you called, COST [Counter Blast (1)], this unit gets drive +1 until end of that battle. <i>(During this battle, increase the drive of this unit by one. Even if this is the last drive check of the battle, you will still perform an additional drive check)</i>",
+            "skill" : "[AUTO](VC):When your drive check reveals a \"Ghost\" normal unit, you may call that unit to an open front row (RC). Then, if you called, COST [Counter Blast (1)], this unit gets drive +1 until end of that battle. <i>(During this battle, increase the drive of this unit by one. Even if this is the last drive check of the battle, you will still perform an additional drive check)</i>",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
