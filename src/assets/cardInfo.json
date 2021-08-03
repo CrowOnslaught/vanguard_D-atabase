@@ -779,7 +779,7 @@
         {
             "id" : "348",
             "name" : "Indecisive Sky, Alestiel",
-            "skill" : "[AUTO]:When this unit is placed on (VC), bind the top card of your deck.<br><br><b>White Wings-</b>[CONT](VC):When you would ride from your ride deck, you may \"Soul Blast (1)\" instead of \"Choose a card from your hand, and discard it\".<br><br><b>Black Wings-</b>[CONT](VC):All of your opponent's grade 1 or less rear-guards cannot attack this unit.<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
+            "skill" : "[AUTO]:When this unit is placed on (VC), bind the top card of your deck.<br><br><b>White Wings-</b>[CONT](VC):When you would ride from your ride deck, you may \"Soul Blast (1)\" instead of \"Choose a card from your hand, and discard it\".<br><br><b>Black Wings -</b> [CONT] (VC): All of your opponent's grade 1 or less rear-guards cannot attack this unit.<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
             "grade" : 1,
             "power" : 8000,
             "shield" : 5000,
@@ -851,7 +851,7 @@
         {
             "id" : "344",
             "name" : "Shining As-is, Alestiel",
-            "skill" : "[AUTO]:When this unit is placed on (VC), choose a card from your bind zone, put it on the bottom of your deck, and if you put a card, bind the top card of your deck face up.<br><br><b>White Wings-</b>[ACT](VC)1/Turn:COST [Counter Blast (1)], and this unit gets [Critical]+1 until end of turn.<br><br><b>Black Wings-</b>[CONT(VC):During the battle this unit attacked, your opponent cannot call trigger units from hand to (GC).<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
+            "skill" : "[AUTO]:When this unit is placed on (VC), choose a card from your bind zone, put it on the bottom of your deck, and if you put a card, bind the top card of your deck face up.<br><br><b>White Wings - </b>[ACT] (VC) 1/Turn: COST [Counter Blast (1)], and this unit gets [Critical]+1 until end of turn.<br><br><b>Black Wings-</b>[CONT(VC):During the battle this unit attacked, your opponent cannot call trigger units from hand to (GC).<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
             "grade" : 2,
             "power" : 10000,
             "shield" : 5000,
@@ -887,7 +887,7 @@
         {
             "id" : "342",
             "name" : "Archangel of Twin Wings, Alestiel",
-            "skill" : "[AUTO](VC):At the beginning of your main phase, choose a card from your bind zone, put it into your hand, and if you put a card, bind the top card of your deck face up.<b>White Wings-</b>[CONT](VC):During your turn, this unit gets [Power]+5000/[Critical]+1.<br><br><b>Black Wings-</b>[CONT] (VC):During your turn, all your opponent's units get [Power]-5000.<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
+            "skill" : "[AUTO](VC):At the beginning of your main phase, choose a card from your bind zone, put it into your hand, and if you put a card, bind the top card of your deck face up.<br><br><b>White Wings-</b>[CONT](VC):During your turn, this unit gets [Power]+5000/[Critical]+1.<br><br><b>Black Wings-</b>[CONT] (VC):During your turn, all your opponent's units get [Power]-5000.<br><br><i>(White Wings is active when your bind only has odd grades, and Black Wings when it only has even grades)</i>",
             "grade" : 3,
             "power" : 13000,
             "shield" : 0,
